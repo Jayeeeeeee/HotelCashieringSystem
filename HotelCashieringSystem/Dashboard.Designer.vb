@@ -48,7 +48,7 @@ Partial Class Dashboard
         FlowLayoutPanel1.Controls.Add(btnAdmin)
         FlowLayoutPanel1.Location = New Point(12, 12)
         FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        FlowLayoutPanel1.Size = New Size(418, 31)
+        FlowLayoutPanel1.Size = New Size(445, 31)
         FlowLayoutPanel1.TabIndex = 0
         ' 
         ' btnReserve
@@ -66,7 +66,7 @@ Partial Class Dashboard
         btnCheck.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
         btnCheck.Location = New Point(142, 3)
         btnCheck.Name = "btnCheck"
-        btnCheck.Size = New Size(133, 23)
+        btnCheck.Size = New Size(161, 23)
         btnCheck.TabIndex = 1
         btnCheck.Text = "Check In / Check Out"
         btnCheck.UseVisualStyleBackColor = True
@@ -74,7 +74,7 @@ Partial Class Dashboard
         ' btnAdmin
         ' 
         btnAdmin.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnAdmin.Location = New Point(281, 3)
+        btnAdmin.Location = New Point(309, 3)
         btnAdmin.Name = "btnAdmin"
         btnAdmin.Size = New Size(133, 23)
         btnAdmin.TabIndex = 2

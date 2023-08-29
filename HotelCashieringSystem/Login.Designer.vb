@@ -28,13 +28,14 @@ Partial Class Login
         txtPass = New TextBox()
         btnLogin = New Button()
         btnCancel = New Button()
+        Label1 = New Label()
         SuspendLayout()
         ' 
         ' lblUser
         ' 
         lblUser.AutoSize = True
         lblUser.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        lblUser.Location = New Point(12, 31)
+        lblUser.Location = New Point(12, 42)
         lblUser.Margin = New Padding(4, 0, 4, 0)
         lblUser.Name = "lblUser"
         lblUser.Size = New Size(70, 14)
@@ -45,7 +46,7 @@ Partial Class Login
         ' 
         lblPass.AutoSize = True
         lblPass.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        lblPass.Location = New Point(12, 62)
+        lblPass.Location = New Point(12, 73)
         lblPass.Margin = New Padding(4, 0, 4, 0)
         lblPass.Name = "lblPass"
         lblPass.Size = New Size(70, 14)
@@ -55,7 +56,7 @@ Partial Class Login
         ' txtUser
         ' 
         txtUser.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        txtUser.Location = New Point(80, 28)
+        txtUser.Location = New Point(80, 39)
         txtUser.Margin = New Padding(4, 3, 4, 3)
         txtUser.Name = "txtUser"
         txtUser.Size = New Size(117, 23)
@@ -64,7 +65,7 @@ Partial Class Login
         ' txtPass
         ' 
         txtPass.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        txtPass.Location = New Point(80, 59)
+        txtPass.Location = New Point(80, 70)
         txtPass.Margin = New Padding(4, 3, 4, 3)
         txtPass.Name = "txtPass"
         txtPass.PasswordChar = "*"c
@@ -74,7 +75,7 @@ Partial Class Login
         ' btnLogin
         ' 
         btnLogin.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnLogin.Location = New Point(12, 88)
+        btnLogin.Location = New Point(12, 99)
         btnLogin.Margin = New Padding(4, 3, 4, 3)
         btnLogin.Name = "btnLogin"
         btnLogin.Size = New Size(186, 27)
@@ -86,7 +87,7 @@ Partial Class Login
         ' btnCancel
         ' 
         btnCancel.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnCancel.Location = New Point(12, 121)
+        btnCancel.Location = New Point(12, 132)
         btnCancel.Margin = New Padding(4, 3, 4, 3)
         btnCancel.Name = "btnCancel"
         btnCancel.Size = New Size(186, 23)
@@ -95,13 +96,25 @@ Partial Class Login
         btnCancel.Text = "Cancel"
         btnCancel.UseVisualStyleBackColor = True
         ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Font = New Font("Consolas", 15.75F, FontStyle.Regular, GraphicsUnit.Point)
+        Label1.Location = New Point(27, 9)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(154, 24)
+        Label1.TabIndex = 6
+        Label1.Text = "BS Inn Hotel"
+        Label1.TextAlign = ContentAlignment.TopCenter
+        ' 
         ' Login
         ' 
         AcceptButton = btnLogin
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         CancelButton = btnCancel
-        ClientSize = New Size(210, 162)
+        ClientSize = New Size(210, 161)
+        Controls.Add(Label1)
         Controls.Add(btnCancel)
         Controls.Add(btnLogin)
         Controls.Add(txtPass)
@@ -123,4 +136,5 @@ Partial Class Login
     Friend WithEvents txtPass As TextBox
     Friend WithEvents btnLogin As Button
     Friend WithEvents btnCancel As Button
+    Friend WithEvents Label1 As Label
 End Class

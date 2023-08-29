@@ -29,7 +29,7 @@ Partial Class Checking
         ' btnLogOut
         ' 
         btnLogOut.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnLogOut.Location = New Point(339, 12)
+        btnLogOut.Location = New Point(698, 12)
         btnLogOut.Name = "btnLogOut"
         btnLogOut.Size = New Size(133, 23)
         btnLogOut.TabIndex = 3
@@ -50,7 +50,7 @@ Partial Class Checking
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(484, 311)
+        ClientSize = New Size(843, 396)
         Controls.Add(btnLogOut)
         Controls.Add(btnBack)
         Name = "Checking"

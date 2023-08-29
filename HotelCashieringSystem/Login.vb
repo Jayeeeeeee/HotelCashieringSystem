@@ -10,4 +10,5 @@
         txtPass.Text = ""
         Me.Close()
     End Sub
+
 End Class

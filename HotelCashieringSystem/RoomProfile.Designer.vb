@@ -164,36 +164,36 @@ Partial Class RoomProfile
         Label4.AutoSize = True
         Label4.Location = New Point(20, 176)
         Label4.Name = "Label4"
-        Label4.Size = New Size(90, 19)
+        Label4.Size = New Size(99, 19)
         Label4.TabIndex = 3
-        Label4.Text = "Room Rate"
+        Label4.Text = "Room Rate:"
         ' 
         ' Label3
         ' 
         Label3.AutoSize = True
         Label3.Location = New Point(20, 134)
         Label3.Name = "Label3"
-        Label3.Size = New Size(108, 19)
+        Label3.Size = New Size(117, 19)
         Label3.TabIndex = 2
-        Label3.Text = "No. Of Beds"
+        Label3.Text = "No. Of Beds:"
         ' 
         ' Label2
         ' 
         Label2.AutoSize = True
         Label2.Location = New Point(20, 92)
         Label2.Name = "Label2"
-        Label2.Size = New Size(90, 19)
+        Label2.Size = New Size(99, 19)
         Label2.TabIndex = 1
-        Label2.Text = "Room Type"
+        Label2.Text = "Room Type:"
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
         Label1.Location = New Point(20, 46)
         Label1.Name = "Label1"
-        Label1.Size = New Size(72, 19)
+        Label1.Size = New Size(81, 19)
         Label1.TabIndex = 0
-        Label1.Text = "Room ID"
+        Label1.Text = "Room ID:"
         ' 
         ' btnCreate
         ' 
