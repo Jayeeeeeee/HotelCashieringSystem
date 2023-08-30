@@ -191,9 +191,9 @@ Partial Class RoomProfile
         Label1.AutoSize = True
         Label1.Location = New Point(20, 46)
         Label1.Name = "Label1"
-        Label1.Size = New Size(81, 19)
+        Label1.Size = New Size(90, 19)
         Label1.TabIndex = 0
-        Label1.Text = "Room ID:"
+        Label1.Text = "Room No.:"
         ' 
         ' btnCreate
         ' 

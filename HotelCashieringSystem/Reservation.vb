@@ -15,4 +15,7 @@
         End If
     End Sub
 
+    Private Sub btnRooms_Click(sender As Object, e As EventArgs) Handles btnRooms.Click
+        RoomsAvailable.Show()
+    End Sub
 End Class
