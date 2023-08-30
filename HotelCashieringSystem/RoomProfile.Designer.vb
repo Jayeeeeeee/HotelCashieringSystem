@@ -61,7 +61,7 @@ Partial Class RoomProfile
         btnDelete.Name = "btnDelete"
         btnDelete.Size = New Size(90, 68)
         btnDelete.TabIndex = 9
-        btnDelete.Text = "Delete"
+        btnDelete.Text = "Delete Room"
         btnDelete.UseVisualStyleBackColor = True
         ' 
         ' GroupBox2
@@ -102,7 +102,7 @@ Partial Class RoomProfile
         btnUpdate.Name = "btnUpdate"
         btnUpdate.Size = New Size(90, 68)
         btnUpdate.TabIndex = 8
-        btnUpdate.Text = "Update"
+        btnUpdate.Text = "Update Room"
         btnUpdate.UseVisualStyleBackColor = True
         ' 
         ' GroupBox1
@@ -202,7 +202,7 @@ Partial Class RoomProfile
         btnCreate.Name = "btnCreate"
         btnCreate.Size = New Size(90, 68)
         btnCreate.TabIndex = 7
-        btnCreate.Text = "Create"
+        btnCreate.Text = "Create Room"
         btnCreate.UseVisualStyleBackColor = True
         ' 
         ' btnBack

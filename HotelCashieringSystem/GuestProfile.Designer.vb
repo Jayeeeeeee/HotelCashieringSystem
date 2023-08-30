@@ -30,8 +30,17 @@ Partial Class GuestProfile
         GroupBox2 = New GroupBox()
         dgGuest = New DataGridView()
         GroupBox1 = New GroupBox()
+        Label4 = New Label()
+        Label3 = New Label()
+        Label2 = New Label()
+        Label1 = New Label()
+        txtAddress = New TextBox()
+        txtNumber = New TextBox()
+        txtGuestID = New TextBox()
+        txtName = New TextBox()
         GroupBox2.SuspendLayout()
         CType(dgGuest, ComponentModel.ISupportInitialize).BeginInit()
+        GroupBox1.SuspendLayout()
         SuspendLayout()
         ' 
         ' btnCreate
@@ -118,6 +127,14 @@ Partial Class GuestProfile
         ' GroupBox1
         ' 
         GroupBox1.Anchor = AnchorStyles.None
+        GroupBox1.Controls.Add(txtName)
+        GroupBox1.Controls.Add(txtAddress)
+        GroupBox1.Controls.Add(txtNumber)
+        GroupBox1.Controls.Add(txtGuestID)
+        GroupBox1.Controls.Add(Label4)
+        GroupBox1.Controls.Add(Label3)
+        GroupBox1.Controls.Add(Label2)
+        GroupBox1.Controls.Add(Label1)
         GroupBox1.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox1.ForeColor = Color.Black
         GroupBox1.Location = New Point(12, 42)
@@ -125,6 +142,74 @@ Partial Class GuestProfile
         GroupBox1.Size = New Size(378, 267)
         GroupBox1.TabIndex = 21
         GroupBox1.TabStop = False
+        ' 
+        ' Label4
+        ' 
+        Label4.AutoSize = True
+        Label4.Location = New Point(20, 176)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(144, 19)
+        Label4.TabIndex = 7
+        Label4.Text = "Contact Number:"
+        ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.Location = New Point(20, 134)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(81, 19)
+        Label3.TabIndex = 6
+        Label3.Text = "Address:"
+        ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.Location = New Point(20, 92)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(54, 19)
+        Label2.TabIndex = 5
+        Label2.Text = "Name:"
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Location = New Point(20, 46)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(90, 19)
+        Label1.TabIndex = 4
+        Label1.Text = "Guest ID:"
+        ' 
+        ' txtAddress
+        ' 
+        txtAddress.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        txtAddress.Location = New Point(176, 131)
+        txtAddress.Name = "txtAddress"
+        txtAddress.Size = New Size(186, 26)
+        txtAddress.TabIndex = 11
+        ' 
+        ' txtNumber
+        ' 
+        txtNumber.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        txtNumber.Location = New Point(176, 172)
+        txtNumber.Name = "txtNumber"
+        txtNumber.Size = New Size(186, 26)
+        txtNumber.TabIndex = 10
+        ' 
+        ' txtGuestID
+        ' 
+        txtGuestID.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        txtGuestID.Location = New Point(176, 43)
+        txtGuestID.Name = "txtGuestID"
+        txtGuestID.Size = New Size(186, 26)
+        txtGuestID.TabIndex = 8
+        ' 
+        ' txtName
+        ' 
+        txtName.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        txtName.Location = New Point(176, 89)
+        txtName.Name = "txtName"
+        txtName.Size = New Size(186, 26)
+        txtName.TabIndex = 12
         ' 
         ' GuestProfile
         ' 
@@ -142,6 +227,8 @@ Partial Class GuestProfile
         Text = "Guest Profile"
         GroupBox2.ResumeLayout(False)
         CType(dgGuest, ComponentModel.ISupportInitialize).EndInit()
+        GroupBox1.ResumeLayout(False)
+        GroupBox1.PerformLayout()
         ResumeLayout(False)
     End Sub
 
@@ -153,4 +240,12 @@ Partial Class GuestProfile
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents dgGuest As DataGridView
     Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents txtAddress As TextBox
+    Friend WithEvents txtNumber As TextBox
+    Friend WithEvents txtGuestID As TextBox
+    Friend WithEvents txtName As TextBox
 End Class
