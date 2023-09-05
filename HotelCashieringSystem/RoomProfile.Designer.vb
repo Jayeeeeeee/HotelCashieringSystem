@@ -30,7 +30,7 @@ Partial Class RoomProfile
         GroupBox1 = New GroupBox()
         cmbRoomType = New ComboBox()
         txtBeds = New TextBox()
-        txtRate = New TextBox()
+        txtPrice = New TextBox()
         txtRoomID = New TextBox()
         Label4 = New Label()
         Label3 = New Label()
@@ -39,6 +39,8 @@ Partial Class RoomProfile
         btnCreate = New Button()
         btnBack = New Button()
         btnLogOut = New Button()
+        cmbAvailability = New ComboBox()
+        Label5 = New Label()
         GroupBox2.SuspendLayout()
         CType(dgRoom, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
@@ -108,9 +110,11 @@ Partial Class RoomProfile
         ' GroupBox1
         ' 
         GroupBox1.Anchor = AnchorStyles.None
+        GroupBox1.Controls.Add(cmbAvailability)
+        GroupBox1.Controls.Add(Label5)
         GroupBox1.Controls.Add(cmbRoomType)
         GroupBox1.Controls.Add(txtBeds)
-        GroupBox1.Controls.Add(txtRate)
+        GroupBox1.Controls.Add(txtPrice)
         GroupBox1.Controls.Add(txtRoomID)
         GroupBox1.Controls.Add(Label4)
         GroupBox1.Controls.Add(Label3)
@@ -129,8 +133,8 @@ Partial Class RoomProfile
         cmbRoomType.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         cmbRoomType.DropDownStyle = ComboBoxStyle.DropDownList
         cmbRoomType.FormattingEnabled = True
-        cmbRoomType.Items.AddRange(New Object() {"", "Single", "Double", "King"})
-        cmbRoomType.Location = New Point(176, 89)
+        cmbRoomType.Items.AddRange(New Object() {"", "Single", "Double", "Matrimonial"})
+        cmbRoomType.Location = New Point(176, 83)
         cmbRoomType.Name = "cmbRoomType"
         cmbRoomType.Size = New Size(186, 27)
         cmbRoomType.TabIndex = 5
@@ -138,18 +142,18 @@ Partial Class RoomProfile
         ' txtBeds
         ' 
         txtBeds.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        txtBeds.Location = New Point(176, 131)
+        txtBeds.Location = New Point(176, 123)
         txtBeds.Name = "txtBeds"
         txtBeds.Size = New Size(186, 26)
         txtBeds.TabIndex = 6
         ' 
-        ' txtRate
+        ' txtPrice
         ' 
-        txtRate.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        txtRate.Location = New Point(176, 172)
-        txtRate.Name = "txtRate"
-        txtRate.Size = New Size(186, 26)
-        txtRate.TabIndex = 5
+        txtPrice.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        txtPrice.Location = New Point(176, 163)
+        txtPrice.Name = "txtPrice"
+        txtPrice.Size = New Size(186, 26)
+        txtPrice.TabIndex = 5
         ' 
         ' txtRoomID
         ' 
@@ -162,16 +166,16 @@ Partial Class RoomProfile
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(20, 176)
+        Label4.Location = New Point(20, 166)
         Label4.Name = "Label4"
-        Label4.Size = New Size(99, 19)
+        Label4.Size = New Size(108, 19)
         Label4.TabIndex = 3
-        Label4.Text = "Room Rate:"
+        Label4.Text = "Room Price:"
         ' 
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(20, 134)
+        Label3.Location = New Point(20, 126)
         Label3.Name = "Label3"
         Label3.Size = New Size(117, 19)
         Label3.TabIndex = 2
@@ -180,7 +184,7 @@ Partial Class RoomProfile
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(20, 92)
+        Label2.Location = New Point(20, 86)
         Label2.Name = "Label2"
         Label2.Size = New Size(99, 19)
         Label2.TabIndex = 1
@@ -225,6 +229,26 @@ Partial Class RoomProfile
         btnLogOut.Text = "Logout"
         btnLogOut.UseVisualStyleBackColor = True
         ' 
+        ' cmbAvailability
+        ' 
+        cmbAvailability.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        cmbAvailability.DropDownStyle = ComboBoxStyle.DropDownList
+        cmbAvailability.FormattingEnabled = True
+        cmbAvailability.Items.AddRange(New Object() {"", "Available", "Reserved", "Occupied"})
+        cmbAvailability.Location = New Point(176, 203)
+        cmbAvailability.Name = "cmbAvailability"
+        cmbAvailability.Size = New Size(186, 27)
+        cmbAvailability.TabIndex = 8
+        ' 
+        ' Label5
+        ' 
+        Label5.AutoSize = True
+        Label5.Location = New Point(6, 206)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(171, 19)
+        Label5.TabIndex = 7
+        Label5.Text = "Room Availability:"
+        ' 
         ' RoomProfile
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -255,7 +279,7 @@ Partial Class RoomProfile
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents cmbRoomType As ComboBox
     Friend WithEvents txtBeds As TextBox
-    Friend WithEvents txtRate As TextBox
+    Friend WithEvents txtPrice As TextBox
     Friend WithEvents txtRoomID As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
@@ -264,4 +288,6 @@ Partial Class RoomProfile
     Friend WithEvents btnCreate As Button
     Friend WithEvents btnBack As Button
     Friend WithEvents btnLogOut As Button
+    Friend WithEvents cmbAvailability As ComboBox
+    Friend WithEvents Label5 As Label
 End Class

@@ -26,7 +26,7 @@ Partial Class Reservation
         btnBack = New Button()
         btnClear = New Button()
         GroupBox2 = New GroupBox()
-        dgReservation = New DataGridView()
+        dgGuest = New DataGridView()
         btnUpdate = New Button()
         GroupBox1 = New GroupBox()
         txtRoomNumber = New TextBox()
@@ -45,15 +45,19 @@ Partial Class Reservation
         Label1 = New Label()
         btnReserve = New Button()
         btnRooms = New Button()
+        GroupBox3 = New GroupBox()
+        dgReserve = New DataGridView()
         GroupBox2.SuspendLayout()
-        CType(dgReservation, ComponentModel.ISupportInitialize).BeginInit()
+        CType(dgGuest, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
+        GroupBox3.SuspendLayout()
+        CType(dgReserve, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' btnLogOut
         ' 
         btnLogOut.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnLogOut.Location = New Point(698, 12)
+        btnLogOut.Location = New Point(1144, 12)
         btnLogOut.Name = "btnLogOut"
         btnLogOut.Size = New Size(133, 23)
         btnLogOut.TabIndex = 3
@@ -84,32 +88,32 @@ Partial Class Reservation
         ' 
         GroupBox2.Anchor = AnchorStyles.None
         GroupBox2.BackColor = Color.Transparent
-        GroupBox2.Controls.Add(dgReservation)
+        GroupBox2.Controls.Add(dgGuest)
         GroupBox2.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox2.ForeColor = Color.Black
-        GroupBox2.Location = New Point(396, 41)
+        GroupBox2.Location = New Point(401, 41)
         GroupBox2.Name = "GroupBox2"
         GroupBox2.Size = New Size(435, 341)
         GroupBox2.TabIndex = 20
         GroupBox2.TabStop = False
-        GroupBox2.Text = "Reservation List"
+        GroupBox2.Text = "Guest List"
         ' 
-        ' dgReservation
+        ' dgGuest
         ' 
-        dgReservation.AllowUserToAddRows = False
-        dgReservation.AllowUserToDeleteRows = False
-        dgReservation.AllowUserToResizeColumns = False
-        dgReservation.AllowUserToResizeRows = False
-        dgReservation.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        dgReservation.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-        dgReservation.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        dgReservation.EditMode = DataGridViewEditMode.EditProgrammatically
-        dgReservation.Location = New Point(6, 25)
-        dgReservation.Name = "dgReservation"
-        dgReservation.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
-        dgReservation.RowTemplate.Height = 25
-        dgReservation.Size = New Size(423, 308)
-        dgReservation.TabIndex = 0
+        dgGuest.AllowUserToAddRows = False
+        dgGuest.AllowUserToDeleteRows = False
+        dgGuest.AllowUserToResizeColumns = False
+        dgGuest.AllowUserToResizeRows = False
+        dgGuest.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        dgGuest.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        dgGuest.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgGuest.EditMode = DataGridViewEditMode.EditProgrammatically
+        dgGuest.Location = New Point(6, 23)
+        dgGuest.Name = "dgGuest"
+        dgGuest.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
+        dgGuest.RowTemplate.Height = 25
+        dgGuest.Size = New Size(423, 310)
+        dgGuest.TabIndex = 0
         ' 
         ' btnUpdate
         ' 
@@ -257,18 +261,18 @@ Partial Class Reservation
         Label2.AutoSize = True
         Label2.Location = New Point(20, 66)
         Label2.Name = "Label2"
-        Label2.Size = New Size(54, 19)
+        Label2.Size = New Size(108, 19)
         Label2.TabIndex = 1
-        Label2.Text = "Name:"
+        Label2.Text = "Guest Name:"
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
         Label1.Location = New Point(20, 26)
         Label1.Name = "Label1"
-        Label1.Size = New Size(90, 19)
+        Label1.Size = New Size(144, 19)
         Label1.TabIndex = 0
-        Label1.Text = "Guest ID:"
+        Label1.Text = "Reservation ID:"
         ' 
         ' btnReserve
         ' 
@@ -290,11 +294,43 @@ Partial Class Reservation
         btnRooms.Text = "Rooms Available"
         btnRooms.UseVisualStyleBackColor = True
         ' 
+        ' GroupBox3
+        ' 
+        GroupBox3.Anchor = AnchorStyles.None
+        GroupBox3.BackColor = Color.Transparent
+        GroupBox3.Controls.Add(dgReserve)
+        GroupBox3.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        GroupBox3.ForeColor = Color.Black
+        GroupBox3.Location = New Point(842, 41)
+        GroupBox3.Name = "GroupBox3"
+        GroupBox3.Size = New Size(435, 341)
+        GroupBox3.TabIndex = 30
+        GroupBox3.TabStop = False
+        GroupBox3.Text = "Reservation List"
+        ' 
+        ' dgReserve
+        ' 
+        dgReserve.AllowUserToAddRows = False
+        dgReserve.AllowUserToDeleteRows = False
+        dgReserve.AllowUserToResizeColumns = False
+        dgReserve.AllowUserToResizeRows = False
+        dgReserve.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        dgReserve.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        dgReserve.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgReserve.EditMode = DataGridViewEditMode.EditProgrammatically
+        dgReserve.Location = New Point(6, 23)
+        dgReserve.Name = "dgReserve"
+        dgReserve.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
+        dgReserve.RowTemplate.Height = 25
+        dgReserve.Size = New Size(423, 312)
+        dgReserve.TabIndex = 0
+        ' 
         ' Reservation
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(843, 396)
+        ClientSize = New Size(1289, 396)
+        Controls.Add(GroupBox3)
         Controls.Add(btnRooms)
         Controls.Add(btnClear)
         Controls.Add(GroupBox2)
@@ -307,16 +343,18 @@ Partial Class Reservation
         StartPosition = FormStartPosition.CenterScreen
         Text = "Reservation"
         GroupBox2.ResumeLayout(False)
-        CType(dgReservation, ComponentModel.ISupportInitialize).EndInit()
+        CType(dgGuest, ComponentModel.ISupportInitialize).EndInit()
         GroupBox1.ResumeLayout(False)
         GroupBox1.PerformLayout()
+        GroupBox3.ResumeLayout(False)
+        CType(dgReserve, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
     Friend WithEvents btnLogOut As Button
     Friend WithEvents btnBack As Button
     Friend WithEvents btnClear As Button
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents dgReservation As DataGridView
+    Friend WithEvents dgGuest As DataGridView
     Friend WithEvents btnUpdate As Button
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents cmbRoomType As ComboBox
@@ -338,4 +376,6 @@ Partial Class Reservation
     Friend WithEvents Label7 As Label
     Friend WithEvents txtRoomNumber As TextBox
     Friend WithEvents btnRooms As Button
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents dgReserve As DataGridView
 End Class

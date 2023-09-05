@@ -23,6 +23,7 @@ Partial Class Dashboard
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         FlowLayoutPanel1 = New FlowLayoutPanel()
+        btnGuest = New Button()
         btnReserve = New Button()
         btnCheck = New Button()
         btnAdmin = New Button()
@@ -43,18 +44,29 @@ Partial Class Dashboard
         ' FlowLayoutPanel1
         ' 
         FlowLayoutPanel1.BackColor = Color.Transparent
+        FlowLayoutPanel1.Controls.Add(btnGuest)
         FlowLayoutPanel1.Controls.Add(btnReserve)
         FlowLayoutPanel1.Controls.Add(btnCheck)
         FlowLayoutPanel1.Controls.Add(btnAdmin)
         FlowLayoutPanel1.Location = New Point(12, 12)
         FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        FlowLayoutPanel1.Size = New Size(445, 31)
+        FlowLayoutPanel1.Size = New Size(585, 31)
         FlowLayoutPanel1.TabIndex = 0
+        ' 
+        ' btnGuest
+        ' 
+        btnGuest.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        btnGuest.Location = New Point(3, 3)
+        btnGuest.Name = "btnGuest"
+        btnGuest.Size = New Size(133, 23)
+        btnGuest.TabIndex = 3
+        btnGuest.Text = "Add Guest"
+        btnGuest.UseVisualStyleBackColor = True
         ' 
         ' btnReserve
         ' 
         btnReserve.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnReserve.Location = New Point(3, 3)
+        btnReserve.Location = New Point(142, 3)
         btnReserve.Name = "btnReserve"
         btnReserve.Size = New Size(133, 23)
         btnReserve.TabIndex = 0
@@ -64,7 +76,7 @@ Partial Class Dashboard
         ' btnCheck
         ' 
         btnCheck.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnCheck.Location = New Point(142, 3)
+        btnCheck.Location = New Point(281, 3)
         btnCheck.Name = "btnCheck"
         btnCheck.Size = New Size(161, 23)
         btnCheck.TabIndex = 1
@@ -74,11 +86,11 @@ Partial Class Dashboard
         ' btnAdmin
         ' 
         btnAdmin.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnAdmin.Location = New Point(309, 3)
+        btnAdmin.Location = New Point(448, 3)
         btnAdmin.Name = "btnAdmin"
         btnAdmin.Size = New Size(133, 23)
         btnAdmin.TabIndex = 2
-        btnAdmin.Text = "Admin"
+        btnAdmin.Text = "Rooms / Reports"
         btnAdmin.UseVisualStyleBackColor = True
         ' 
         ' Panel1
@@ -172,4 +184,5 @@ Partial Class Dashboard
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents DataGridView2 As DataGridView
+    Friend WithEvents btnGuest As Button
 End Class

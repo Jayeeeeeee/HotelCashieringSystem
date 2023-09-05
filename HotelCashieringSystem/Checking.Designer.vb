@@ -45,15 +45,19 @@ Partial Class Checking
         Label1 = New Label()
         btnCheckIn = New Button()
         btnRooms = New Button()
+        GroupBox3 = New GroupBox()
+        dgGuest = New DataGridView()
         GroupBox2.SuspendLayout()
         CType(dgCheckedIn, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
+        GroupBox3.SuspendLayout()
+        CType(dgGuest, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' btnLogOut
         ' 
         btnLogOut.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnLogOut.Location = New Point(698, 12)
+        btnLogOut.Location = New Point(1144, 12)
         btnLogOut.Name = "btnLogOut"
         btnLogOut.Size = New Size(133, 23)
         btnLogOut.TabIndex = 3
@@ -87,7 +91,7 @@ Partial Class Checking
         GroupBox2.Controls.Add(dgCheckedIn)
         GroupBox2.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox2.ForeColor = Color.Black
-        GroupBox2.Location = New Point(396, 41)
+        GroupBox2.Location = New Point(842, 41)
         GroupBox2.Name = "GroupBox2"
         GroupBox2.Size = New Size(435, 341)
         GroupBox2.TabIndex = 25
@@ -104,11 +108,11 @@ Partial Class Checking
         dgCheckedIn.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         dgCheckedIn.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         dgCheckedIn.EditMode = DataGridViewEditMode.EditProgrammatically
-        dgCheckedIn.Location = New Point(6, 25)
+        dgCheckedIn.Location = New Point(6, 23)
         dgCheckedIn.Name = "dgCheckedIn"
         dgCheckedIn.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         dgCheckedIn.RowTemplate.Height = 25
-        dgCheckedIn.Size = New Size(423, 310)
+        dgCheckedIn.Size = New Size(423, 312)
         dgCheckedIn.TabIndex = 0
         ' 
         ' btnCheckOut
@@ -257,18 +261,18 @@ Partial Class Checking
         Label2.AutoSize = True
         Label2.Location = New Point(20, 66)
         Label2.Name = "Label2"
-        Label2.Size = New Size(54, 19)
+        Label2.Size = New Size(108, 19)
         Label2.TabIndex = 1
-        Label2.Text = "Name:"
+        Label2.Text = "Guest Name:"
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
         Label1.Location = New Point(20, 26)
         Label1.Name = "Label1"
-        Label1.Size = New Size(90, 19)
+        Label1.Size = New Size(117, 19)
         Label1.TabIndex = 0
-        Label1.Text = "Guest ID:"
+        Label1.Text = "Check-In ID:"
         ' 
         ' btnCheckIn
         ' 
@@ -290,11 +294,43 @@ Partial Class Checking
         btnRooms.Text = "Rooms Available"
         btnRooms.UseVisualStyleBackColor = True
         ' 
+        ' GroupBox3
+        ' 
+        GroupBox3.Anchor = AnchorStyles.None
+        GroupBox3.BackColor = Color.Transparent
+        GroupBox3.Controls.Add(dgGuest)
+        GroupBox3.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        GroupBox3.ForeColor = Color.Black
+        GroupBox3.Location = New Point(401, 41)
+        GroupBox3.Name = "GroupBox3"
+        GroupBox3.Size = New Size(435, 341)
+        GroupBox3.TabIndex = 31
+        GroupBox3.TabStop = False
+        GroupBox3.Text = "Guest List"
+        ' 
+        ' dgGuest
+        ' 
+        dgGuest.AllowUserToAddRows = False
+        dgGuest.AllowUserToDeleteRows = False
+        dgGuest.AllowUserToResizeColumns = False
+        dgGuest.AllowUserToResizeRows = False
+        dgGuest.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        dgGuest.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        dgGuest.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgGuest.EditMode = DataGridViewEditMode.EditProgrammatically
+        dgGuest.Location = New Point(6, 23)
+        dgGuest.Name = "dgGuest"
+        dgGuest.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
+        dgGuest.RowTemplate.Height = 25
+        dgGuest.Size = New Size(423, 312)
+        dgGuest.TabIndex = 0
+        ' 
         ' Checking
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(843, 396)
+        ClientSize = New Size(1289, 396)
+        Controls.Add(GroupBox3)
         Controls.Add(btnRooms)
         Controls.Add(btnClear)
         Controls.Add(GroupBox2)
@@ -310,6 +346,8 @@ Partial Class Checking
         CType(dgCheckedIn, ComponentModel.ISupportInitialize).EndInit()
         GroupBox1.ResumeLayout(False)
         GroupBox1.PerformLayout()
+        GroupBox3.ResumeLayout(False)
+        CType(dgGuest, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
     Friend WithEvents btnLogOut As Button
@@ -335,4 +373,6 @@ Partial Class Checking
     Friend WithEvents Label1 As Label
     Friend WithEvents btnCheckIn As Button
     Friend WithEvents btnRooms As Button
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents dgGuest As DataGridView
 End Class

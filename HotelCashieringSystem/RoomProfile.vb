@@ -19,6 +19,6 @@
         txtRoomID.Text = ""
         cmbRoomType.Text = ""
         txtBeds.Text = ""
-        txtRate.Text = ""
+        txtPrice.Text = ""
     End Sub
 End Class
