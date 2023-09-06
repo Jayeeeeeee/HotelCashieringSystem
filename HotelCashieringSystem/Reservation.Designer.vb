@@ -34,7 +34,7 @@ Partial Class Reservation
         dgReserve = New DataGridView()
         Label1 = New Label()
         Label2 = New Label()
-        txtGuestID = New TextBox()
+        txtReserveID = New TextBox()
         Label5 = New Label()
         Label6 = New Label()
         dtpCheckIn = New DateTimePicker()
@@ -190,13 +190,13 @@ Partial Class Reservation
         Label2.TabIndex = 1
         Label2.Text = "Guest Name:"
         ' 
-        ' txtGuestID
+        ' txtReserveID
         ' 
-        txtGuestID.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        txtGuestID.Location = New Point(176, 23)
-        txtGuestID.Name = "txtGuestID"
-        txtGuestID.Size = New Size(186, 26)
-        txtGuestID.TabIndex = 3
+        txtReserveID.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        txtReserveID.Location = New Point(176, 23)
+        txtReserveID.Name = "txtReserveID"
+        txtReserveID.Size = New Size(186, 26)
+        txtReserveID.TabIndex = 3
         ' 
         ' Label5
         ' 
@@ -272,7 +272,7 @@ Partial Class Reservation
         GroupBox1.Controls.Add(dtpCheckIn)
         GroupBox1.Controls.Add(Label6)
         GroupBox1.Controls.Add(Label5)
-        GroupBox1.Controls.Add(txtGuestID)
+        GroupBox1.Controls.Add(txtReserveID)
         GroupBox1.Controls.Add(Label2)
         GroupBox1.Controls.Add(Label1)
         GroupBox1.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
@@ -323,7 +323,7 @@ Partial Class Reservation
     Friend WithEvents dgReserve As DataGridView
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents txtGuestID As TextBox
+    Friend WithEvents txtReserveID As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents dtpCheckIn As DateTimePicker

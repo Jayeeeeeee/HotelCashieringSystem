@@ -12,8 +12,8 @@
     End Sub
 
     Private Sub Dashboard_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
-        displayInfo("select * from rooms_available", dgvAvailable)
-        displayInfo("select * from rooms_occupied", dgvOccupied)
+        displayInfo("Select * From rooms_available", dgvAvailable)
+        displayInfo("Select * From rooms_occupied", dgvOccupied)
 
     End Sub
 
@@ -31,4 +31,5 @@
         GuestProfile.Show()
         Me.Hide()
     End Sub
+
 End Class

@@ -84,7 +84,7 @@ Partial Class Dashboard
         ' Panel1
         ' 
         Panel1.Controls.Add(btnLogOut)
-        Panel1.Location = New Point(649, 12)
+        Panel1.Location = New Point(1032, 12)
         Panel1.Name = "Panel1"
         Panel1.Size = New Size(139, 31)
         Panel1.TabIndex = 2
@@ -105,7 +105,7 @@ Partial Class Dashboard
         GroupBox1.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox1.Location = New Point(15, 49)
         GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(383, 292)
+        GroupBox1.Size = New Size(570, 292)
         GroupBox1.TabIndex = 3
         GroupBox1.TabStop = False
         GroupBox1.Text = "Rooms Occupied"
@@ -125,7 +125,7 @@ Partial Class Dashboard
         dgvOccupied.Name = "dgvOccupied"
         dgvOccupied.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         dgvOccupied.RowTemplate.Height = 25
-        dgvOccupied.Size = New Size(371, 264)
+        dgvOccupied.Size = New Size(558, 264)
         dgvOccupied.TabIndex = 0
         ' 
         ' GroupBox2
@@ -133,9 +133,9 @@ Partial Class Dashboard
         GroupBox2.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         GroupBox2.Controls.Add(dgvAvailable)
         GroupBox2.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        GroupBox2.Location = New Point(404, 49)
+        GroupBox2.Location = New Point(602, 49)
         GroupBox2.Name = "GroupBox2"
-        GroupBox2.Size = New Size(383, 292)
+        GroupBox2.Size = New Size(570, 292)
         GroupBox2.TabIndex = 4
         GroupBox2.TabStop = False
         GroupBox2.Text = "Rooms Available"
@@ -156,20 +156,18 @@ Partial Class Dashboard
         dgvAvailable.Name = "dgvAvailable"
         dgvAvailable.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         dgvAvailable.RowTemplate.Height = 25
-        dgvAvailable.Size = New Size(371, 264)
+        dgvAvailable.Size = New Size(558, 264)
         dgvAvailable.TabIndex = 1
         ' 
         ' Dashboard
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(800, 353)
+        ClientSize = New Size(1184, 353)
         Controls.Add(GroupBox2)
         Controls.Add(GroupBox1)
         Controls.Add(Panel1)
         Controls.Add(FlowLayoutPanel1)
-        MaximumSize = New Size(816, 392)
-        MinimumSize = New Size(816, 392)
         Name = "Dashboard"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Dashboard"

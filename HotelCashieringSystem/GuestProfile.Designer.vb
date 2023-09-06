@@ -22,13 +22,13 @@ Partial Class GuestProfile
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        btnCreate = New Button()
+        btnAdd = New Button()
         btnBack = New Button()
         btnLogOut = New Button()
         btnClear = New Button()
         btnDelete = New Button()
         GroupBox2 = New GroupBox()
-        dgGuest = New DataGridView()
+        dgvGuest = New DataGridView()
         GroupBox1 = New GroupBox()
         txtName = New TextBox()
         txtAddress = New TextBox()
@@ -39,19 +39,19 @@ Partial Class GuestProfile
         Label2 = New Label()
         Label1 = New Label()
         GroupBox2.SuspendLayout()
-        CType(dgGuest, ComponentModel.ISupportInitialize).BeginInit()
+        CType(dgvGuest, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
         SuspendLayout()
         ' 
-        ' btnCreate
+        ' btnAdd
         ' 
-        btnCreate.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnCreate.Location = New Point(12, 315)
-        btnCreate.Name = "btnCreate"
-        btnCreate.Size = New Size(120, 68)
-        btnCreate.TabIndex = 17
-        btnCreate.Text = "Add New Guest"
-        btnCreate.UseVisualStyleBackColor = True
+        btnAdd.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        btnAdd.Location = New Point(12, 315)
+        btnAdd.Name = "btnAdd"
+        btnAdd.Size = New Size(120, 68)
+        btnAdd.TabIndex = 17
+        btnAdd.Text = "Add New Guest"
+        btnAdd.UseVisualStyleBackColor = True
         ' 
         ' btnBack
         ' 
@@ -66,7 +66,7 @@ Partial Class GuestProfile
         ' btnLogOut
         ' 
         btnLogOut.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnLogOut.Location = New Point(698, 14)
+        btnLogOut.Location = New Point(1039, 14)
         btnLogOut.Name = "btnLogOut"
         btnLogOut.Size = New Size(133, 22)
         btnLogOut.TabIndex = 16
@@ -85,6 +85,7 @@ Partial Class GuestProfile
         ' 
         ' btnDelete
         ' 
+        btnDelete.Enabled = False
         btnDelete.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
         btnDelete.Location = New Point(137, 315)
         btnDelete.Name = "btnDelete"
@@ -97,32 +98,32 @@ Partial Class GuestProfile
         ' 
         GroupBox2.Anchor = AnchorStyles.None
         GroupBox2.BackColor = Color.Transparent
-        GroupBox2.Controls.Add(dgGuest)
+        GroupBox2.Controls.Add(dgvGuest)
         GroupBox2.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox2.ForeColor = Color.Black
         GroupBox2.Location = New Point(396, 42)
         GroupBox2.Name = "GroupBox2"
-        GroupBox2.Size = New Size(435, 341)
+        GroupBox2.Size = New Size(776, 341)
         GroupBox2.TabIndex = 22
         GroupBox2.TabStop = False
         GroupBox2.Text = "Guest List"
         ' 
-        ' dgGuest
+        ' dgvGuest
         ' 
-        dgGuest.AllowUserToAddRows = False
-        dgGuest.AllowUserToDeleteRows = False
-        dgGuest.AllowUserToResizeColumns = False
-        dgGuest.AllowUserToResizeRows = False
-        dgGuest.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        dgGuest.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-        dgGuest.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        dgGuest.EditMode = DataGridViewEditMode.EditProgrammatically
-        dgGuest.Location = New Point(6, 25)
-        dgGuest.Name = "dgGuest"
-        dgGuest.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
-        dgGuest.RowTemplate.Height = 25
-        dgGuest.Size = New Size(423, 306)
-        dgGuest.TabIndex = 0
+        dgvGuest.AllowUserToAddRows = False
+        dgvGuest.AllowUserToDeleteRows = False
+        dgvGuest.AllowUserToResizeColumns = False
+        dgvGuest.AllowUserToResizeRows = False
+        dgvGuest.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        dgvGuest.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        dgvGuest.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvGuest.EditMode = DataGridViewEditMode.EditProgrammatically
+        dgvGuest.Location = New Point(6, 25)
+        dgvGuest.Name = "dgvGuest"
+        dgvGuest.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
+        dgvGuest.RowTemplate.Height = 25
+        dgvGuest.Size = New Size(764, 310)
+        dgvGuest.TabIndex = 0
         ' 
         ' GroupBox1
         ' 
@@ -215,8 +216,8 @@ Partial Class GuestProfile
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(843, 396)
-        Controls.Add(btnCreate)
+        ClientSize = New Size(1184, 396)
+        Controls.Add(btnAdd)
         Controls.Add(btnBack)
         Controls.Add(btnLogOut)
         Controls.Add(btnClear)
@@ -226,19 +227,19 @@ Partial Class GuestProfile
         Name = "GuestProfile"
         Text = "Guest Profile"
         GroupBox2.ResumeLayout(False)
-        CType(dgGuest, ComponentModel.ISupportInitialize).EndInit()
+        CType(dgvGuest, ComponentModel.ISupportInitialize).EndInit()
         GroupBox1.ResumeLayout(False)
         GroupBox1.PerformLayout()
         ResumeLayout(False)
     End Sub
 
-    Friend WithEvents btnCreate As Button
+    Friend WithEvents btnAdd As Button
     Friend WithEvents btnBack As Button
     Friend WithEvents btnLogOut As Button
     Friend WithEvents btnClear As Button
     Friend WithEvents btnDelete As Button
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents dgGuest As DataGridView
+    Friend WithEvents dgvGuest As DataGridView
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label

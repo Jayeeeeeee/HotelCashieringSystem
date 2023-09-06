@@ -32,9 +32,7 @@ Partial Class RoomProfile
         Label5 = New Label()
         cmbRoomType = New ComboBox()
         txtBeds = New TextBox()
-        txtPrice = New TextBox()
         txtRoomID = New TextBox()
-        Label4 = New Label()
         Label3 = New Label()
         Label2 = New Label()
         Label1 = New Label()
@@ -49,7 +47,7 @@ Partial Class RoomProfile
         ' btnClear
         ' 
         btnClear.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnClear.Location = New Point(300, 316)
+        btnClear.Location = New Point(300, 284)
         btnClear.Name = "btnClear"
         btnClear.Size = New Size(90, 68)
         btnClear.TabIndex = 10
@@ -58,8 +56,9 @@ Partial Class RoomProfile
         ' 
         ' btnDelete
         ' 
+        btnDelete.Enabled = False
         btnDelete.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnDelete.Location = New Point(204, 316)
+        btnDelete.Location = New Point(204, 284)
         btnDelete.Name = "btnDelete"
         btnDelete.Size = New Size(90, 68)
         btnDelete.TabIndex = 9
@@ -73,9 +72,9 @@ Partial Class RoomProfile
         GroupBox2.Controls.Add(dgvRoom)
         GroupBox2.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox2.ForeColor = Color.Black
-        GroupBox2.Location = New Point(396, 51)
+        GroupBox2.Location = New Point(396, 43)
         GroupBox2.Name = "GroupBox2"
-        GroupBox2.Size = New Size(435, 341)
+        GroupBox2.Size = New Size(776, 341)
         GroupBox2.TabIndex = 14
         GroupBox2.TabStop = False
         GroupBox2.Text = "Room Information"
@@ -94,13 +93,14 @@ Partial Class RoomProfile
         dgvRoom.Name = "dgvRoom"
         dgvRoom.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         dgvRoom.RowTemplate.Height = 25
-        dgvRoom.Size = New Size(423, 306)
+        dgvRoom.Size = New Size(764, 306)
         dgvRoom.TabIndex = 0
         ' 
         ' btnUpdate
         ' 
+        btnUpdate.Enabled = False
         btnUpdate.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnUpdate.Location = New Point(108, 316)
+        btnUpdate.Location = New Point(108, 284)
         btnUpdate.Name = "btnUpdate"
         btnUpdate.Size = New Size(90, 68)
         btnUpdate.TabIndex = 8
@@ -114,17 +114,15 @@ Partial Class RoomProfile
         GroupBox1.Controls.Add(Label5)
         GroupBox1.Controls.Add(cmbRoomType)
         GroupBox1.Controls.Add(txtBeds)
-        GroupBox1.Controls.Add(txtPrice)
         GroupBox1.Controls.Add(txtRoomID)
-        GroupBox1.Controls.Add(Label4)
         GroupBox1.Controls.Add(Label3)
         GroupBox1.Controls.Add(Label2)
         GroupBox1.Controls.Add(Label1)
         GroupBox1.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox1.ForeColor = Color.Black
-        GroupBox1.Location = New Point(12, 51)
+        GroupBox1.Location = New Point(12, 68)
         GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(378, 259)
+        GroupBox1.Size = New Size(378, 202)
         GroupBox1.TabIndex = 13
         GroupBox1.TabStop = False
         ' 
@@ -133,8 +131,8 @@ Partial Class RoomProfile
         cmbAvailability.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         cmbAvailability.DropDownStyle = ComboBoxStyle.DropDownList
         cmbAvailability.FormattingEnabled = True
-        cmbAvailability.Items.AddRange(New Object() {"", "Available", "Reserved", "Occupied"})
-        cmbAvailability.Location = New Point(176, 203)
+        cmbAvailability.Items.AddRange(New Object() {""})
+        cmbAvailability.Location = New Point(178, 151)
         cmbAvailability.Name = "cmbAvailability"
         cmbAvailability.Size = New Size(186, 27)
         cmbAvailability.TabIndex = 8
@@ -142,7 +140,7 @@ Partial Class RoomProfile
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Location = New Point(6, 206)
+        Label5.Location = New Point(8, 154)
         Label5.Name = "Label5"
         Label5.Size = New Size(171, 19)
         Label5.TabIndex = 7
@@ -153,8 +151,8 @@ Partial Class RoomProfile
         cmbRoomType.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         cmbRoomType.DropDownStyle = ComboBoxStyle.DropDownList
         cmbRoomType.FormattingEnabled = True
-        cmbRoomType.Items.AddRange(New Object() {"", "Single", "Double", "Matrimonial"})
-        cmbRoomType.Location = New Point(176, 83)
+        cmbRoomType.Items.AddRange(New Object() {""})
+        cmbRoomType.Location = New Point(178, 71)
         cmbRoomType.Name = "cmbRoomType"
         cmbRoomType.Size = New Size(186, 27)
         cmbRoomType.TabIndex = 5
@@ -162,40 +160,23 @@ Partial Class RoomProfile
         ' txtBeds
         ' 
         txtBeds.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        txtBeds.Location = New Point(176, 123)
+        txtBeds.Location = New Point(178, 111)
         txtBeds.Name = "txtBeds"
         txtBeds.Size = New Size(186, 26)
         txtBeds.TabIndex = 6
         ' 
-        ' txtPrice
-        ' 
-        txtPrice.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        txtPrice.Location = New Point(176, 163)
-        txtPrice.Name = "txtPrice"
-        txtPrice.Size = New Size(186, 26)
-        txtPrice.TabIndex = 5
-        ' 
         ' txtRoomID
         ' 
         txtRoomID.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        txtRoomID.Location = New Point(176, 43)
+        txtRoomID.Location = New Point(178, 31)
         txtRoomID.Name = "txtRoomID"
         txtRoomID.Size = New Size(186, 26)
         txtRoomID.TabIndex = 3
         ' 
-        ' Label4
-        ' 
-        Label4.AutoSize = True
-        Label4.Location = New Point(20, 166)
-        Label4.Name = "Label4"
-        Label4.Size = New Size(108, 19)
-        Label4.TabIndex = 3
-        Label4.Text = "Room Price:"
-        ' 
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(20, 126)
+        Label3.Location = New Point(22, 114)
         Label3.Name = "Label3"
         Label3.Size = New Size(117, 19)
         Label3.TabIndex = 2
@@ -204,7 +185,7 @@ Partial Class RoomProfile
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(20, 86)
+        Label2.Location = New Point(22, 74)
         Label2.Name = "Label2"
         Label2.Size = New Size(99, 19)
         Label2.TabIndex = 1
@@ -213,7 +194,7 @@ Partial Class RoomProfile
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(20, 46)
+        Label1.Location = New Point(22, 34)
         Label1.Name = "Label1"
         Label1.Size = New Size(90, 19)
         Label1.TabIndex = 0
@@ -222,7 +203,7 @@ Partial Class RoomProfile
         ' btnCreate
         ' 
         btnCreate.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnCreate.Location = New Point(12, 316)
+        btnCreate.Location = New Point(12, 284)
         btnCreate.Name = "btnCreate"
         btnCreate.Size = New Size(90, 68)
         btnCreate.TabIndex = 7
@@ -242,7 +223,7 @@ Partial Class RoomProfile
         ' btnLogOut
         ' 
         btnLogOut.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnLogOut.Location = New Point(698, 12)
+        btnLogOut.Location = New Point(1039, 12)
         btnLogOut.Name = "btnLogOut"
         btnLogOut.Size = New Size(133, 22)
         btnLogOut.TabIndex = 3
@@ -253,7 +234,7 @@ Partial Class RoomProfile
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(843, 396)
+        ClientSize = New Size(1184, 396)
         Controls.Add(btnBack)
         Controls.Add(btnLogOut)
         Controls.Add(btnClear)
@@ -279,9 +260,7 @@ Partial Class RoomProfile
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents cmbRoomType As ComboBox
     Friend WithEvents txtBeds As TextBox
-    Friend WithEvents txtPrice As TextBox
     Friend WithEvents txtRoomID As TextBox
-    Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label

@@ -4,6 +4,13 @@
         Me.Hide()
     End Sub
 
+    Private Sub cleartxt()
+        txtGuestID.Text = ""
+        txtName.Text = ""
+        txtAddress.Text = ""
+        txtNumber.Text = ""
+    End Sub
+
     Private Sub btnLogOut_Click(sender As Object, e As EventArgs) Handles btnLogOut.Click
         Dim out As New System.Windows.Forms.DialogResult
         out = MessageBox.Show("Logout?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
@@ -13,5 +20,54 @@
         Else
             Me.Show()
         End If
+    End Sub
+
+    Private Sub GuestProfile_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+        displayInfo("Select * From guest_info", dgvGuest)
+    End Sub
+
+    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+        If String.IsNullOrWhiteSpace(txtName.Text) Or String.IsNullOrWhiteSpace(txtAddress.Text) Or String.IsNullOrWhiteSpace(txtNumber.Text) Then
+            MessageBox.Show("Some fields are empty!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        Else
+            Dim GuestQuery = "Insert Into guest_info Values(null or '" & txtGuestID.Text & "', '" & txtName.Text & "', '" & txtAddress.Text & "', '" & txtNumber.Text & "')"
+            SQLProcess(GuestQuery)
+
+            MessageBox.Show("Guest Added!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            cleartxt()
+        End If
+    End Sub
+
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        cleartxt()
+    End Sub
+
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+        Dim GuestDelete As New System.Windows.Forms.DialogResult
+        GuestDelete = MessageBox.Show("Delete Guest?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If GuestDelete = Windows.Forms.DialogResult.Yes Then
+            Dim GDelete = "Delete From guest_info where ID = '" & txtGuestID.Text & "'"
+            SQLProcess(GDelete)
+            MessageBox.Show("Guest Deleted!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            cleartxt()
+        Else
+            Me.Show()
+        End If
+    End Sub
+
+    Private Sub dgvGuest_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvGuest.CellClick
+        Try
+            Dim i = e.RowIndex
+            With dgvGuest
+                txtGuestID.Text = .Item("ID", i).Value
+                txtName.Text = .Item("Guest Name", i).Value
+                txtAddress.Text = .Item("Address", i).Value
+                txtNumber.Text = .Item("Contact No.", i).Value
+            End With
+            btnDelete.Enabled = True
+        Catch ex As Exception
+            MessageBox.Show("Error: " + ex.Message)
+        End Try
     End Sub
 End Class
