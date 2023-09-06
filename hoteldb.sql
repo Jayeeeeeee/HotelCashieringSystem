@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 06, 2023 at 05:58 AM
+-- Generation Time: Sep 06, 2023 at 07:14 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -109,6 +109,26 @@ CREATE TABLE `guests` (
   `GAddress` varchar(255) DEFAULT NULL,
   `GNum` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `guests`
+--
+
+INSERT INTO `guests` (`GuestID`, `GName`, `GAddress`, `GNum`) VALUES
+(2, 'Jaye Alojado', 'Davao City', 2147483647);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `guest_info`
+-- (See below for the actual view)
+--
+CREATE TABLE `guest_info` (
+`ID` int(11)
+,`Guest Name` varchar(255)
+,`Address` varchar(255)
+,`Contact No.` int(11)
+);
 
 -- --------------------------------------------------------
 
@@ -275,7 +295,8 @@ CREATE TABLE `room_status` (
 INSERT INTO `room_status` (`RoomStatusID`, `RoomStatus`) VALUES
 (1, 'Available'),
 (2, 'Reserved'),
-(3, 'Occupied');
+(3, 'Occupied'),
+(4, NULL);
 
 -- --------------------------------------------------------
 
@@ -296,7 +317,17 @@ CREATE TABLE `room_type` (
 INSERT INTO `room_type` (`RoomTypeID`, `RoomType`, `RoomPrice`) VALUES
 (1, 'Single', 750.00),
 (2, 'Double', 850.00),
-(3, 'Matrimonial', 850.00);
+(3, 'Matrimonial', 850.00),
+(4, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `guest_info`
+--
+DROP TABLE IF EXISTS `guest_info`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `guest_info`  AS SELECT `guests`.`GuestID` AS `ID`, `guests`.`GName` AS `Guest Name`, `guests`.`GAddress` AS `Address`, `guests`.`GNum` AS `Contact No.` FROM `guests` ;
 
 -- --------------------------------------------------------
 
@@ -445,7 +476,7 @@ ALTER TABLE `emp_login`
 -- AUTO_INCREMENT for table `guests`
 --
 ALTER TABLE `guests`
-  MODIFY `GuestID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `GuestID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `reservation`
