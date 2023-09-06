@@ -8,8 +8,8 @@
         Dim out As New System.Windows.Forms.DialogResult
         out = MessageBox.Show("Logout?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If out Then
+            Login.Show()
             Me.Close()
-            Login.Close()
         Else
             Me.Show()
         End If
@@ -20,5 +20,9 @@
         cmbRoomType.Text = ""
         txtBeds.Text = ""
         txtPrice.Text = ""
+    End Sub
+
+    Private Sub RoomProfile_Activated(sender As Object, e As EventArgs) Handles MyBase.Load
+        displayInfo("select * from room_info", dgvRoom)
     End Sub
 End Class

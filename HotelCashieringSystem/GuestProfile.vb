@@ -1,6 +1,6 @@
 ﻿Public Class GuestProfile
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Admin.Show()
+        Dashboard.Show()
         Me.Hide()
     End Sub
 

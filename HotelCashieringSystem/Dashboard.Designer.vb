@@ -26,19 +26,18 @@ Partial Class Dashboard
         btnGuest = New Button()
         btnReserve = New Button()
         btnCheck = New Button()
-        btnAdmin = New Button()
         Panel1 = New Panel()
         btnLogOut = New Button()
         GroupBox1 = New GroupBox()
-        DataGridView1 = New DataGridView()
+        dgvOccupied = New DataGridView()
         GroupBox2 = New GroupBox()
-        DataGridView2 = New DataGridView()
+        dgvAvailable = New DataGridView()
         FlowLayoutPanel1.SuspendLayout()
         Panel1.SuspendLayout()
         GroupBox1.SuspendLayout()
-        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(dgvOccupied, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox2.SuspendLayout()
-        CType(DataGridView2, ComponentModel.ISupportInitialize).BeginInit()
+        CType(dgvAvailable, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' FlowLayoutPanel1
@@ -47,7 +46,6 @@ Partial Class Dashboard
         FlowLayoutPanel1.Controls.Add(btnGuest)
         FlowLayoutPanel1.Controls.Add(btnReserve)
         FlowLayoutPanel1.Controls.Add(btnCheck)
-        FlowLayoutPanel1.Controls.Add(btnAdmin)
         FlowLayoutPanel1.Location = New Point(12, 12)
         FlowLayoutPanel1.Name = "FlowLayoutPanel1"
         FlowLayoutPanel1.Size = New Size(585, 31)
@@ -83,16 +81,6 @@ Partial Class Dashboard
         btnCheck.Text = "Check In / Check Out"
         btnCheck.UseVisualStyleBackColor = True
         ' 
-        ' btnAdmin
-        ' 
-        btnAdmin.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnAdmin.Location = New Point(448, 3)
-        btnAdmin.Name = "btnAdmin"
-        btnAdmin.Size = New Size(133, 23)
-        btnAdmin.TabIndex = 2
-        btnAdmin.Text = "Rooms / Reports"
-        btnAdmin.UseVisualStyleBackColor = True
-        ' 
         ' Panel1
         ' 
         Panel1.Controls.Add(btnLogOut)
@@ -113,7 +101,7 @@ Partial Class Dashboard
         ' 
         ' GroupBox1
         ' 
-        GroupBox1.Controls.Add(DataGridView1)
+        GroupBox1.Controls.Add(dgvOccupied)
         GroupBox1.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox1.Location = New Point(15, 49)
         GroupBox1.Name = "GroupBox1"
@@ -122,19 +110,28 @@ Partial Class Dashboard
         GroupBox1.TabStop = False
         GroupBox1.Text = "Rooms Occupied"
         ' 
-        ' DataGridView1
+        ' dgvOccupied
         ' 
-        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(6, 22)
-        DataGridView1.Name = "DataGridView1"
-        DataGridView1.RowTemplate.Height = 25
-        DataGridView1.Size = New Size(371, 264)
-        DataGridView1.TabIndex = 0
+        dgvOccupied.AllowUserToAddRows = False
+        dgvOccupied.AllowUserToDeleteRows = False
+        dgvOccupied.AllowUserToResizeColumns = False
+        dgvOccupied.AllowUserToResizeRows = False
+        dgvOccupied.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        dgvOccupied.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
+        dgvOccupied.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvOccupied.EditMode = DataGridViewEditMode.EditProgrammatically
+        dgvOccupied.GridColor = SystemColors.Menu
+        dgvOccupied.Location = New Point(6, 22)
+        dgvOccupied.Name = "dgvOccupied"
+        dgvOccupied.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
+        dgvOccupied.RowTemplate.Height = 25
+        dgvOccupied.Size = New Size(371, 264)
+        dgvOccupied.TabIndex = 0
         ' 
         ' GroupBox2
         ' 
         GroupBox2.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        GroupBox2.Controls.Add(DataGridView2)
+        GroupBox2.Controls.Add(dgvAvailable)
         GroupBox2.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox2.Location = New Point(404, 49)
         GroupBox2.Name = "GroupBox2"
@@ -143,15 +140,24 @@ Partial Class Dashboard
         GroupBox2.TabStop = False
         GroupBox2.Text = "Rooms Available"
         ' 
-        ' DataGridView2
+        ' dgvAvailable
         ' 
-        DataGridView2.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        DataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView2.Location = New Point(6, 22)
-        DataGridView2.Name = "DataGridView2"
-        DataGridView2.RowTemplate.Height = 25
-        DataGridView2.Size = New Size(371, 264)
-        DataGridView2.TabIndex = 1
+        dgvAvailable.AllowUserToAddRows = False
+        dgvAvailable.AllowUserToDeleteRows = False
+        dgvAvailable.AllowUserToResizeColumns = False
+        dgvAvailable.AllowUserToResizeRows = False
+        dgvAvailable.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        dgvAvailable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        dgvAvailable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvAvailable.EditMode = DataGridViewEditMode.EditProgrammatically
+        dgvAvailable.GridColor = SystemColors.Menu
+        dgvAvailable.ImeMode = ImeMode.NoControl
+        dgvAvailable.Location = New Point(6, 22)
+        dgvAvailable.Name = "dgvAvailable"
+        dgvAvailable.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
+        dgvAvailable.RowTemplate.Height = 25
+        dgvAvailable.Size = New Size(371, 264)
+        dgvAvailable.TabIndex = 1
         ' 
         ' Dashboard
         ' 
@@ -162,27 +168,28 @@ Partial Class Dashboard
         Controls.Add(GroupBox1)
         Controls.Add(Panel1)
         Controls.Add(FlowLayoutPanel1)
+        MaximumSize = New Size(816, 392)
+        MinimumSize = New Size(816, 392)
         Name = "Dashboard"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Dashboard"
         FlowLayoutPanel1.ResumeLayout(False)
         Panel1.ResumeLayout(False)
         GroupBox1.ResumeLayout(False)
-        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
+        CType(dgvOccupied, ComponentModel.ISupportInitialize).EndInit()
         GroupBox2.ResumeLayout(False)
-        CType(DataGridView2, ComponentModel.ISupportInitialize).EndInit()
+        CType(dgvAvailable, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents btnReserve As Button
     Friend WithEvents btnCheck As Button
-    Friend WithEvents btnAdmin As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btnLogOut As Button
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents dgvOccupied As DataGridView
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents DataGridView2 As DataGridView
+    Friend WithEvents dgvAvailable As DataGridView
     Friend WithEvents btnGuest As Button
 End Class

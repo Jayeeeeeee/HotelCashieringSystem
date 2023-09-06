@@ -7,7 +7,7 @@ Module HCSModule
     Private dt As DataTable
     Private sqlCommand As MySqlCommand
 
-    Public mysqlConn As New MySqlConnection("Server=localhost; Port=3306; Database=storedb; user=root;")
+    Public mysqlConn As New MySqlConnection("Server=localhost; Port=3306; Database=hoteldb; user=root;")
     Public Sub OpendbConn()
 
         Try

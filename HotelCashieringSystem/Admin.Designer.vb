@@ -25,8 +25,6 @@ Partial Class Admin
         btnLogOut = New Button()
         btnRoomProfile = New Button()
         btnDash = New Button()
-        btnBack = New Button()
-        btnGuestProfile = New Button()
         SuspendLayout()
         ' 
         ' btnLogOut
@@ -42,7 +40,7 @@ Partial Class Admin
         ' btnRoomProfile
         ' 
         btnRoomProfile.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnRoomProfile.Location = New Point(12, 115)
+        btnRoomProfile.Location = New Point(12, 41)
         btnRoomProfile.Name = "btnRoomProfile"
         btnRoomProfile.Size = New Size(194, 68)
         btnRoomProfile.TabIndex = 1
@@ -52,42 +50,20 @@ Partial Class Admin
         ' btnDash
         ' 
         btnDash.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnDash.Location = New Point(12, 189)
+        btnDash.Location = New Point(12, 115)
         btnDash.Name = "btnDash"
         btnDash.Size = New Size(194, 68)
         btnDash.TabIndex = 2
         btnDash.Text = "Report/Dashboard"
         btnDash.UseVisualStyleBackColor = True
         ' 
-        ' btnBack
-        ' 
-        btnBack.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnBack.Location = New Point(12, 12)
-        btnBack.Name = "btnBack"
-        btnBack.Size = New Size(60, 23)
-        btnBack.TabIndex = 0
-        btnBack.Text = "Back"
-        btnBack.UseVisualStyleBackColor = True
-        ' 
-        ' btnGuestProfile
-        ' 
-        btnGuestProfile.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnGuestProfile.Location = New Point(12, 41)
-        btnGuestProfile.Name = "btnGuestProfile"
-        btnGuestProfile.Size = New Size(194, 68)
-        btnGuestProfile.TabIndex = 0
-        btnGuestProfile.Text = "Guest Profile"
-        btnGuestProfile.UseVisualStyleBackColor = True
-        ' 
         ' Admin
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(218, 264)
-        Controls.Add(btnBack)
+        ClientSize = New Size(218, 193)
         Controls.Add(btnLogOut)
         Controls.Add(btnDash)
-        Controls.Add(btnGuestProfile)
         Controls.Add(btnRoomProfile)
         Name = "Admin"
         StartPosition = FormStartPosition.CenterScreen
@@ -97,6 +73,4 @@ Partial Class Admin
     Friend WithEvents btnLogOut As Button
     Friend WithEvents btnDash As Button
     Friend WithEvents btnRoomProfile As Button
-    Friend WithEvents btnBack As Button
-    Friend WithEvents btnGuestProfile As Button
 End Class

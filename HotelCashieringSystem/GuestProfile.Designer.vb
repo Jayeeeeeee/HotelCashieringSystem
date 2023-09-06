@@ -30,14 +30,14 @@ Partial Class GuestProfile
         GroupBox2 = New GroupBox()
         dgGuest = New DataGridView()
         GroupBox1 = New GroupBox()
+        txtName = New TextBox()
+        txtAddress = New TextBox()
+        txtNumber = New TextBox()
+        txtGuestID = New TextBox()
         Label4 = New Label()
         Label3 = New Label()
         Label2 = New Label()
         Label1 = New Label()
-        txtAddress = New TextBox()
-        txtNumber = New TextBox()
-        txtGuestID = New TextBox()
-        txtName = New TextBox()
         GroupBox2.SuspendLayout()
         CType(dgGuest, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
@@ -143,41 +143,13 @@ Partial Class GuestProfile
         GroupBox1.TabIndex = 21
         GroupBox1.TabStop = False
         ' 
-        ' Label4
+        ' txtName
         ' 
-        Label4.AutoSize = True
-        Label4.Location = New Point(20, 176)
-        Label4.Name = "Label4"
-        Label4.Size = New Size(144, 19)
-        Label4.TabIndex = 7
-        Label4.Text = "Contact Number:"
-        ' 
-        ' Label3
-        ' 
-        Label3.AutoSize = True
-        Label3.Location = New Point(20, 134)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(81, 19)
-        Label3.TabIndex = 6
-        Label3.Text = "Address:"
-        ' 
-        ' Label2
-        ' 
-        Label2.AutoSize = True
-        Label2.Location = New Point(20, 92)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(54, 19)
-        Label2.TabIndex = 5
-        Label2.Text = "Name:"
-        ' 
-        ' Label1
-        ' 
-        Label1.AutoSize = True
-        Label1.Location = New Point(20, 46)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(90, 19)
-        Label1.TabIndex = 4
-        Label1.Text = "Guest ID:"
+        txtName.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        txtName.Location = New Point(176, 89)
+        txtName.Name = "txtName"
+        txtName.Size = New Size(186, 26)
+        txtName.TabIndex = 12
         ' 
         ' txtAddress
         ' 
@@ -203,13 +175,41 @@ Partial Class GuestProfile
         txtGuestID.Size = New Size(186, 26)
         txtGuestID.TabIndex = 8
         ' 
-        ' txtName
+        ' Label4
         ' 
-        txtName.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        txtName.Location = New Point(176, 89)
-        txtName.Name = "txtName"
-        txtName.Size = New Size(186, 26)
-        txtName.TabIndex = 12
+        Label4.AutoSize = True
+        Label4.Location = New Point(20, 176)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(144, 19)
+        Label4.TabIndex = 7
+        Label4.Text = "Contact Number:"
+        ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.Location = New Point(20, 134)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(81, 19)
+        Label3.TabIndex = 6
+        Label3.Text = "Address:"
+        ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.Location = New Point(20, 92)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(108, 19)
+        Label2.TabIndex = 5
+        Label2.Text = "Guest Name:"
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Location = New Point(20, 46)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(90, 19)
+        Label1.TabIndex = 4
+        Label1.Text = "Guest ID:"
         ' 
         ' GuestProfile
         ' 

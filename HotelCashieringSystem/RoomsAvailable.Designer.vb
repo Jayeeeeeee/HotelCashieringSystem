@@ -22,33 +22,33 @@ Partial Class RoomsAvailable
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        DataGridView1 = New DataGridView()
-        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
+        dgvRoom = New DataGridView()
+        CType(dgvRoom, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
-        ' DataGridView1
+        ' dgvRoom
         ' 
-        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(12, 12)
-        DataGridView1.Name = "DataGridView1"
-        DataGridView1.RowTemplate.Height = 25
-        DataGridView1.Size = New Size(427, 354)
-        DataGridView1.TabIndex = 0
+        dgvRoom.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvRoom.Location = New Point(12, 12)
+        dgvRoom.Name = "dgvRoom"
+        dgvRoom.RowTemplate.Height = 25
+        dgvRoom.Size = New Size(427, 354)
+        dgvRoom.TabIndex = 0
         ' 
         ' RoomsAvailable
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(451, 378)
-        Controls.Add(DataGridView1)
+        Controls.Add(dgvRoom)
         FormBorderStyle = FormBorderStyle.FixedSingle
         MaximizeBox = False
         Name = "RoomsAvailable"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Rooms Available"
-        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
+        CType(dgvRoom, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents dgvRoom As DataGridView
 End Class

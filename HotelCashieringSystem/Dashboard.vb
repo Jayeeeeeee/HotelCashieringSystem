@@ -3,14 +3,17 @@
         Dim out As New System.Windows.Forms.DialogResult
         out = MessageBox.Show("Logout?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If out Then
+            Login.Show()
             Me.Close()
-            Login.Close()
+            ClosedbConn()
         Else
             Me.Show()
         End If
     End Sub
 
     Private Sub Dashboard_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+        displayInfo("select * from rooms_available", dgvAvailable)
+        displayInfo("select * from rooms_occupied", dgvOccupied)
 
     End Sub
 
@@ -21,11 +24,6 @@
 
     Private Sub btnCheck_Click(sender As Object, e As EventArgs) Handles btnCheck.Click
         Checking.Show()
-        Me.Hide()
-    End Sub
-
-    Private Sub btnAdmin_Click(sender As Object, e As EventArgs) Handles btnAdmin.Click
-        Admin.Show()
         Me.Hide()
     End Sub
 

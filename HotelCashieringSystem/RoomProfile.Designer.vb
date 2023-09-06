@@ -25,9 +25,11 @@ Partial Class RoomProfile
         btnClear = New Button()
         btnDelete = New Button()
         GroupBox2 = New GroupBox()
-        dgRoom = New DataGridView()
+        dgvRoom = New DataGridView()
         btnUpdate = New Button()
         GroupBox1 = New GroupBox()
+        cmbAvailability = New ComboBox()
+        Label5 = New Label()
         cmbRoomType = New ComboBox()
         txtBeds = New TextBox()
         txtPrice = New TextBox()
@@ -39,10 +41,8 @@ Partial Class RoomProfile
         btnCreate = New Button()
         btnBack = New Button()
         btnLogOut = New Button()
-        cmbAvailability = New ComboBox()
-        Label5 = New Label()
         GroupBox2.SuspendLayout()
-        CType(dgRoom, ComponentModel.ISupportInitialize).BeginInit()
+        CType(dgvRoom, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
         SuspendLayout()
         ' 
@@ -70,7 +70,7 @@ Partial Class RoomProfile
         ' 
         GroupBox2.Anchor = AnchorStyles.None
         GroupBox2.BackColor = Color.Transparent
-        GroupBox2.Controls.Add(dgRoom)
+        GroupBox2.Controls.Add(dgvRoom)
         GroupBox2.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox2.ForeColor = Color.Black
         GroupBox2.Location = New Point(396, 51)
@@ -80,22 +80,22 @@ Partial Class RoomProfile
         GroupBox2.TabStop = False
         GroupBox2.Text = "Room Information"
         ' 
-        ' dgRoom
+        ' dgvRoom
         ' 
-        dgRoom.AllowUserToAddRows = False
-        dgRoom.AllowUserToDeleteRows = False
-        dgRoom.AllowUserToResizeColumns = False
-        dgRoom.AllowUserToResizeRows = False
-        dgRoom.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        dgRoom.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-        dgRoom.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        dgRoom.EditMode = DataGridViewEditMode.EditProgrammatically
-        dgRoom.Location = New Point(6, 25)
-        dgRoom.Name = "dgRoom"
-        dgRoom.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
-        dgRoom.RowTemplate.Height = 25
-        dgRoom.Size = New Size(423, 306)
-        dgRoom.TabIndex = 0
+        dgvRoom.AllowUserToAddRows = False
+        dgvRoom.AllowUserToDeleteRows = False
+        dgvRoom.AllowUserToResizeColumns = False
+        dgvRoom.AllowUserToResizeRows = False
+        dgvRoom.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        dgvRoom.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        dgvRoom.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvRoom.EditMode = DataGridViewEditMode.EditProgrammatically
+        dgvRoom.Location = New Point(6, 25)
+        dgvRoom.Name = "dgvRoom"
+        dgvRoom.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
+        dgvRoom.RowTemplate.Height = 25
+        dgvRoom.Size = New Size(423, 306)
+        dgvRoom.TabIndex = 0
         ' 
         ' btnUpdate
         ' 
@@ -127,6 +127,26 @@ Partial Class RoomProfile
         GroupBox1.Size = New Size(378, 259)
         GroupBox1.TabIndex = 13
         GroupBox1.TabStop = False
+        ' 
+        ' cmbAvailability
+        ' 
+        cmbAvailability.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        cmbAvailability.DropDownStyle = ComboBoxStyle.DropDownList
+        cmbAvailability.FormattingEnabled = True
+        cmbAvailability.Items.AddRange(New Object() {"", "Available", "Reserved", "Occupied"})
+        cmbAvailability.Location = New Point(176, 203)
+        cmbAvailability.Name = "cmbAvailability"
+        cmbAvailability.Size = New Size(186, 27)
+        cmbAvailability.TabIndex = 8
+        ' 
+        ' Label5
+        ' 
+        Label5.AutoSize = True
+        Label5.Location = New Point(6, 206)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(171, 19)
+        Label5.TabIndex = 7
+        Label5.Text = "Room Availability:"
         ' 
         ' cmbRoomType
         ' 
@@ -229,26 +249,6 @@ Partial Class RoomProfile
         btnLogOut.Text = "Logout"
         btnLogOut.UseVisualStyleBackColor = True
         ' 
-        ' cmbAvailability
-        ' 
-        cmbAvailability.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        cmbAvailability.DropDownStyle = ComboBoxStyle.DropDownList
-        cmbAvailability.FormattingEnabled = True
-        cmbAvailability.Items.AddRange(New Object() {"", "Available", "Reserved", "Occupied"})
-        cmbAvailability.Location = New Point(176, 203)
-        cmbAvailability.Name = "cmbAvailability"
-        cmbAvailability.Size = New Size(186, 27)
-        cmbAvailability.TabIndex = 8
-        ' 
-        ' Label5
-        ' 
-        Label5.AutoSize = True
-        Label5.Location = New Point(6, 206)
-        Label5.Name = "Label5"
-        Label5.Size = New Size(171, 19)
-        Label5.TabIndex = 7
-        Label5.Text = "Room Availability:"
-        ' 
         ' RoomProfile
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -265,7 +265,7 @@ Partial Class RoomProfile
         Name = "RoomProfile"
         Text = "Room Profile"
         GroupBox2.ResumeLayout(False)
-        CType(dgRoom, ComponentModel.ISupportInitialize).EndInit()
+        CType(dgvRoom, ComponentModel.ISupportInitialize).EndInit()
         GroupBox1.ResumeLayout(False)
         GroupBox1.PerformLayout()
         ResumeLayout(False)
@@ -274,7 +274,7 @@ Partial Class RoomProfile
     Friend WithEvents btnClear As Button
     Friend WithEvents btnDelete As Button
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents dgRoom As DataGridView
+    Friend WithEvents dgvRoom As DataGridView
     Friend WithEvents btnUpdate As Button
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents cmbRoomType As ComboBox
