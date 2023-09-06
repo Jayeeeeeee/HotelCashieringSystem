@@ -14,4 +14,23 @@
             Me.Show()
         End If
     End Sub
+
+    Private Sub dgGuest_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvGuest.CellClick
+        Try
+            Dim i = e.RowIndex
+            With dgvGuest
+                txtGuestID.Text = .Item("ID", i).Value
+                txtName.Text = .Item("Guest Name", i).Value
+            End With
+            btnCheckIn.Enabled = True
+            btnCheckOut.Enabled = True
+        Catch ex As Exception
+            MessageBox.Show("Error: " + ex.Message)
+        End Try
+    End Sub
+
+    Private Sub Checking_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+        displayInfo("Select * From guest_info", dgvGuest)
+        'displayInfo("Select * From guest_checkedin", dgvCheckedIn)
+    End Sub
 End Class

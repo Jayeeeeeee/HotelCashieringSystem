@@ -26,7 +26,7 @@ Partial Class Checking
         btnBack = New Button()
         btnClear = New Button()
         GroupBox2 = New GroupBox()
-        dgCheckedIn = New DataGridView()
+        dgvCheckedIn = New DataGridView()
         btnCheckOut = New Button()
         GroupBox1 = New GroupBox()
         txtRoomNumber = New TextBox()
@@ -42,12 +42,12 @@ Partial Class Checking
         btnCheckIn = New Button()
         btnRooms = New Button()
         GroupBox3 = New GroupBox()
-        dgGuest = New DataGridView()
+        dgvGuest = New DataGridView()
         GroupBox2.SuspendLayout()
-        CType(dgCheckedIn, ComponentModel.ISupportInitialize).BeginInit()
+        CType(dgvCheckedIn, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
         GroupBox3.SuspendLayout()
-        CType(dgGuest, ComponentModel.ISupportInitialize).BeginInit()
+        CType(dgvGuest, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' btnLogOut
@@ -84,7 +84,7 @@ Partial Class Checking
         ' 
         GroupBox2.Anchor = AnchorStyles.None
         GroupBox2.BackColor = Color.Transparent
-        GroupBox2.Controls.Add(dgCheckedIn)
+        GroupBox2.Controls.Add(dgvCheckedIn)
         GroupBox2.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox2.ForeColor = Color.Black
         GroupBox2.Location = New Point(842, 41)
@@ -94,22 +94,22 @@ Partial Class Checking
         GroupBox2.TabStop = False
         GroupBox2.Text = "Guests Checked In"
         ' 
-        ' dgCheckedIn
+        ' dgvCheckedIn
         ' 
-        dgCheckedIn.AllowUserToAddRows = False
-        dgCheckedIn.AllowUserToDeleteRows = False
-        dgCheckedIn.AllowUserToResizeColumns = False
-        dgCheckedIn.AllowUserToResizeRows = False
-        dgCheckedIn.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        dgCheckedIn.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-        dgCheckedIn.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        dgCheckedIn.EditMode = DataGridViewEditMode.EditProgrammatically
-        dgCheckedIn.Location = New Point(6, 23)
-        dgCheckedIn.Name = "dgCheckedIn"
-        dgCheckedIn.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
-        dgCheckedIn.RowTemplate.Height = 25
-        dgCheckedIn.Size = New Size(423, 312)
-        dgCheckedIn.TabIndex = 0
+        dgvCheckedIn.AllowUserToAddRows = False
+        dgvCheckedIn.AllowUserToDeleteRows = False
+        dgvCheckedIn.AllowUserToResizeColumns = False
+        dgvCheckedIn.AllowUserToResizeRows = False
+        dgvCheckedIn.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        dgvCheckedIn.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        dgvCheckedIn.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvCheckedIn.EditMode = DataGridViewEditMode.EditProgrammatically
+        dgvCheckedIn.Location = New Point(6, 23)
+        dgvCheckedIn.Name = "dgvCheckedIn"
+        dgvCheckedIn.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
+        dgvCheckedIn.RowTemplate.Height = 25
+        dgvCheckedIn.Size = New Size(423, 312)
+        dgvCheckedIn.TabIndex = 0
         ' 
         ' btnCheckOut
         ' 
@@ -256,7 +256,7 @@ Partial Class Checking
         ' 
         GroupBox3.Anchor = AnchorStyles.None
         GroupBox3.BackColor = Color.Transparent
-        GroupBox3.Controls.Add(dgGuest)
+        GroupBox3.Controls.Add(dgvGuest)
         GroupBox3.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox3.ForeColor = Color.Black
         GroupBox3.Location = New Point(401, 41)
@@ -266,22 +266,22 @@ Partial Class Checking
         GroupBox3.TabStop = False
         GroupBox3.Text = "Guest List"
         ' 
-        ' dgGuest
+        ' dgvGuest
         ' 
-        dgGuest.AllowUserToAddRows = False
-        dgGuest.AllowUserToDeleteRows = False
-        dgGuest.AllowUserToResizeColumns = False
-        dgGuest.AllowUserToResizeRows = False
-        dgGuest.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        dgGuest.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-        dgGuest.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        dgGuest.EditMode = DataGridViewEditMode.EditProgrammatically
-        dgGuest.Location = New Point(6, 23)
-        dgGuest.Name = "dgGuest"
-        dgGuest.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
-        dgGuest.RowTemplate.Height = 25
-        dgGuest.Size = New Size(423, 312)
-        dgGuest.TabIndex = 0
+        dgvGuest.AllowUserToAddRows = False
+        dgvGuest.AllowUserToDeleteRows = False
+        dgvGuest.AllowUserToResizeColumns = False
+        dgvGuest.AllowUserToResizeRows = False
+        dgvGuest.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        dgvGuest.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        dgvGuest.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvGuest.EditMode = DataGridViewEditMode.EditProgrammatically
+        dgvGuest.Location = New Point(6, 23)
+        dgvGuest.Name = "dgvGuest"
+        dgvGuest.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
+        dgvGuest.RowTemplate.Height = 25
+        dgvGuest.Size = New Size(423, 312)
+        dgvGuest.TabIndex = 0
         ' 
         ' Checking
         ' 
@@ -301,18 +301,18 @@ Partial Class Checking
         StartPosition = FormStartPosition.CenterScreen
         Text = "Checking"
         GroupBox2.ResumeLayout(False)
-        CType(dgCheckedIn, ComponentModel.ISupportInitialize).EndInit()
+        CType(dgvCheckedIn, ComponentModel.ISupportInitialize).EndInit()
         GroupBox1.ResumeLayout(False)
         GroupBox1.PerformLayout()
         GroupBox3.ResumeLayout(False)
-        CType(dgGuest, ComponentModel.ISupportInitialize).EndInit()
+        CType(dgvGuest, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
     Friend WithEvents btnLogOut As Button
     Friend WithEvents btnBack As Button
     Friend WithEvents btnClear As Button
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents dgCheckedIn As DataGridView
+    Friend WithEvents dgvCheckedIn As DataGridView
     Friend WithEvents btnCheckOut As Button
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents txtRoomNumber As TextBox
@@ -328,5 +328,5 @@ Partial Class Checking
     Friend WithEvents btnCheckIn As Button
     Friend WithEvents btnRooms As Button
     Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents dgGuest As DataGridView
+    Friend WithEvents dgvGuest As DataGridView
 End Class
