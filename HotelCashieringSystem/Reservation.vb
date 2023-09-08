@@ -24,4 +24,5 @@
         txtName.Text = ""
         txtRoomNumber.Text = ""
     End Sub
+
 End Class

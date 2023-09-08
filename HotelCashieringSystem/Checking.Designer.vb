@@ -108,6 +108,7 @@ Partial Class Checking
         dgvCheckedIn.Name = "dgvCheckedIn"
         dgvCheckedIn.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         dgvCheckedIn.RowTemplate.Height = 25
+        dgvCheckedIn.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         dgvCheckedIn.Size = New Size(423, 312)
         dgvCheckedIn.TabIndex = 0
         ' 
@@ -280,6 +281,7 @@ Partial Class Checking
         dgvGuest.Name = "dgvGuest"
         dgvGuest.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         dgvGuest.RowTemplate.Height = 25
+        dgvGuest.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         dgvGuest.Size = New Size(423, 312)
         dgvGuest.TabIndex = 0
         ' 

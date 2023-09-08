@@ -122,6 +122,7 @@ Partial Class GuestProfile
         dgvGuest.Name = "dgvGuest"
         dgvGuest.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         dgvGuest.RowTemplate.Height = 25
+        dgvGuest.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         dgvGuest.Size = New Size(764, 310)
         dgvGuest.TabIndex = 0
         ' 

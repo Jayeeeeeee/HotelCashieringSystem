@@ -93,6 +93,7 @@ Partial Class RoomProfile
         dgvRoom.Name = "dgvRoom"
         dgvRoom.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         dgvRoom.RowTemplate.Height = 25
+        dgvRoom.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         dgvRoom.Size = New Size(764, 306)
         dgvRoom.TabIndex = 0
         ' 
