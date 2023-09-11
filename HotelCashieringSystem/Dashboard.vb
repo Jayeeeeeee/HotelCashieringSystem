@@ -14,7 +14,6 @@
     Private Sub Dashboard_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
         displayInfo("Select * From rooms_available", dgvAvailable)
         displayInfo("Select * From rooms_occupied", dgvOccupied)
-
     End Sub
 
     Private Sub btnReserve_Click(sender As Object, e As EventArgs) Handles btnReserve.Click

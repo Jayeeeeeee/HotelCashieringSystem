@@ -85,7 +85,8 @@
             btnUpdate.Enabled = True
             btnDelete.Enabled = True
         Catch ex As Exception
-            MessageBox.Show("Error: " + ex.Message)
+            'MessageBox.Show("Error: " + ex.Message)
         End Try
     End Sub
+
 End Class

@@ -125,6 +125,7 @@ Partial Class Dashboard
         dgvOccupied.Name = "dgvOccupied"
         dgvOccupied.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         dgvOccupied.RowTemplate.Height = 25
+        dgvOccupied.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         dgvOccupied.Size = New Size(558, 264)
         dgvOccupied.TabIndex = 0
         ' 
@@ -156,6 +157,7 @@ Partial Class Dashboard
         dgvAvailable.Name = "dgvAvailable"
         dgvAvailable.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         dgvAvailable.RowTemplate.Height = 25
+        dgvAvailable.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         dgvAvailable.Size = New Size(558, 264)
         dgvAvailable.TabIndex = 1
         ' 

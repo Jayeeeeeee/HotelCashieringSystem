@@ -25,4 +25,7 @@
         txtRoomNumber.Text = ""
     End Sub
 
+    Private Sub Reservation_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+        displayInfo("Select * From guest_info", dgGuest)
+    End Sub
 End Class
