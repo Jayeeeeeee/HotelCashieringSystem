@@ -38,6 +38,7 @@ Partial Class GuestProfile
         Label3 = New Label()
         Label2 = New Label()
         Label1 = New Label()
+        btnUpdate = New Button()
         GroupBox2.SuspendLayout()
         CType(dgvGuest, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
@@ -48,7 +49,7 @@ Partial Class GuestProfile
         btnAdd.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
         btnAdd.Location = New Point(12, 315)
         btnAdd.Name = "btnAdd"
-        btnAdd.Size = New Size(120, 68)
+        btnAdd.Size = New Size(90, 68)
         btnAdd.TabIndex = 17
         btnAdd.Text = "Add New Guest"
         btnAdd.UseVisualStyleBackColor = True
@@ -76,9 +77,9 @@ Partial Class GuestProfile
         ' btnClear
         ' 
         btnClear.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnClear.Location = New Point(268, 315)
+        btnClear.Location = New Point(300, 315)
         btnClear.Name = "btnClear"
-        btnClear.Size = New Size(120, 68)
+        btnClear.Size = New Size(90, 68)
         btnClear.TabIndex = 20
         btnClear.Text = "Clear"
         btnClear.UseVisualStyleBackColor = True
@@ -87,9 +88,9 @@ Partial Class GuestProfile
         ' 
         btnDelete.Enabled = False
         btnDelete.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnDelete.Location = New Point(137, 315)
+        btnDelete.Location = New Point(204, 315)
         btnDelete.Name = "btnDelete"
-        btnDelete.Size = New Size(125, 68)
+        btnDelete.Size = New Size(90, 68)
         btnDelete.TabIndex = 19
         btnDelete.Text = "Delete Guest"
         btnDelete.UseVisualStyleBackColor = True
@@ -213,11 +214,23 @@ Partial Class GuestProfile
         Label1.TabIndex = 4
         Label1.Text = "Guest ID:"
         ' 
+        ' btnUpdate
+        ' 
+        btnUpdate.Enabled = False
+        btnUpdate.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        btnUpdate.Location = New Point(108, 316)
+        btnUpdate.Name = "btnUpdate"
+        btnUpdate.Size = New Size(90, 68)
+        btnUpdate.TabIndex = 23
+        btnUpdate.Text = "Update Guest Profile"
+        btnUpdate.UseVisualStyleBackColor = True
+        ' 
         ' GuestProfile
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1184, 396)
+        Controls.Add(btnUpdate)
         Controls.Add(btnAdd)
         Controls.Add(btnBack)
         Controls.Add(btnLogOut)
@@ -250,4 +263,5 @@ Partial Class GuestProfile
     Friend WithEvents txtNumber As TextBox
     Friend WithEvents txtGuestID As TextBox
     Friend WithEvents txtName As TextBox
+    Friend WithEvents btnUpdate As Button
 End Class

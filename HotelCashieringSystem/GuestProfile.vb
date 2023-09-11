@@ -30,8 +30,8 @@
         If String.IsNullOrWhiteSpace(txtName.Text) Or String.IsNullOrWhiteSpace(txtAddress.Text) Or String.IsNullOrWhiteSpace(txtNumber.Text) Then
             MessageBox.Show("Some fields are empty!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Else
-            Dim GuestQuery = "Insert Into guest_info Values(null or '" & txtGuestID.Text & "', '" & txtName.Text & "', '" & txtAddress.Text & "', '" & txtNumber.Text & "')"
-            SQLProcess(GuestQuery)
+            Dim AddGuest = "Insert Into guest_info Values(null or '" & txtGuestID.Text & "', '" & txtName.Text & "', '" & txtAddress.Text & "', '" & txtNumber.Text & "')"
+            SQLProcess(AddGuest)
 
             MessageBox.Show("Guest Added!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
@@ -66,9 +66,22 @@
                 txtNumber.Text = .Item("Contact No.", i).Value
             End With
             btnDelete.Enabled = True
+            btnUpdate.Enabled = True
         Catch ex As Exception
             MessageBox.Show("Error: " + ex.Message)
         End Try
     End Sub
 
+    Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
+        If String.IsNullOrWhiteSpace(txtName.Text) Or String.IsNullOrWhiteSpace(txtAddress.Text) Or String.IsNullOrWhiteSpace(txtNumber.Text) Then
+            MessageBox.Show("Some fields are empty!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        Else
+            Dim UGuest = "Update guests Set GName = '" & txtName.Text & "', GAddress = '" & txtAddress.Text & "', GNum = '" & txtNumber.Text & "' Where GuestID = '" & txtGuestID.Text & "'"
+            SQLProcess(UGuest)
+
+            MessageBox.Show("Guest Profile Updated!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            cleartxt()
+        End If
+    End Sub
 End Class

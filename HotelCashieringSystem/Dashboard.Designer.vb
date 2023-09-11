@@ -58,7 +58,7 @@ Partial Class Dashboard
         btnGuest.Name = "btnGuest"
         btnGuest.Size = New Size(133, 23)
         btnGuest.TabIndex = 3
-        btnGuest.Text = "Add Guest"
+        btnGuest.Text = "Guest Profile"
         btnGuest.UseVisualStyleBackColor = True
         ' 
         ' btnReserve
