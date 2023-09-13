@@ -52,7 +52,7 @@ Partial Class RoomProfile
         btnClear.Location = New Point(300, 300)
         btnClear.Name = "btnClear"
         btnClear.Size = New Size(90, 68)
-        btnClear.TabIndex = 10
+        btnClear.TabIndex = 7
         btnClear.Text = "Clear"
         btnClear.UseVisualStyleBackColor = True
         ' 
@@ -63,7 +63,7 @@ Partial Class RoomProfile
         btnDelete.Location = New Point(204, 300)
         btnDelete.Name = "btnDelete"
         btnDelete.Size = New Size(90, 68)
-        btnDelete.TabIndex = 9
+        btnDelete.TabIndex = 6
         btnDelete.Text = "Delete Room"
         btnDelete.UseVisualStyleBackColor = True
         ' 
@@ -98,6 +98,7 @@ Partial Class RoomProfile
         dgvRoom.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         dgvRoom.Size = New Size(764, 306)
         dgvRoom.TabIndex = 0
+        dgvRoom.TabStop = False
         ' 
         ' btnUpdate
         ' 
@@ -106,7 +107,7 @@ Partial Class RoomProfile
         btnUpdate.Location = New Point(108, 300)
         btnUpdate.Name = "btnUpdate"
         btnUpdate.Size = New Size(90, 68)
-        btnUpdate.TabIndex = 8
+        btnUpdate.TabIndex = 5
         btnUpdate.Text = "Update Room"
         btnUpdate.UseVisualStyleBackColor = True
         ' 
@@ -138,7 +139,8 @@ Partial Class RoomProfile
         txtRoomPrice.Name = "txtRoomPrice"
         txtRoomPrice.ReadOnly = True
         txtRoomPrice.Size = New Size(186, 26)
-        txtRoomPrice.TabIndex = 10
+        txtRoomPrice.TabIndex = 0
+        txtRoomPrice.TabStop = False
         ' 
         ' Label4
         ' 
@@ -158,7 +160,7 @@ Partial Class RoomProfile
         cmbAvailability.Location = New Point(178, 191)
         cmbAvailability.Name = "cmbAvailability"
         cmbAvailability.Size = New Size(186, 27)
-        cmbAvailability.TabIndex = 8
+        cmbAvailability.TabIndex = 3
         ' 
         ' Label5
         ' 
@@ -178,7 +180,7 @@ Partial Class RoomProfile
         cmbRoomType.Location = New Point(178, 71)
         cmbRoomType.Name = "cmbRoomType"
         cmbRoomType.Size = New Size(186, 27)
-        cmbRoomType.TabIndex = 5
+        cmbRoomType.TabIndex = 2
         ' 
         ' txtBeds
         ' 
@@ -187,7 +189,8 @@ Partial Class RoomProfile
         txtBeds.Name = "txtBeds"
         txtBeds.ReadOnly = True
         txtBeds.Size = New Size(186, 26)
-        txtBeds.TabIndex = 6
+        txtBeds.TabIndex = 0
+        txtBeds.TabStop = False
         ' 
         ' txtRoomID
         ' 
@@ -195,7 +198,7 @@ Partial Class RoomProfile
         txtRoomID.Location = New Point(178, 31)
         txtRoomID.Name = "txtRoomID"
         txtRoomID.Size = New Size(186, 26)
-        txtRoomID.TabIndex = 3
+        txtRoomID.TabIndex = 1
         ' 
         ' Label3
         ' 
@@ -230,7 +233,7 @@ Partial Class RoomProfile
         btnCreate.Location = New Point(12, 300)
         btnCreate.Name = "btnCreate"
         btnCreate.Size = New Size(90, 68)
-        btnCreate.TabIndex = 7
+        btnCreate.TabIndex = 4
         btnCreate.Text = "Create Room"
         btnCreate.UseVisualStyleBackColor = True
         ' 
@@ -240,7 +243,7 @@ Partial Class RoomProfile
         btnBack.Location = New Point(12, 12)
         btnBack.Name = "btnBack"
         btnBack.Size = New Size(133, 22)
-        btnBack.TabIndex = 0
+        btnBack.TabIndex = 8
         btnBack.Text = "Back"
         btnBack.UseVisualStyleBackColor = True
         ' 
@@ -250,7 +253,7 @@ Partial Class RoomProfile
         btnLogOut.Location = New Point(1039, 12)
         btnLogOut.Name = "btnLogOut"
         btnLogOut.Size = New Size(133, 22)
-        btnLogOut.TabIndex = 3
+        btnLogOut.TabIndex = 9
         btnLogOut.Text = "Logout"
         btnLogOut.UseVisualStyleBackColor = True
         ' 

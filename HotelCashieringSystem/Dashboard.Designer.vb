@@ -60,7 +60,7 @@ Partial Class Dashboard
         btnGuest.Location = New Point(3, 3)
         btnGuest.Name = "btnGuest"
         btnGuest.Size = New Size(133, 23)
-        btnGuest.TabIndex = 3
+        btnGuest.TabIndex = 1
         btnGuest.Text = "Guest Profile"
         btnGuest.UseVisualStyleBackColor = True
         ' 
@@ -70,7 +70,7 @@ Partial Class Dashboard
         btnReserve.Location = New Point(142, 3)
         btnReserve.Name = "btnReserve"
         btnReserve.Size = New Size(133, 23)
-        btnReserve.TabIndex = 0
+        btnReserve.TabIndex = 2
         btnReserve.Text = "Reservation"
         btnReserve.UseVisualStyleBackColor = True
         ' 
@@ -80,7 +80,7 @@ Partial Class Dashboard
         btnCheck.Location = New Point(281, 3)
         btnCheck.Name = "btnCheck"
         btnCheck.Size = New Size(161, 23)
-        btnCheck.TabIndex = 1
+        btnCheck.TabIndex = 3
         btnCheck.Text = "Check In / Check Out"
         btnCheck.UseVisualStyleBackColor = True
         ' 
@@ -98,7 +98,7 @@ Partial Class Dashboard
         btnLogOut.Location = New Point(3, 3)
         btnLogOut.Name = "btnLogOut"
         btnLogOut.Size = New Size(133, 23)
-        btnLogOut.TabIndex = 3
+        btnLogOut.TabIndex = 4
         btnLogOut.Text = "Logout"
         btnLogOut.UseVisualStyleBackColor = True
         ' 
@@ -122,6 +122,7 @@ Partial Class Dashboard
         dgvOccupied.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         dgvOccupied.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
         dgvOccupied.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvOccupied.Cursor = Cursors.Hand
         dgvOccupied.EditMode = DataGridViewEditMode.EditProgrammatically
         dgvOccupied.GridColor = SystemColors.Menu
         dgvOccupied.Location = New Point(6, 22)
@@ -130,7 +131,8 @@ Partial Class Dashboard
         dgvOccupied.RowTemplate.Height = 25
         dgvOccupied.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         dgvOccupied.Size = New Size(558, 264)
-        dgvOccupied.TabIndex = 0
+        dgvOccupied.TabIndex = 4
+        dgvOccupied.TabStop = False
         ' 
         ' GroupBox2
         ' 
@@ -153,6 +155,7 @@ Partial Class Dashboard
         dgvAvailable.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         dgvAvailable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         dgvAvailable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvAvailable.Cursor = Cursors.Hand
         dgvAvailable.EditMode = DataGridViewEditMode.EditProgrammatically
         dgvAvailable.GridColor = SystemColors.Menu
         dgvAvailable.ImeMode = ImeMode.NoControl
@@ -162,12 +165,15 @@ Partial Class Dashboard
         dgvAvailable.RowTemplate.Height = 25
         dgvAvailable.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         dgvAvailable.Size = New Size(558, 264)
-        dgvAvailable.TabIndex = 1
+        dgvAvailable.TabIndex = 5
+        dgvAvailable.TabStop = False
         ' 
         ' lblDateTime
         ' 
         lblDateTime.AutoSize = True
+        lblDateTime.BackColor = Color.Black
         lblDateTime.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        lblDateTime.ForeColor = Color.OrangeRed
         lblDateTime.Location = New Point(865, 19)
         lblDateTime.Name = "lblDateTime"
         lblDateTime.Size = New Size(161, 14)

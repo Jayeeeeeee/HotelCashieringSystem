@@ -289,7 +289,9 @@ Partial Class Reservation
         ' lblDateTime
         ' 
         lblDateTime.AutoSize = True
+        lblDateTime.BackColor = SystemColors.ActiveCaptionText
         lblDateTime.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        lblDateTime.ForeColor = Color.OrangeRed
         lblDateTime.Location = New Point(977, 16)
         lblDateTime.Name = "lblDateTime"
         lblDateTime.Size = New Size(161, 14)

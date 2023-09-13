@@ -59,7 +59,7 @@ Partial Class Checking
         btnLogOut.Location = New Point(1144, 12)
         btnLogOut.Name = "btnLogOut"
         btnLogOut.Size = New Size(133, 23)
-        btnLogOut.TabIndex = 3
+        btnLogOut.TabIndex = 11
         btnLogOut.Text = "Logout"
         btnLogOut.UseVisualStyleBackColor = True
         ' 
@@ -69,7 +69,7 @@ Partial Class Checking
         btnBack.Location = New Point(12, 12)
         btnBack.Name = "btnBack"
         btnBack.Size = New Size(133, 23)
-        btnBack.TabIndex = 0
+        btnBack.TabIndex = 10
         btnBack.Text = "Back"
         btnBack.UseVisualStyleBackColor = True
         ' 
@@ -79,7 +79,7 @@ Partial Class Checking
         btnClear.Location = New Point(256, 314)
         btnClear.Name = "btnClear"
         btnClear.Size = New Size(90, 51)
-        btnClear.TabIndex = 23
+        btnClear.TabIndex = 9
         btnClear.Text = "Clear"
         btnClear.UseVisualStyleBackColor = True
         ' 
@@ -114,6 +114,7 @@ Partial Class Checking
         dgvCheckedIn.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         dgvCheckedIn.Size = New Size(423, 312)
         dgvCheckedIn.TabIndex = 0
+        dgvCheckedIn.TabStop = False
         ' 
         ' btnCheckOut
         ' 
@@ -121,7 +122,7 @@ Partial Class Checking
         btnCheckOut.Location = New Point(151, 314)
         btnCheckOut.Name = "btnCheckOut"
         btnCheckOut.Size = New Size(90, 51)
-        btnCheckOut.TabIndex = 22
+        btnCheckOut.TabIndex = 8
         btnCheckOut.Text = "Check-Out"
         btnCheckOut.UseVisualStyleBackColor = True
         ' 
@@ -151,7 +152,7 @@ Partial Class Checking
         txtRoomNumber.Location = New Point(176, 103)
         txtRoomNumber.Name = "txtRoomNumber"
         txtRoomNumber.Size = New Size(186, 26)
-        txtRoomNumber.TabIndex = 28
+        txtRoomNumber.TabIndex = 4
         ' 
         ' Label7
         ' 
@@ -168,7 +169,7 @@ Partial Class Checking
         txtName.Location = New Point(176, 63)
         txtName.Name = "txtName"
         txtName.Size = New Size(186, 26)
-        txtName.TabIndex = 26
+        txtName.TabIndex = 2
         ' 
         ' dtpCheckOut
         ' 
@@ -179,7 +180,7 @@ Partial Class Checking
         dtpCheckOut.Location = New Point(161, 186)
         dtpCheckOut.Name = "dtpCheckOut"
         dtpCheckOut.Size = New Size(201, 22)
-        dtpCheckOut.TabIndex = 24
+        dtpCheckOut.TabIndex = 6
         ' 
         ' dtpCheckIn
         ' 
@@ -190,7 +191,7 @@ Partial Class Checking
         dtpCheckIn.Location = New Point(161, 146)
         dtpCheckIn.Name = "dtpCheckIn"
         dtpCheckIn.Size = New Size(201, 22)
-        dtpCheckIn.TabIndex = 23
+        dtpCheckIn.TabIndex = 5
         ' 
         ' Label6
         ' 
@@ -216,7 +217,7 @@ Partial Class Checking
         txtGuestID.Location = New Point(176, 23)
         txtGuestID.Name = "txtGuestID"
         txtGuestID.Size = New Size(186, 26)
-        txtGuestID.TabIndex = 3
+        txtGuestID.TabIndex = 1
         ' 
         ' Label2
         ' 
@@ -242,7 +243,7 @@ Partial Class Checking
         btnCheckIn.Location = New Point(45, 314)
         btnCheckIn.Name = "btnCheckIn"
         btnCheckIn.Size = New Size(90, 51)
-        btnCheckIn.TabIndex = 21
+        btnCheckIn.TabIndex = 7
         btnCheckIn.Text = "Check-In"
         btnCheckIn.UseVisualStyleBackColor = True
         ' 
@@ -252,7 +253,7 @@ Partial Class Checking
         btnRooms.Location = New Point(151, 12)
         btnRooms.Name = "btnRooms"
         btnRooms.Size = New Size(133, 23)
-        btnRooms.TabIndex = 30
+        btnRooms.TabIndex = 3
         btnRooms.Text = "Rooms Available"
         btnRooms.UseVisualStyleBackColor = True
         ' 
@@ -287,11 +288,14 @@ Partial Class Checking
         dgvGuest.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         dgvGuest.Size = New Size(423, 312)
         dgvGuest.TabIndex = 0
+        dgvGuest.TabStop = False
         ' 
         ' lblDateTime
         ' 
         lblDateTime.AutoSize = True
+        lblDateTime.BackColor = Color.Black
         lblDateTime.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        lblDateTime.ForeColor = Color.OrangeRed
         lblDateTime.Location = New Point(977, 16)
         lblDateTime.Name = "lblDateTime"
         lblDateTime.Size = New Size(161, 14)

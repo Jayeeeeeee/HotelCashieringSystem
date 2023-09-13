@@ -50,7 +50,7 @@ Partial Class GuestProfile
         btnAdd.Location = New Point(12, 315)
         btnAdd.Name = "btnAdd"
         btnAdd.Size = New Size(90, 68)
-        btnAdd.TabIndex = 17
+        btnAdd.TabIndex = 5
         btnAdd.Text = "Add New Guest"
         btnAdd.UseVisualStyleBackColor = True
         ' 
@@ -60,7 +60,7 @@ Partial Class GuestProfile
         btnBack.Location = New Point(12, 14)
         btnBack.Name = "btnBack"
         btnBack.Size = New Size(133, 22)
-        btnBack.TabIndex = 15
+        btnBack.TabIndex = 9
         btnBack.Text = "Back"
         btnBack.UseVisualStyleBackColor = True
         ' 
@@ -70,7 +70,7 @@ Partial Class GuestProfile
         btnLogOut.Location = New Point(1039, 14)
         btnLogOut.Name = "btnLogOut"
         btnLogOut.Size = New Size(133, 22)
-        btnLogOut.TabIndex = 16
+        btnLogOut.TabIndex = 10
         btnLogOut.Text = "Logout"
         btnLogOut.UseVisualStyleBackColor = True
         ' 
@@ -80,7 +80,7 @@ Partial Class GuestProfile
         btnClear.Location = New Point(300, 315)
         btnClear.Name = "btnClear"
         btnClear.Size = New Size(90, 68)
-        btnClear.TabIndex = 20
+        btnClear.TabIndex = 8
         btnClear.Text = "Clear"
         btnClear.UseVisualStyleBackColor = True
         ' 
@@ -91,7 +91,7 @@ Partial Class GuestProfile
         btnDelete.Location = New Point(204, 315)
         btnDelete.Name = "btnDelete"
         btnDelete.Size = New Size(90, 68)
-        btnDelete.TabIndex = 19
+        btnDelete.TabIndex = 7
         btnDelete.Text = "Delete Guest"
         btnDelete.UseVisualStyleBackColor = True
         ' 
@@ -126,6 +126,7 @@ Partial Class GuestProfile
         dgvGuest.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         dgvGuest.Size = New Size(764, 310)
         dgvGuest.TabIndex = 0
+        dgvGuest.TabStop = False
         ' 
         ' GroupBox1
         ' 
@@ -152,7 +153,7 @@ Partial Class GuestProfile
         txtName.Location = New Point(176, 89)
         txtName.Name = "txtName"
         txtName.Size = New Size(186, 26)
-        txtName.TabIndex = 12
+        txtName.TabIndex = 2
         ' 
         ' txtAddress
         ' 
@@ -160,7 +161,7 @@ Partial Class GuestProfile
         txtAddress.Location = New Point(176, 131)
         txtAddress.Name = "txtAddress"
         txtAddress.Size = New Size(186, 26)
-        txtAddress.TabIndex = 11
+        txtAddress.TabIndex = 3
         ' 
         ' txtNumber
         ' 
@@ -168,7 +169,7 @@ Partial Class GuestProfile
         txtNumber.Location = New Point(176, 172)
         txtNumber.Name = "txtNumber"
         txtNumber.Size = New Size(186, 26)
-        txtNumber.TabIndex = 10
+        txtNumber.TabIndex = 4
         ' 
         ' txtGuestID
         ' 
@@ -176,7 +177,7 @@ Partial Class GuestProfile
         txtGuestID.Location = New Point(176, 43)
         txtGuestID.Name = "txtGuestID"
         txtGuestID.Size = New Size(186, 26)
-        txtGuestID.TabIndex = 8
+        txtGuestID.TabIndex = 1
         ' 
         ' Label4
         ' 
@@ -221,7 +222,7 @@ Partial Class GuestProfile
         btnUpdate.Location = New Point(108, 316)
         btnUpdate.Name = "btnUpdate"
         btnUpdate.Size = New Size(90, 68)
-        btnUpdate.TabIndex = 23
+        btnUpdate.TabIndex = 6
         btnUpdate.Text = "Update Guest Profile"
         btnUpdate.UseVisualStyleBackColor = True
         ' 

@@ -4,7 +4,7 @@
         Me.Hide()
     End Sub
 
-    Private Sub RoomProfile_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+    Private Sub RoomProfile_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
         displayInfo("Select * From room_info", dgvRoom)
         loadToComboBox("Select * From room_type", cmbRoomType)
         loadToComboBox("Select * From room_status", cmbAvailability)
