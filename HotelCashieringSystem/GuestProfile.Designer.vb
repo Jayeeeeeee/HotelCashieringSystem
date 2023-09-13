@@ -240,6 +240,7 @@ Partial Class GuestProfile
         Controls.Add(GroupBox2)
         Controls.Add(GroupBox1)
         Name = "GuestProfile"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Guest Profile"
         GroupBox2.ResumeLayout(False)
         CType(dgvGuest, ComponentModel.ISupportInitialize).EndInit()

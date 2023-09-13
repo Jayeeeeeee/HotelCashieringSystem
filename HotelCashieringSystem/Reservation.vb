@@ -24,14 +24,71 @@
         RoomsAvailable.Show()
     End Sub
 
-    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+    Public Sub cleartxt()
         txtReserveID.Text = ""
         txtName.Text = ""
         txtRoomNumber.Text = ""
     End Sub
 
-    Private Sub Reservation_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
-        displayInfo("Select * From guest_info", dgGuest)
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        txtReserveID.Text = ""
+        txtGuestID.Text = ""
+        txtName.Text = ""
+        txtRoomNumber.Text = ""
     End Sub
 
+    Private Sub Reservation_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+        displayInfo("Select * From guest_info", dgvGuest)
+        'displayInfo("Select * From guest_reservation", dgvReserve)
+    End Sub
+
+    Private Sub dgGuest_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvGuest.CellClick
+        Try
+            Dim i = e.RowIndex
+            With dgvGuest
+                txtGuestID.Text = .Item("ID", i).Value
+                txtName.Text = .Item("Guest Name", i).Value
+
+            End With
+            btnReserve.Enabled = True
+            btnCancel.Enabled = True
+        Catch ex As Exception
+            MessageBox.Show("Error: " + ex.Message)
+        End Try
+    End Sub
+
+    Private Sub btnReserve_Click(sender As Object, e As EventArgs) Handles btnReserve.Click
+        If String.IsNullOrWhiteSpace(txtReserveID.Text) Or String.IsNullOrWhiteSpace(txtGuestID.Text) Or String.IsNullOrWhiteSpace(txtName.Text) Or String.IsNullOrWhiteSpace(txtRoomNumber.Text) Then
+            MessageBox.Show("Some fields are empty!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        Else
+            Dim CheckIn = "Insert Into reservation Values(null or '" & txtReserveID.Text & "', '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & dtpCheckIn.Text & "', '" & dtpCheckOut.Text & "')"
+            SQLProcess(CheckIn)
+
+            Dim CheckInRoom = "Update rooms Set RoomStatusID = 2 Where RoomID = '" & txtRoomNumber.Text & "'"
+            SQLProcess(CheckInRoom)
+
+            MessageBox.Show("Room Resereved!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            cleartxt()
+        End If
+    End Sub
+
+    Private Sub dgvReserve_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvReserve.CellClick
+        Try
+            Dim i = e.RowIndex
+            With dgvReserve
+                txtReserveID.Text = .Item("Check-In ID", i).Value
+                txtGuestID.Text = .Item("Guest ID", i).Value
+                txtName.Text = .Item("Guest Name", i).Value
+                txtRoomNumber.Text = .Item("Room.No", i).Value
+                dtpCheckIn.Value = .Item("Check-In Date", i).Value
+                dtpCheckOut.Value = .Item("Check-Out Date", i).Value
+
+            End With
+            btnReserve.Enabled = True
+            btnCancel.Enabled = True
+        Catch ex As Exception
+            'MessageBox.Show("Error: " + ex.Message)
+        End Try
+    End Sub
 End Class

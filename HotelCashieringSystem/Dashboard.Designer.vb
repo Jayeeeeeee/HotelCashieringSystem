@@ -35,12 +35,16 @@ Partial Class Dashboard
         dgvAvailable = New DataGridView()
         lblDateTime = New Label()
         tmrDash = New Timer(components)
+        GroupBox3 = New GroupBox()
+        dgvReserved = New DataGridView()
         FlowLayoutPanel1.SuspendLayout()
         Panel1.SuspendLayout()
         GroupBox1.SuspendLayout()
         CType(dgvOccupied, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox2.SuspendLayout()
         CType(dgvAvailable, ComponentModel.ISupportInitialize).BeginInit()
+        GroupBox3.SuspendLayout()
+        CType(dgvReserved, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' FlowLayoutPanel1
@@ -49,7 +53,7 @@ Partial Class Dashboard
         FlowLayoutPanel1.Controls.Add(btnGuest)
         FlowLayoutPanel1.Controls.Add(btnReserve)
         FlowLayoutPanel1.Controls.Add(btnCheck)
-        FlowLayoutPanel1.Location = New Point(12, 12)
+        FlowLayoutPanel1.Location = New Point(12, 15)
         FlowLayoutPanel1.Name = "FlowLayoutPanel1"
         FlowLayoutPanel1.Size = New Size(585, 31)
         FlowLayoutPanel1.TabIndex = 0
@@ -87,7 +91,7 @@ Partial Class Dashboard
         ' Panel1
         ' 
         Panel1.Controls.Add(btnLogOut)
-        Panel1.Location = New Point(1032, 12)
+        Panel1.Location = New Point(1613, 12)
         Panel1.Name = "Panel1"
         Panel1.Size = New Size(139, 31)
         Panel1.TabIndex = 2
@@ -106,7 +110,7 @@ Partial Class Dashboard
         ' 
         GroupBox1.Controls.Add(dgvOccupied)
         GroupBox1.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        GroupBox1.Location = New Point(15, 49)
+        GroupBox1.Location = New Point(12, 49)
         GroupBox1.Name = "GroupBox1"
         GroupBox1.Size = New Size(570, 292)
         GroupBox1.TabIndex = 3
@@ -136,10 +140,10 @@ Partial Class Dashboard
         ' 
         ' GroupBox2
         ' 
-        GroupBox2.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        GroupBox2.Anchor = AnchorStyles.None
         GroupBox2.Controls.Add(dgvAvailable)
         GroupBox2.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        GroupBox2.Location = New Point(602, 49)
+        GroupBox2.Location = New Point(597, 49)
         GroupBox2.Name = "GroupBox2"
         GroupBox2.Size = New Size(570, 292)
         GroupBox2.TabIndex = 4
@@ -174,7 +178,7 @@ Partial Class Dashboard
         lblDateTime.BackColor = Color.Black
         lblDateTime.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
         lblDateTime.ForeColor = Color.OrangeRed
-        lblDateTime.Location = New Point(865, 19)
+        lblDateTime.Location = New Point(1446, 19)
         lblDateTime.Name = "lblDateTime"
         lblDateTime.Size = New Size(161, 14)
         lblDateTime.TabIndex = 34
@@ -185,11 +189,46 @@ Partial Class Dashboard
         tmrDash.Enabled = True
         tmrDash.Interval = 1000
         ' 
+        ' GroupBox3
+        ' 
+        GroupBox3.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        GroupBox3.Controls.Add(dgvReserved)
+        GroupBox3.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        GroupBox3.Location = New Point(1182, 52)
+        GroupBox3.Name = "GroupBox3"
+        GroupBox3.Size = New Size(570, 289)
+        GroupBox3.TabIndex = 35
+        GroupBox3.TabStop = False
+        GroupBox3.Text = "Rooms Reserved"
+        ' 
+        ' dgvReserved
+        ' 
+        dgvReserved.AllowUserToAddRows = False
+        dgvReserved.AllowUserToDeleteRows = False
+        dgvReserved.AllowUserToResizeColumns = False
+        dgvReserved.AllowUserToResizeRows = False
+        dgvReserved.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        dgvReserved.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        dgvReserved.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvReserved.Cursor = Cursors.Hand
+        dgvReserved.EditMode = DataGridViewEditMode.EditProgrammatically
+        dgvReserved.GridColor = SystemColors.Menu
+        dgvReserved.ImeMode = ImeMode.NoControl
+        dgvReserved.Location = New Point(6, 19)
+        dgvReserved.Name = "dgvReserved"
+        dgvReserved.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
+        dgvReserved.RowTemplate.Height = 25
+        dgvReserved.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        dgvReserved.Size = New Size(558, 264)
+        dgvReserved.TabIndex = 5
+        dgvReserved.TabStop = False
+        ' 
         ' Dashboard
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1184, 353)
+        ClientSize = New Size(1764, 353)
+        Controls.Add(GroupBox3)
         Controls.Add(lblDateTime)
         Controls.Add(GroupBox2)
         Controls.Add(GroupBox1)
@@ -204,6 +243,8 @@ Partial Class Dashboard
         CType(dgvOccupied, ComponentModel.ISupportInitialize).EndInit()
         GroupBox2.ResumeLayout(False)
         CType(dgvAvailable, ComponentModel.ISupportInitialize).EndInit()
+        GroupBox3.ResumeLayout(False)
+        CType(dgvReserved, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -220,4 +261,6 @@ Partial Class Dashboard
     Friend WithEvents btnGuest As Button
     Friend WithEvents lblDateTime As Label
     Friend WithEvents tmrDash As Timer
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents dgvReserved As DataGridView
 End Class

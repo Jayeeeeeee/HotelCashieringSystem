@@ -30,6 +30,8 @@ Partial Class Checking
         dgvCheckedIn = New DataGridView()
         btnCheckOut = New Button()
         GroupBox1 = New GroupBox()
+        txtGuestID = New TextBox()
+        Label3 = New Label()
         txtRoomNumber = New TextBox()
         Label7 = New Label()
         txtName = New TextBox()
@@ -37,7 +39,7 @@ Partial Class Checking
         dtpCheckIn = New DateTimePicker()
         Label6 = New Label()
         Label5 = New Label()
-        txtGuestID = New TextBox()
+        txtChckID = New TextBox()
         Label2 = New Label()
         Label1 = New Label()
         btnCheckIn = New Button()
@@ -129,6 +131,8 @@ Partial Class Checking
         ' GroupBox1
         ' 
         GroupBox1.Anchor = AnchorStyles.None
+        GroupBox1.Controls.Add(txtGuestID)
+        GroupBox1.Controls.Add(Label3)
         GroupBox1.Controls.Add(txtRoomNumber)
         GroupBox1.Controls.Add(Label7)
         GroupBox1.Controls.Add(txtName)
@@ -136,20 +140,38 @@ Partial Class Checking
         GroupBox1.Controls.Add(dtpCheckIn)
         GroupBox1.Controls.Add(Label6)
         GroupBox1.Controls.Add(Label5)
-        GroupBox1.Controls.Add(txtGuestID)
+        GroupBox1.Controls.Add(txtChckID)
         GroupBox1.Controls.Add(Label2)
         GroupBox1.Controls.Add(Label1)
         GroupBox1.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox1.ForeColor = Color.Black
-        GroupBox1.Location = New Point(12, 80)
+        GroupBox1.Location = New Point(12, 41)
         GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(378, 225)
+        GroupBox1.Size = New Size(378, 264)
         GroupBox1.TabIndex = 24
         GroupBox1.TabStop = False
         ' 
+        ' txtGuestID
+        ' 
+        txtGuestID.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        txtGuestID.Location = New Point(176, 63)
+        txtGuestID.Name = "txtGuestID"
+        txtGuestID.ReadOnly = True
+        txtGuestID.Size = New Size(186, 26)
+        txtGuestID.TabIndex = 29
+        ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.Location = New Point(20, 66)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(90, 19)
+        Label3.TabIndex = 28
+        Label3.Text = "Guest ID:"
+        ' 
         ' txtRoomNumber
         ' 
-        txtRoomNumber.Location = New Point(176, 103)
+        txtRoomNumber.Location = New Point(176, 143)
         txtRoomNumber.Name = "txtRoomNumber"
         txtRoomNumber.Size = New Size(186, 26)
         txtRoomNumber.TabIndex = 4
@@ -157,7 +179,7 @@ Partial Class Checking
         ' Label7
         ' 
         Label7.AutoSize = True
-        Label7.Location = New Point(20, 106)
+        Label7.Location = New Point(20, 146)
         Label7.Name = "Label7"
         Label7.Size = New Size(117, 19)
         Label7.TabIndex = 27
@@ -166,8 +188,9 @@ Partial Class Checking
         ' txtName
         ' 
         txtName.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        txtName.Location = New Point(176, 63)
+        txtName.Location = New Point(176, 103)
         txtName.Name = "txtName"
+        txtName.ReadOnly = True
         txtName.Size = New Size(186, 26)
         txtName.TabIndex = 2
         ' 
@@ -177,7 +200,7 @@ Partial Class Checking
         dtpCheckOut.CustomFormat = "MM/dd/yyyy -h:mm:ss tt"
         dtpCheckOut.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
         dtpCheckOut.Format = DateTimePickerFormat.Custom
-        dtpCheckOut.Location = New Point(161, 186)
+        dtpCheckOut.Location = New Point(161, 226)
         dtpCheckOut.Name = "dtpCheckOut"
         dtpCheckOut.Size = New Size(201, 22)
         dtpCheckOut.TabIndex = 6
@@ -185,10 +208,10 @@ Partial Class Checking
         ' dtpCheckIn
         ' 
         dtpCheckIn.CalendarFont = New Font("Consolas", 8F, FontStyle.Regular, GraphicsUnit.Point)
-        dtpCheckIn.CustomFormat = "MM/dd/yyyy -h:mm:ss tt"
+        dtpCheckIn.CustomFormat = "MM/dd/yyyy - hh:mm:ss tt"
         dtpCheckIn.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
         dtpCheckIn.Format = DateTimePickerFormat.Custom
-        dtpCheckIn.Location = New Point(161, 146)
+        dtpCheckIn.Location = New Point(161, 186)
         dtpCheckIn.Name = "dtpCheckIn"
         dtpCheckIn.Size = New Size(201, 22)
         dtpCheckIn.TabIndex = 5
@@ -196,7 +219,7 @@ Partial Class Checking
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Location = New Point(20, 186)
+        Label6.Location = New Point(20, 226)
         Label6.Name = "Label6"
         Label6.Size = New Size(144, 19)
         Label6.TabIndex = 22
@@ -205,24 +228,24 @@ Partial Class Checking
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Location = New Point(20, 146)
+        Label5.Location = New Point(20, 186)
         Label5.Name = "Label5"
         Label5.Size = New Size(135, 19)
         Label5.TabIndex = 21
         Label5.Text = "Check In Date:"
         ' 
-        ' txtGuestID
+        ' txtChckID
         ' 
-        txtGuestID.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        txtGuestID.Location = New Point(176, 23)
-        txtGuestID.Name = "txtGuestID"
-        txtGuestID.Size = New Size(186, 26)
-        txtGuestID.TabIndex = 1
+        txtChckID.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        txtChckID.Location = New Point(176, 23)
+        txtChckID.Name = "txtChckID"
+        txtChckID.Size = New Size(186, 26)
+        txtChckID.TabIndex = 1
         ' 
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(20, 66)
+        Label2.Location = New Point(20, 106)
         Label2.Name = "Label2"
         Label2.Size = New Size(108, 19)
         Label2.TabIndex = 1
@@ -348,7 +371,7 @@ Partial Class Checking
     Friend WithEvents dtpCheckIn As DateTimePicker
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents txtGuestID As TextBox
+    Friend WithEvents txtChckID As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents btnCheckIn As Button
@@ -357,4 +380,6 @@ Partial Class Checking
     Friend WithEvents dgvGuest As DataGridView
     Friend WithEvents lblDateTime As Label
     Friend WithEvents tmrCheck As Timer
+    Friend WithEvents txtGuestID As TextBox
+    Friend WithEvents Label3 As Label
 End Class

@@ -26,6 +26,7 @@
             With dgvGuest
                 txtGuestID.Text = .Item("ID", i).Value
                 txtName.Text = .Item("Guest Name", i).Value
+
             End With
             btnCheckIn.Enabled = True
             btnCheckOut.Enabled = True
@@ -44,19 +45,52 @@
     End Sub
 
     Private Sub btnCheckIn_Click(sender As Object, e As EventArgs) Handles btnCheckIn.Click
-        If String.IsNullOrWhiteSpace(txtGuestID.Text) Or String.IsNullOrWhiteSpace(txtName.Text) Or String.IsNullOrWhiteSpace(txtRoomNumber.Text) Then
+        If String.IsNullOrWhiteSpace(txtChckID.Text) Or String.IsNullOrWhiteSpace(txtGuestID.Text) Or String.IsNullOrWhiteSpace(txtName.Text) Or String.IsNullOrWhiteSpace(txtRoomNumber.Text) Then
             MessageBox.Show("Some fields are empty!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Else
-            Dim CheckIn = "Insert Into checking Values(null or '" & txtGuestID.Text & "', '" & txtName.Text & "', '" & txtAddress.Text & "', '" & txtNumber.Text & "')"
+            Dim CheckIn = "Insert Into checking Values(null or '" & txtChckID.Text & "', '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & dtpCheckIn.Text & "', '" & dtpCheckOut.Text & "')"
             SQLProcess(CheckIn)
 
-            MessageBox.Show("Guest Added!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Dim CheckInRoom = "Update rooms Set RoomStatusID = 3 Where RoomID = '" & txtRoomNumber.Text & "'"
+            SQLProcess(CheckInRoom)
+
+            MessageBox.Show("Guest Checked-In!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
             cleartxt()
         End If
     End Sub
 
-    Private Sub cleartxt()
+    Public Sub cleartxt()
+        txtChckID.Text = ""
+        txtGuestID.Text = ""
+        txtName.Text = ""
+        txtRoomNumber.Text = ""
+    End Sub
 
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        cleartxt()
+    End Sub
+
+    Private Sub dgvCheckedIn_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCheckedIn.CellContentClick
+
+    End Sub
+
+    Private Sub dgvCheckedIn_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCheckedIn.CellClick
+        Try
+            Dim i = e.RowIndex
+            With dgvCheckedIn
+                txtChckID.Text = .Item("Check-In ID", i).Value
+                txtGuestID.Text = .Item("Guest ID", i).Value
+                txtName.Text = .Item("Guest Name", i).Value
+                txtRoomNumber.Text = .Item("Room.No", i).Value
+                dtpCheckIn.Value = .Item("Check-In Date", i).Value
+                dtpCheckOut.Value = .Item("Check-Out Date", i).Value
+
+            End With
+            btnCheckIn.Enabled = True
+            btnCheckOut.Enabled = True
+        Catch ex As Exception
+            'MessageBox.Show("Error: " + ex.Message)
+        End Try
     End Sub
 End Class
