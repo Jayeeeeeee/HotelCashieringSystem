@@ -47,12 +47,14 @@
 
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
         Dim RoomUpdate = "Update room_info Set No. Of Beds = '" & txtBeds.Text & "' Where Room No. = '" & txtRoomID.Text & "'"
-        SQLProcess(RoomUpdate)
-
         Dim RTypeUpdate = "Update room_info Set Room Type = '" & cmbRoomType.Text & "' Where Room No. = '" & txtRoomID.Text & "'"
-        SQLProcess(RTypeUpdate)
-
+        'Dim RoomPrice = "Update room_info Set Room Price = '" & cmbRoomType.Text & "' Where Room No. = '" & txtRoomID.Text & "'"
         Dim RAvailUpdate = "Update room_info Set Room Status = '" & cmbAvailability.Text & "' Where Room No. = '" & txtRoomID.Text & "'"
+
+
+        SQLProcess(RoomUpdate)
+        SQLProcess(RTypeUpdate)
+        'SQLProcess(RoomPrice)
         SQLProcess(RAvailUpdate)
 
         MessageBox.Show("Update Successful", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -64,7 +66,7 @@
         If String.IsNullOrWhiteSpace(txtBeds.Text) Then
             MessageBox.Show("Some fields are empty!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Else
-            Dim RoomQuery = "Insert Into rooms Values(null or '" & txtRoomID.Text & "', '" & txtBeds.Text & "', '" & cmbRoomType.SelectedValue & "', '" & cmbRoomType.SelectedValue & "', '" & cmbAvailability.SelectedValue & "')"
+            Dim RoomQuery = "Insert Into room_info Values(null or '" & txtRoomID.Text & "', '" & txtBeds.Text & "', '" & cmbRoomType.SelectedValue & "', '" & cmbAvailability.SelectedValue & "')"
             SQLProcess(RoomQuery)
 
             MessageBox.Show("Room Added!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)

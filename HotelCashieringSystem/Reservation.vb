@@ -1,4 +1,9 @@
 ﻿Public Class Reservation
+
+    Private Sub tmrReserve_Tick(sender As Object, e As EventArgs) Handles tmrReserve.Tick
+        lblDateTime.Text = DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt")
+    End Sub
+
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
         Dashboard.Show()
         Me.Hide()
@@ -25,7 +30,8 @@
         txtRoomNumber.Text = ""
     End Sub
 
-    Private Sub Reservation_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+    Private Sub Reservation_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
         displayInfo("Select * From guest_info", dgGuest)
     End Sub
+
 End Class

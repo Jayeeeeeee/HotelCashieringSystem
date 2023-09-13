@@ -22,6 +22,7 @@ Partial Class Checking
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        components = New ComponentModel.Container()
         btnLogOut = New Button()
         btnBack = New Button()
         btnClear = New Button()
@@ -43,6 +44,8 @@ Partial Class Checking
         btnRooms = New Button()
         GroupBox3 = New GroupBox()
         dgvGuest = New DataGridView()
+        lblDateTime = New Label()
+        tmrCheck = New Timer(components)
         GroupBox2.SuspendLayout()
         CType(dgvCheckedIn, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
@@ -285,11 +288,27 @@ Partial Class Checking
         dgvGuest.Size = New Size(423, 312)
         dgvGuest.TabIndex = 0
         ' 
+        ' lblDateTime
+        ' 
+        lblDateTime.AutoSize = True
+        lblDateTime.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        lblDateTime.Location = New Point(977, 16)
+        lblDateTime.Name = "lblDateTime"
+        lblDateTime.Size = New Size(161, 14)
+        lblDateTime.TabIndex = 32
+        lblDateTime.Text = "00/00/0000 00:00:00 am"
+        ' 
+        ' tmrCheck
+        ' 
+        tmrCheck.Enabled = True
+        tmrCheck.Interval = 1000
+        ' 
         ' Checking
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1289, 396)
+        Controls.Add(lblDateTime)
         Controls.Add(GroupBox3)
         Controls.Add(btnRooms)
         Controls.Add(btnClear)
@@ -309,6 +328,7 @@ Partial Class Checking
         GroupBox3.ResumeLayout(False)
         CType(dgvGuest, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
+        PerformLayout()
     End Sub
     Friend WithEvents btnLogOut As Button
     Friend WithEvents btnBack As Button
@@ -331,4 +351,6 @@ Partial Class Checking
     Friend WithEvents btnRooms As Button
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents dgvGuest As DataGridView
+    Friend WithEvents lblDateTime As Label
+    Friend WithEvents tmrCheck As Timer
 End Class

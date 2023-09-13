@@ -22,6 +22,7 @@ Partial Class Dashboard
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        components = New ComponentModel.Container()
         FlowLayoutPanel1 = New FlowLayoutPanel()
         btnGuest = New Button()
         btnReserve = New Button()
@@ -32,6 +33,8 @@ Partial Class Dashboard
         dgvOccupied = New DataGridView()
         GroupBox2 = New GroupBox()
         dgvAvailable = New DataGridView()
+        lblDateTime = New Label()
+        tmrDash = New Timer(components)
         FlowLayoutPanel1.SuspendLayout()
         Panel1.SuspendLayout()
         GroupBox1.SuspendLayout()
@@ -161,11 +164,27 @@ Partial Class Dashboard
         dgvAvailable.Size = New Size(558, 264)
         dgvAvailable.TabIndex = 1
         ' 
+        ' lblDateTime
+        ' 
+        lblDateTime.AutoSize = True
+        lblDateTime.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        lblDateTime.Location = New Point(865, 19)
+        lblDateTime.Name = "lblDateTime"
+        lblDateTime.Size = New Size(161, 14)
+        lblDateTime.TabIndex = 34
+        lblDateTime.Text = "00/00/0000 00:00:00 am"
+        ' 
+        ' tmrDash
+        ' 
+        tmrDash.Enabled = True
+        tmrDash.Interval = 1000
+        ' 
         ' Dashboard
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1184, 353)
+        Controls.Add(lblDateTime)
         Controls.Add(GroupBox2)
         Controls.Add(GroupBox1)
         Controls.Add(Panel1)
@@ -180,6 +199,7 @@ Partial Class Dashboard
         GroupBox2.ResumeLayout(False)
         CType(dgvAvailable, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
+        PerformLayout()
     End Sub
 
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
@@ -192,4 +212,6 @@ Partial Class Dashboard
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents dgvAvailable As DataGridView
     Friend WithEvents btnGuest As Button
+    Friend WithEvents lblDateTime As Label
+    Friend WithEvents tmrDash As Timer
 End Class

@@ -22,6 +22,7 @@ Partial Class Reservation
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        components = New ComponentModel.Container()
         btnLogOut = New Button()
         btnBack = New Button()
         btnClear = New Button()
@@ -43,6 +44,8 @@ Partial Class Reservation
         Label7 = New Label()
         txtRoomNumber = New TextBox()
         GroupBox1 = New GroupBox()
+        lblDateTime = New Label()
+        tmrReserve = New Timer(components)
         GroupBox2.SuspendLayout()
         CType(dgGuest, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox3.SuspendLayout()
@@ -283,11 +286,27 @@ Partial Class Reservation
         GroupBox1.TabIndex = 19
         GroupBox1.TabStop = False
         ' 
+        ' lblDateTime
+        ' 
+        lblDateTime.AutoSize = True
+        lblDateTime.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        lblDateTime.Location = New Point(977, 16)
+        lblDateTime.Name = "lblDateTime"
+        lblDateTime.Size = New Size(161, 14)
+        lblDateTime.TabIndex = 33
+        lblDateTime.Text = "00/00/0000 00:00:00 am"
+        ' 
+        ' tmrReserve
+        ' 
+        tmrReserve.Enabled = True
+        tmrReserve.Interval = 1000
+        ' 
         ' Reservation
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1289, 396)
+        Controls.Add(lblDateTime)
         Controls.Add(GroupBox3)
         Controls.Add(btnRooms)
         Controls.Add(btnClear)
@@ -307,6 +326,7 @@ Partial Class Reservation
         GroupBox1.ResumeLayout(False)
         GroupBox1.PerformLayout()
         ResumeLayout(False)
+        PerformLayout()
     End Sub
     Friend WithEvents btnLogOut As Button
     Friend WithEvents btnBack As Button
@@ -332,4 +352,6 @@ Partial Class Reservation
     Friend WithEvents Label7 As Label
     Friend WithEvents txtRoomNumber As TextBox
     Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents lblDateTime As Label
+    Friend WithEvents tmrReserve As Timer
 End Class

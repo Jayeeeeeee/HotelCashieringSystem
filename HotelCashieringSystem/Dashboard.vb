@@ -1,4 +1,9 @@
 ﻿Public Class Dashboard
+
+    Private Sub tmrDash_Tick(sender As Object, e As EventArgs) Handles tmrDash.Tick
+        lblDateTime.Text = DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt")
+    End Sub
+
     Private Sub btnLogOut_Click(sender As Object, e As EventArgs) Handles btnLogOut.Click
         Dim out As New System.Windows.Forms.DialogResult
         out = MessageBox.Show("Logout?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)

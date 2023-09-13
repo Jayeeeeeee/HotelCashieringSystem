@@ -1,4 +1,9 @@
 ﻿Public Class Checking
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles tmrCheck.Tick
+        lblDateTime.Text = DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt")
+    End Sub
+
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
         Dashboard.Show()
         Me.Hide()
@@ -36,5 +41,9 @@
 
     Private Sub btnRooms_Click(sender As Object, e As EventArgs) Handles btnRooms.Click
         RoomsAvailable.Show()
+    End Sub
+
+    Private Sub btnCheckIn_Click(sender As Object, e As EventArgs) Handles btnCheckIn.Click
+
     End Sub
 End Class
