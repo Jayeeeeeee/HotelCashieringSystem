@@ -16,7 +16,7 @@
         out = MessageBox.Show("Logout?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If out Then
             Me.Close()
-            Login.Close()
+            Login.Show()
         Else
             Me.Show()
         End If

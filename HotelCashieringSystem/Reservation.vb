@@ -1,6 +1,6 @@
 ﻿Public Class Reservation
 
-    Private Sub tmrReserve_Tick(sender As Object, e As EventArgs) Handles tmrReserve.Tick
+    Public Sub tmrReserve_Tick(sender As Object, e As EventArgs) Handles tmrReserve.Tick
         lblDateTime.Text = DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt")
     End Sub
 
@@ -13,8 +13,8 @@
         Dim out As New System.Windows.Forms.DialogResult
         out = MessageBox.Show("Logout?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If out Then
-            Login.Show()
             Me.Close()
+            Login.Show()
         Else
             Me.Show()
         End If

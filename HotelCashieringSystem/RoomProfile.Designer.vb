@@ -28,6 +28,8 @@ Partial Class RoomProfile
         dgvRoom = New DataGridView()
         btnUpdate = New Button()
         GroupBox1 = New GroupBox()
+        txtRoomPrice = New TextBox()
+        Label4 = New Label()
         cmbAvailability = New ComboBox()
         Label5 = New Label()
         cmbRoomType = New ComboBox()
@@ -47,7 +49,7 @@ Partial Class RoomProfile
         ' btnClear
         ' 
         btnClear.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnClear.Location = New Point(300, 284)
+        btnClear.Location = New Point(300, 300)
         btnClear.Name = "btnClear"
         btnClear.Size = New Size(90, 68)
         btnClear.TabIndex = 10
@@ -58,7 +60,7 @@ Partial Class RoomProfile
         ' 
         btnDelete.Enabled = False
         btnDelete.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnDelete.Location = New Point(204, 284)
+        btnDelete.Location = New Point(204, 300)
         btnDelete.Name = "btnDelete"
         btnDelete.Size = New Size(90, 68)
         btnDelete.TabIndex = 9
@@ -101,7 +103,7 @@ Partial Class RoomProfile
         ' 
         btnUpdate.Enabled = False
         btnUpdate.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnUpdate.Location = New Point(108, 284)
+        btnUpdate.Location = New Point(108, 300)
         btnUpdate.Name = "btnUpdate"
         btnUpdate.Size = New Size(90, 68)
         btnUpdate.TabIndex = 8
@@ -111,6 +113,8 @@ Partial Class RoomProfile
         ' GroupBox1
         ' 
         GroupBox1.Anchor = AnchorStyles.None
+        GroupBox1.Controls.Add(txtRoomPrice)
+        GroupBox1.Controls.Add(Label4)
         GroupBox1.Controls.Add(cmbAvailability)
         GroupBox1.Controls.Add(Label5)
         GroupBox1.Controls.Add(cmbRoomType)
@@ -123,9 +127,27 @@ Partial Class RoomProfile
         GroupBox1.ForeColor = Color.Black
         GroupBox1.Location = New Point(12, 68)
         GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(378, 202)
+        GroupBox1.Size = New Size(378, 226)
         GroupBox1.TabIndex = 13
         GroupBox1.TabStop = False
+        ' 
+        ' txtRoomPrice
+        ' 
+        txtRoomPrice.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        txtRoomPrice.Location = New Point(178, 151)
+        txtRoomPrice.Name = "txtRoomPrice"
+        txtRoomPrice.ReadOnly = True
+        txtRoomPrice.Size = New Size(186, 26)
+        txtRoomPrice.TabIndex = 10
+        ' 
+        ' Label4
+        ' 
+        Label4.AutoSize = True
+        Label4.Location = New Point(22, 154)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(108, 19)
+        Label4.TabIndex = 9
+        Label4.Text = "Room Price:"
         ' 
         ' cmbAvailability
         ' 
@@ -133,7 +155,7 @@ Partial Class RoomProfile
         cmbAvailability.DropDownStyle = ComboBoxStyle.DropDownList
         cmbAvailability.FormattingEnabled = True
         cmbAvailability.Items.AddRange(New Object() {""})
-        cmbAvailability.Location = New Point(178, 151)
+        cmbAvailability.Location = New Point(178, 191)
         cmbAvailability.Name = "cmbAvailability"
         cmbAvailability.Size = New Size(186, 27)
         cmbAvailability.TabIndex = 8
@@ -141,7 +163,7 @@ Partial Class RoomProfile
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Location = New Point(8, 154)
+        Label5.Location = New Point(8, 194)
         Label5.Name = "Label5"
         Label5.Size = New Size(171, 19)
         Label5.TabIndex = 7
@@ -163,6 +185,7 @@ Partial Class RoomProfile
         txtBeds.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         txtBeds.Location = New Point(178, 111)
         txtBeds.Name = "txtBeds"
+        txtBeds.ReadOnly = True
         txtBeds.Size = New Size(186, 26)
         txtBeds.TabIndex = 6
         ' 
@@ -204,7 +227,7 @@ Partial Class RoomProfile
         ' btnCreate
         ' 
         btnCreate.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnCreate.Location = New Point(12, 284)
+        btnCreate.Location = New Point(12, 300)
         btnCreate.Name = "btnCreate"
         btnCreate.Size = New Size(90, 68)
         btnCreate.TabIndex = 7
@@ -270,4 +293,6 @@ Partial Class RoomProfile
     Friend WithEvents btnLogOut As Button
     Friend WithEvents cmbAvailability As ComboBox
     Friend WithEvents Label5 As Label
+    Friend WithEvents txtRoomPrice As TextBox
+    Friend WithEvents Label4 As Label
 End Class
