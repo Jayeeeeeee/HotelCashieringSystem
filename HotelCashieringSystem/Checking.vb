@@ -44,6 +44,19 @@
     End Sub
 
     Private Sub btnCheckIn_Click(sender As Object, e As EventArgs) Handles btnCheckIn.Click
+        If String.IsNullOrWhiteSpace(txtGuestID.Text) Or String.IsNullOrWhiteSpace(txtName.Text) Or String.IsNullOrWhiteSpace(txtRoomNumber.Text) Then
+            MessageBox.Show("Some fields are empty!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        Else
+            Dim CheckIn = "Insert Into checking Values(null or '" & txtGuestID.Text & "', '" & txtName.Text & "', '" & txtAddress.Text & "', '" & txtNumber.Text & "')"
+            SQLProcess(CheckIn)
+
+            MessageBox.Show("Guest Added!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            cleartxt()
+        End If
+    End Sub
+
+    Private Sub cleartxt()
 
     End Sub
 End Class
