@@ -30,7 +30,6 @@ Partial Class Reservation
         dgvGuest = New DataGridView()
         btnCancel = New Button()
         btnReserve = New Button()
-        btnRooms = New Button()
         GroupBox3 = New GroupBox()
         dgvReserve = New DataGridView()
         Label1 = New Label()
@@ -48,17 +47,21 @@ Partial Class Reservation
         Label3 = New Label()
         lblDateTime = New Label()
         tmrReserve = New Timer(components)
+        GroupBox4 = New GroupBox()
+        dgvAvailable = New DataGridView()
         GroupBox2.SuspendLayout()
         CType(dgvGuest, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox3.SuspendLayout()
         CType(dgvReserve, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
+        GroupBox4.SuspendLayout()
+        CType(dgvAvailable, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' btnLogOut
         ' 
         btnLogOut.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnLogOut.Location = New Point(1144, 12)
+        btnLogOut.Location = New Point(1187, 12)
         btnLogOut.Name = "btnLogOut"
         btnLogOut.Size = New Size(133, 23)
         btnLogOut.TabIndex = 3
@@ -87,7 +90,6 @@ Partial Class Reservation
         ' 
         ' GroupBox2
         ' 
-        GroupBox2.Anchor = AnchorStyles.None
         GroupBox2.BackColor = Color.Transparent
         GroupBox2.Controls.Add(dgvGuest)
         GroupBox2.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
@@ -136,26 +138,16 @@ Partial Class Reservation
         btnReserve.Text = "Reserve"
         btnReserve.UseVisualStyleBackColor = True
         ' 
-        ' btnRooms
-        ' 
-        btnRooms.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnRooms.Location = New Point(151, 12)
-        btnRooms.Name = "btnRooms"
-        btnRooms.Size = New Size(133, 23)
-        btnRooms.TabIndex = 29
-        btnRooms.Text = "Rooms Available"
-        btnRooms.UseVisualStyleBackColor = True
-        ' 
         ' GroupBox3
         ' 
-        GroupBox3.Anchor = AnchorStyles.None
+        GroupBox3.Anchor = AnchorStyles.Top
         GroupBox3.BackColor = Color.Transparent
         GroupBox3.Controls.Add(dgvReserve)
         GroupBox3.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox3.ForeColor = Color.Black
-        GroupBox3.Location = New Point(842, 41)
+        GroupBox3.Location = New Point(12, 388)
         GroupBox3.Name = "GroupBox3"
-        GroupBox3.Size = New Size(435, 341)
+        GroupBox3.Size = New Size(1302, 341)
         GroupBox3.TabIndex = 30
         GroupBox3.TabStop = False
         GroupBox3.Text = "Reservation List"
@@ -174,7 +166,7 @@ Partial Class Reservation
         dgvReserve.Name = "dgvReserve"
         dgvReserve.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         dgvReserve.RowTemplate.Height = 25
-        dgvReserve.Size = New Size(423, 312)
+        dgvReserve.Size = New Size(1290, 312)
         dgvReserve.TabIndex = 0
         ' 
         ' Label1
@@ -270,7 +262,6 @@ Partial Class Reservation
         ' 
         ' GroupBox1
         ' 
-        GroupBox1.Anchor = AnchorStyles.None
         GroupBox1.Controls.Add(txtGuestID)
         GroupBox1.Controls.Add(Label3)
         GroupBox1.Controls.Add(txtRoomNumber)
@@ -315,7 +306,7 @@ Partial Class Reservation
         lblDateTime.BackColor = SystemColors.ActiveCaptionText
         lblDateTime.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
         lblDateTime.ForeColor = Color.OrangeRed
-        lblDateTime.Location = New Point(977, 16)
+        lblDateTime.Location = New Point(1020, 16)
         lblDateTime.Name = "lblDateTime"
         lblDateTime.Size = New Size(161, 14)
         lblDateTime.TabIndex = 33
@@ -326,14 +317,48 @@ Partial Class Reservation
         tmrReserve.Enabled = True
         tmrReserve.Interval = 1000
         ' 
+        ' GroupBox4
+        ' 
+        GroupBox4.Anchor = AnchorStyles.None
+        GroupBox4.Controls.Add(dgvAvailable)
+        GroupBox4.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        GroupBox4.Location = New Point(842, 41)
+        GroupBox4.Name = "GroupBox4"
+        GroupBox4.Size = New Size(478, 341)
+        GroupBox4.TabIndex = 34
+        GroupBox4.TabStop = False
+        GroupBox4.Text = "Rooms Available"
+        ' 
+        ' dgvAvailable
+        ' 
+        dgvAvailable.AllowUserToAddRows = False
+        dgvAvailable.AllowUserToDeleteRows = False
+        dgvAvailable.AllowUserToResizeColumns = False
+        dgvAvailable.AllowUserToResizeRows = False
+        dgvAvailable.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        dgvAvailable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        dgvAvailable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvAvailable.Cursor = Cursors.Hand
+        dgvAvailable.EditMode = DataGridViewEditMode.EditProgrammatically
+        dgvAvailable.GridColor = SystemColors.Menu
+        dgvAvailable.ImeMode = ImeMode.NoControl
+        dgvAvailable.Location = New Point(6, 22)
+        dgvAvailable.Name = "dgvAvailable"
+        dgvAvailable.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
+        dgvAvailable.RowTemplate.Height = 25
+        dgvAvailable.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        dgvAvailable.Size = New Size(466, 313)
+        dgvAvailable.TabIndex = 5
+        dgvAvailable.TabStop = False
+        ' 
         ' Reservation
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1289, 396)
+        ClientSize = New Size(1332, 734)
+        Controls.Add(GroupBox4)
         Controls.Add(lblDateTime)
         Controls.Add(GroupBox3)
-        Controls.Add(btnRooms)
         Controls.Add(btnClear)
         Controls.Add(GroupBox2)
         Controls.Add(btnCancel)
@@ -350,6 +375,8 @@ Partial Class Reservation
         CType(dgvReserve, ComponentModel.ISupportInitialize).EndInit()
         GroupBox1.ResumeLayout(False)
         GroupBox1.PerformLayout()
+        GroupBox4.ResumeLayout(False)
+        CType(dgvAvailable, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -363,7 +390,6 @@ Partial Class Reservation
     Friend WithEvents txtBeds As TextBox
     Friend WithEvents txtRate As TextBox
     Friend WithEvents btnReserve As Button
-    Friend WithEvents btnRooms As Button
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents dgvReserve As DataGridView
     Friend WithEvents Label1 As Label
@@ -381,4 +407,6 @@ Partial Class Reservation
     Friend WithEvents tmrReserve As Timer
     Friend WithEvents txtGuestID As TextBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents dgvAvailable As DataGridView
 End Class

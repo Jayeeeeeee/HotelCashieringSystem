@@ -38,10 +38,7 @@
     Private Sub Checking_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
         displayInfo("Select * From guest_info", dgvGuest)
         displayInfo("Select * From guest_checkedin", dgvCheckedIn)
-    End Sub
-
-    Private Sub btnRooms_Click(sender As Object, e As EventArgs) Handles btnRooms.Click
-        RoomsAvailable.Show()
+        displayInfo("Select * From rooms_available", dgvAvailable)
     End Sub
 
     Private Sub btnCheckIn_Click(sender As Object, e As EventArgs) Handles btnCheckIn.Click
@@ -69,10 +66,6 @@
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         cleartxt()
-    End Sub
-
-    Private Sub dgvCheckedIn_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCheckedIn.CellContentClick
-
     End Sub
 
     Private Sub dgvCheckedIn_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCheckedIn.CellClick

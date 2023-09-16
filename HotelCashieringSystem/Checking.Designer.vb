@@ -43,22 +43,25 @@ Partial Class Checking
         Label2 = New Label()
         Label1 = New Label()
         btnCheckIn = New Button()
-        btnRooms = New Button()
         GroupBox3 = New GroupBox()
         dgvGuest = New DataGridView()
         lblDateTime = New Label()
         tmrCheck = New Timer(components)
+        GroupBox4 = New GroupBox()
+        dgvAvailable = New DataGridView()
         GroupBox2.SuspendLayout()
         CType(dgvCheckedIn, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
         GroupBox3.SuspendLayout()
         CType(dgvGuest, ComponentModel.ISupportInitialize).BeginInit()
+        GroupBox4.SuspendLayout()
+        CType(dgvAvailable, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' btnLogOut
         ' 
         btnLogOut.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnLogOut.Location = New Point(1144, 12)
+        btnLogOut.Location = New Point(1181, 12)
         btnLogOut.Name = "btnLogOut"
         btnLogOut.Size = New Size(133, 23)
         btnLogOut.TabIndex = 11
@@ -92,9 +95,9 @@ Partial Class Checking
         GroupBox2.Controls.Add(dgvCheckedIn)
         GroupBox2.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox2.ForeColor = Color.Black
-        GroupBox2.Location = New Point(842, 41)
+        GroupBox2.Location = New Point(12, 388)
         GroupBox2.Name = "GroupBox2"
-        GroupBox2.Size = New Size(435, 341)
+        GroupBox2.Size = New Size(1302, 341)
         GroupBox2.TabIndex = 25
         GroupBox2.TabStop = False
         GroupBox2.Text = "Guests Checked In"
@@ -114,7 +117,7 @@ Partial Class Checking
         dgvCheckedIn.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         dgvCheckedIn.RowTemplate.Height = 25
         dgvCheckedIn.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvCheckedIn.Size = New Size(423, 312)
+        dgvCheckedIn.Size = New Size(1290, 312)
         dgvCheckedIn.TabIndex = 0
         dgvCheckedIn.TabStop = False
         ' 
@@ -130,7 +133,6 @@ Partial Class Checking
         ' 
         ' GroupBox1
         ' 
-        GroupBox1.Anchor = AnchorStyles.None
         GroupBox1.Controls.Add(txtGuestID)
         GroupBox1.Controls.Add(Label3)
         GroupBox1.Controls.Add(txtRoomNumber)
@@ -270,19 +272,8 @@ Partial Class Checking
         btnCheckIn.Text = "Check-In"
         btnCheckIn.UseVisualStyleBackColor = True
         ' 
-        ' btnRooms
-        ' 
-        btnRooms.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnRooms.Location = New Point(151, 12)
-        btnRooms.Name = "btnRooms"
-        btnRooms.Size = New Size(133, 23)
-        btnRooms.TabIndex = 3
-        btnRooms.Text = "Rooms Available"
-        btnRooms.UseVisualStyleBackColor = True
-        ' 
         ' GroupBox3
         ' 
-        GroupBox3.Anchor = AnchorStyles.None
         GroupBox3.BackColor = Color.Transparent
         GroupBox3.Controls.Add(dgvGuest)
         GroupBox3.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
@@ -319,7 +310,7 @@ Partial Class Checking
         lblDateTime.BackColor = Color.Black
         lblDateTime.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
         lblDateTime.ForeColor = Color.OrangeRed
-        lblDateTime.Location = New Point(977, 16)
+        lblDateTime.Location = New Point(1014, 16)
         lblDateTime.Name = "lblDateTime"
         lblDateTime.Size = New Size(161, 14)
         lblDateTime.TabIndex = 32
@@ -330,14 +321,48 @@ Partial Class Checking
         tmrCheck.Enabled = True
         tmrCheck.Interval = 1000
         ' 
+        ' GroupBox4
+        ' 
+        GroupBox4.Anchor = AnchorStyles.None
+        GroupBox4.Controls.Add(dgvAvailable)
+        GroupBox4.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        GroupBox4.Location = New Point(842, 41)
+        GroupBox4.Name = "GroupBox4"
+        GroupBox4.Size = New Size(472, 341)
+        GroupBox4.TabIndex = 35
+        GroupBox4.TabStop = False
+        GroupBox4.Text = "Rooms Available"
+        ' 
+        ' dgvAvailable
+        ' 
+        dgvAvailable.AllowUserToAddRows = False
+        dgvAvailable.AllowUserToDeleteRows = False
+        dgvAvailable.AllowUserToResizeColumns = False
+        dgvAvailable.AllowUserToResizeRows = False
+        dgvAvailable.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        dgvAvailable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        dgvAvailable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvAvailable.Cursor = Cursors.Hand
+        dgvAvailable.EditMode = DataGridViewEditMode.EditProgrammatically
+        dgvAvailable.GridColor = SystemColors.Menu
+        dgvAvailable.ImeMode = ImeMode.NoControl
+        dgvAvailable.Location = New Point(6, 23)
+        dgvAvailable.Name = "dgvAvailable"
+        dgvAvailable.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
+        dgvAvailable.RowTemplate.Height = 25
+        dgvAvailable.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        dgvAvailable.Size = New Size(460, 312)
+        dgvAvailable.TabIndex = 5
+        dgvAvailable.TabStop = False
+        ' 
         ' Checking
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1289, 396)
+        ClientSize = New Size(1332, 734)
+        Controls.Add(GroupBox4)
         Controls.Add(lblDateTime)
         Controls.Add(GroupBox3)
-        Controls.Add(btnRooms)
         Controls.Add(btnClear)
         Controls.Add(GroupBox2)
         Controls.Add(btnCheckOut)
@@ -354,6 +379,8 @@ Partial Class Checking
         GroupBox1.PerformLayout()
         GroupBox3.ResumeLayout(False)
         CType(dgvGuest, ComponentModel.ISupportInitialize).EndInit()
+        GroupBox4.ResumeLayout(False)
+        CType(dgvAvailable, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -375,11 +402,12 @@ Partial Class Checking
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents btnCheckIn As Button
-    Friend WithEvents btnRooms As Button
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents dgvGuest As DataGridView
     Friend WithEvents lblDateTime As Label
     Friend WithEvents tmrCheck As Timer
     Friend WithEvents txtGuestID As TextBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents dgvAvailable As DataGridView
 End Class

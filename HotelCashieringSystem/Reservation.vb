@@ -40,6 +40,7 @@
     Private Sub Reservation_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
         displayInfo("Select * From guest_info", dgvGuest)
         displayInfo("Select * From guest_reservation", dgvReserve)
+        displayInfo("Select * From rooms_available", dgvAvailable)
     End Sub
 
     Private Sub dgGuest_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvGuest.CellClick
@@ -80,7 +81,7 @@
             Dim Cancel As New System.Windows.Forms.DialogResult
             If Cancel = Windows.Forms.DialogResult.Yes Then
                 Cancel = MessageBox.Show("Cancel Reservation?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-                Dim CReservation = "Delete From reservation where ID = '" & txtReserveID.Text & "'"
+                Dim CReservation = "Delete From reservation where ReservationID = '" & txtReserveID.Text & "'"
                 SQLProcess(CReservation)
 
                 Dim CRoom = "Update rooms Set RoomStatusID = 1 Where RoomID = '" & txtRoomNumber.Text & "'"
