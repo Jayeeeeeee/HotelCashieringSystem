@@ -39,7 +39,7 @@
 
     Private Sub Reservation_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
         displayInfo("Select * From guest_info", dgvGuest)
-        'displayInfo("Select * From guest_reservation", dgvReserve)
+        displayInfo("Select * From guest_reservation", dgvReserve)
     End Sub
 
     Private Sub dgGuest_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvGuest.CellClick
@@ -73,6 +73,26 @@
         End If
     End Sub
 
+    Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
+        If String.IsNullOrWhiteSpace(txtReserveID.Text) Or String.IsNullOrWhiteSpace(txtGuestID.Text) Or String.IsNullOrWhiteSpace(txtName.Text) Or String.IsNullOrWhiteSpace(txtRoomNumber.Text) Then
+            MessageBox.Show("Some fields are empty!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        Else
+            Dim Cancel As New System.Windows.Forms.DialogResult
+            If Cancel = Windows.Forms.DialogResult.Yes Then
+                Cancel = MessageBox.Show("Cancel Reservation?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                Dim CReservation = "Delete From reservation where ID = '" & txtReserveID.Text & "'"
+                SQLProcess(CReservation)
+
+                Dim CRoom = "Update rooms Set RoomStatusID = 1 Where RoomID = '" & txtRoomNumber.Text & "'"
+                SQLProcess(CRoom)
+
+                MessageBox.Show("Reservation Cancelled!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                cleartxt()
+            End If
+        End If
+    End Sub
+
     Private Sub dgvReserve_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvReserve.CellClick
         Try
             Dim i = e.RowIndex
@@ -91,4 +111,5 @@
             'MessageBox.Show("Error: " + ex.Message)
         End Try
     End Sub
+
 End Class

@@ -37,7 +37,7 @@
 
     Private Sub Checking_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
         displayInfo("Select * From guest_info", dgvGuest)
-        'displayInfo("Select * From guest_checkedin", dgvCheckedIn)
+        displayInfo("Select * From guest_checkedin", dgvCheckedIn)
     End Sub
 
     Private Sub btnRooms_Click(sender As Object, e As EventArgs) Handles btnRooms.Click

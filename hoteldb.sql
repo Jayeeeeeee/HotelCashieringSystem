@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 06, 2023 at 07:14 PM
+-- Generation Time: Sep 13, 2023 at 08:16 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -29,11 +29,53 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `checking` (
   `ChckID` int(11) NOT NULL,
-  `CIDate` datetime DEFAULT NULL,
-  `CODate` datetime DEFAULT NULL,
+  `GuestID` int(11) DEFAULT NULL,
   `RoomID` int(11) DEFAULT NULL,
-  `GuestID` int(11) DEFAULT NULL
+  `CIDate` datetime DEFAULT NULL,
+  `CODate` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `checking`
+--
+
+INSERT INTO `checking` (`ChckID`, `GuestID`, `RoomID`, `CIDate`, `CODate`) VALUES
+(1, 1, 10, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `checkin_payment`
+--
+
+CREATE TABLE `checkin_payment` (
+  `ChckPID` int(11) NOT NULL,
+  `PAmount` varchar(255) DEFAULT NULL,
+  `PDate` datetime DEFAULT NULL,
+  `RoomID` int(11) DEFAULT NULL,
+  `GuestID` int(11) DEFAULT NULL,
+  `EmpID` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer_status`
+--
+
+CREATE TABLE `customer_status` (
+  `CustomerStatusID` int(11) NOT NULL,
+  `CustomerStatus` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `customer_status`
+--
+
+INSERT INTO `customer_status` (`CustomerStatusID`, `CustomerStatus`) VALUES
+(1, 'Checked-Out'),
+(2, 'Checked-In'),
+(3, 'Reserved');
 
 -- --------------------------------------------------------
 
@@ -107,7 +149,7 @@ CREATE TABLE `guests` (
   `GuestID` int(11) NOT NULL,
   `GName` varchar(255) DEFAULT NULL,
   `GAddress` varchar(255) DEFAULT NULL,
-  `GNum` int(11) DEFAULT NULL
+  `GNum` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -115,7 +157,23 @@ CREATE TABLE `guests` (
 --
 
 INSERT INTO `guests` (`GuestID`, `GName`, `GAddress`, `GNum`) VALUES
-(2, 'Jaye Alojado', 'Davao City', 2147483647);
+(1, 'Jules Alinsag', 'Davao City', '09216008054'),
+(2, 'Jaye Kappa', 'Davao City', '09232808941');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `guest_checkedin`
+-- (See below for the actual view)
+--
+CREATE TABLE `guest_checkedin` (
+`Check-In ID` int(11)
+,`Guest ID` int(11)
+,`Guest Name` varchar(255)
+,`Room No.` int(11)
+,`Check-In Date` datetime
+,`Check-Out Date` datetime
+);
 
 -- --------------------------------------------------------
 
@@ -127,7 +185,22 @@ CREATE TABLE `guest_info` (
 `ID` int(11)
 ,`Guest Name` varchar(255)
 ,`Address` varchar(255)
-,`Contact No.` int(11)
+,`Contact No.` varchar(255)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `guest_reservation`
+-- (See below for the actual view)
+--
+CREATE TABLE `guest_reservation` (
+`Reservation ID` int(11)
+,`Guest ID` int(11)
+,`Guest Name` varchar(255)
+,`Room ID` int(11)
+,`Check-In Date` datetime
+,`Check-Out Date` datetime
 );
 
 -- --------------------------------------------------------
@@ -138,10 +211,29 @@ CREATE TABLE `guest_info` (
 
 CREATE TABLE `reservation` (
   `ReservationID` int(11) NOT NULL,
-  `CIDate` datetime DEFAULT NULL,
-  `CODate` datetime DEFAULT NULL,
+  `GuestID` int(11) DEFAULT NULL,
   `RoomID` int(11) DEFAULT NULL,
-  `GuestID` int(11) DEFAULT NULL
+  `CIDate` datetime DEFAULT NULL,
+  `CODate` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `reservation`
+--
+
+INSERT INTO `reservation` (`ReservationID`, `GuestID`, `RoomID`, `CIDate`, `CODate`) VALUES
+(1, 2, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reservation_payment`
+--
+
+CREATE TABLE `reservation_payment` (
+  `ReservePID` int(11) NOT NULL,
+  `PAmount` varchar(255) DEFAULT NULL,
+  `PDate` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -162,7 +254,7 @@ CREATE TABLE `rooms` (
 --
 
 INSERT INTO `rooms` (`RoomID`, `BedNum`, `RoomTypeID`, `RoomStatusID`) VALUES
-(1, 1, 1, 3),
+(1, 1, 1, 2),
 (2, 1, 1, 1),
 (3, 1, 1, 1),
 (4, 1, 1, 1),
@@ -171,7 +263,7 @@ INSERT INTO `rooms` (`RoomID`, `BedNum`, `RoomTypeID`, `RoomStatusID`) VALUES
 (7, 1, 1, 1),
 (8, 1, 1, 1),
 (9, 2, 2, 1),
-(10, 2, 2, 1),
+(10, 2, 2, 3),
 (11, 2, 2, 1),
 (12, 2, 2, 1),
 (13, 2, 2, 1),
@@ -236,7 +328,6 @@ CREATE TABLE `rooms_reserved` (
 `Room No.` int(11)
 ,`No. Of Beds` int(11)
 ,`Room Type` varchar(255)
-,`Room Status` varchar(255)
 );
 
 -- --------------------------------------------------------
@@ -256,25 +347,14 @@ CREATE TABLE `room_info` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `room_occupied`
+-- Stand-in structure for view `room_profile`
 -- (See below for the actual view)
 --
-CREATE TABLE `room_occupied` (
+CREATE TABLE `room_profile` (
 `Room No.` int(11)
-,`No. Of Beds` int(11)
 ,`Room Type` varchar(255)
-);
-
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `room_reserved`
--- (See below for the actual view)
---
-CREATE TABLE `room_reserved` (
-`Room No.` int(11)
 ,`No. Of Beds` int(11)
-,`Room Type` varchar(255)
+,`Room Status` varchar(255)
 );
 
 -- --------------------------------------------------------
@@ -323,6 +403,15 @@ INSERT INTO `room_type` (`RoomTypeID`, `RoomType`, `RoomPrice`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure for view `guest_checkedin`
+--
+DROP TABLE IF EXISTS `guest_checkedin`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `guest_checkedin`  AS SELECT `checking`.`ChckID` AS `Check-In ID`, `guests`.`GuestID` AS `Guest ID`, `guests`.`GName` AS `Guest Name`, `checking`.`RoomID` AS `Room No.`, `checking`.`CIDate` AS `Check-In Date`, `checking`.`CODate` AS `Check-Out Date` FROM (`guests` join `checking` on(`guests`.`GuestID` = `checking`.`GuestID`)) ;
+
+-- --------------------------------------------------------
+
+--
 -- Structure for view `guest_info`
 --
 DROP TABLE IF EXISTS `guest_info`;
@@ -332,11 +421,20 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
+-- Structure for view `guest_reservation`
+--
+DROP TABLE IF EXISTS `guest_reservation`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `guest_reservation`  AS SELECT `reservation`.`ReservationID` AS `Reservation ID`, `guests`.`GuestID` AS `Guest ID`, `guests`.`GName` AS `Guest Name`, `reservation`.`RoomID` AS `Room ID`, `reservation`.`CIDate` AS `Check-In Date`, `reservation`.`CODate` AS `Check-Out Date` FROM (`reservation` join `guests` on(`reservation`.`GuestID` = `guests`.`GuestID`)) ;
+
+-- --------------------------------------------------------
+
+--
 -- Structure for view `rooms_available`
 --
 DROP TABLE IF EXISTS `rooms_available`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `rooms_available`  AS SELECT `rooms`.`RoomID` AS `Room No.`, `rooms`.`BedNum` AS `No. Of Beds`, `room_type`.`RoomType` AS `Room Type` FROM ((`rooms` join `room_type` on(`rooms`.`RoomTypeID` = `room_type`.`RoomTypeID`)) join `room_status` on(`rooms`.`RoomStatusID` = `room_status`.`RoomStatusID`)) WHERE `rooms`.`RoomStatusID` = 1 ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `rooms_available`  AS SELECT `rooms`.`RoomID` AS `Room No.`, `rooms`.`BedNum` AS `No. Of Beds`, `room_type`.`RoomType` AS `Room Type` FROM (`rooms` join `room_type` on(`rooms`.`RoomTypeID` = `room_type`.`RoomTypeID`)) WHERE `rooms`.`RoomStatusID` = 1 ;
 
 -- --------------------------------------------------------
 
@@ -345,7 +443,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `rooms_occupied`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `rooms_occupied`  AS SELECT `rooms`.`RoomID` AS `Room No.`, `rooms`.`BedNum` AS `No. Of Beds`, `room_type`.`RoomType` AS `Room Type` FROM ((`room_status` join `rooms` on(`room_status`.`RoomStatusID` = `rooms`.`RoomStatusID`)) join `room_type` on(`room_type`.`RoomTypeID` = `rooms`.`RoomTypeID`)) WHERE `rooms`.`RoomStatusID` = 3 ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `rooms_occupied`  AS SELECT `rooms`.`RoomID` AS `Room No.`, `rooms`.`BedNum` AS `No. Of Beds`, `room_type`.`RoomType` AS `Room Type` FROM (`rooms` join `room_type` on(`room_type`.`RoomTypeID` = `rooms`.`RoomTypeID`)) WHERE `rooms`.`RoomStatusID` = 3 ;
 
 -- --------------------------------------------------------
 
@@ -354,7 +452,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `rooms_reserved`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `rooms_reserved`  AS SELECT `rooms`.`RoomID` AS `Room No.`, `rooms`.`BedNum` AS `No. Of Beds`, `room_type`.`RoomType` AS `Room Type`, `room_status`.`RoomStatus` AS `Room Status` FROM ((`room_status` join `rooms` on(`room_status`.`RoomStatusID` = `rooms`.`RoomStatusID`)) join `room_type` on(`room_type`.`RoomTypeID` = `rooms`.`RoomTypeID`)) WHERE `rooms`.`RoomStatusID` = 2 ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `rooms_reserved`  AS SELECT `rooms`.`RoomID` AS `Room No.`, `rooms`.`BedNum` AS `No. Of Beds`, `room_type`.`RoomType` AS `Room Type` FROM (`rooms` join `room_type` on(`room_type`.`RoomTypeID` = `rooms`.`RoomTypeID`)) WHERE `rooms`.`RoomStatusID` = 2 ;
 
 -- --------------------------------------------------------
 
@@ -368,20 +466,11 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Structure for view `room_occupied`
+-- Structure for view `room_profile`
 --
-DROP TABLE IF EXISTS `room_occupied`;
+DROP TABLE IF EXISTS `room_profile`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `room_occupied`  AS SELECT `rooms`.`RoomID` AS `Room No.`, `rooms`.`BedNum` AS `No. Of Beds`, `room_type`.`RoomType` AS `Room Type` FROM ((`room_status` join `rooms` on(`room_status`.`RoomStatusID` = `rooms`.`RoomStatusID`)) join `room_type` on(`room_type`.`RoomTypeID` = `rooms`.`RoomTypeID`)) WHERE `rooms`.`RoomStatusID` = 3 ;
-
--- --------------------------------------------------------
-
---
--- Structure for view `room_reserved`
---
-DROP TABLE IF EXISTS `room_reserved`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `room_reserved`  AS SELECT `rooms`.`RoomID` AS `Room No.`, `rooms`.`BedNum` AS `No. Of Beds`, `room_type`.`RoomType` AS `Room Type` FROM ((`room_status` join `rooms` on(`room_status`.`RoomStatusID` = `rooms`.`RoomStatusID`)) join `room_type` on(`room_type`.`RoomTypeID` = `rooms`.`RoomTypeID`)) WHERE `rooms`.`RoomStatusID` = 2 ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `room_profile`  AS SELECT `rooms`.`RoomID` AS `Room No.`, `room_type`.`RoomType` AS `Room Type`, `rooms`.`BedNum` AS `No. Of Beds`, `room_status`.`RoomStatus` AS `Room Status` FROM ((`rooms` join `room_status` on(`rooms`.`RoomStatusID` = `room_status`.`RoomStatusID`)) join `room_type` on(`rooms`.`RoomTypeID` = `room_type`.`RoomTypeID`)) ;
 
 --
 -- Indexes for dumped tables
@@ -394,6 +483,18 @@ ALTER TABLE `checking`
   ADD PRIMARY KEY (`ChckID`),
   ADD KEY `CRoomID` (`RoomID`),
   ADD KEY `CGuestID` (`GuestID`);
+
+--
+-- Indexes for table `checkin_payment`
+--
+ALTER TABLE `checkin_payment`
+  ADD PRIMARY KEY (`ChckPID`);
+
+--
+-- Indexes for table `customer_status`
+--
+ALTER TABLE `customer_status`
+  ADD PRIMARY KEY (`CustomerStatusID`);
 
 --
 -- Indexes for table `emp_details`
@@ -431,6 +532,12 @@ ALTER TABLE `reservation`
   ADD KEY `RGuestID` (`GuestID`);
 
 --
+-- Indexes for table `reservation_payment`
+--
+ALTER TABLE `reservation_payment`
+  ADD PRIMARY KEY (`ReservePID`);
+
+--
 -- Indexes for table `rooms`
 --
 ALTER TABLE `rooms`
@@ -458,7 +565,7 @@ ALTER TABLE `room_type`
 -- AUTO_INCREMENT for table `checking`
 --
 ALTER TABLE `checking`
-  MODIFY `ChckID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ChckID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `emp_details`
@@ -482,13 +589,7 @@ ALTER TABLE `guests`
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `rooms`
---
-ALTER TABLE `rooms`
-  MODIFY `RoomID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
