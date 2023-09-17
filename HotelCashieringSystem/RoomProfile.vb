@@ -1,4 +1,9 @@
 ﻿Public Class RoomProfile
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles tmrRP.Tick
+        lblDateTime.Text = DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt")
+    End Sub
+
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
         Admin.Show()
         Me.Hide()

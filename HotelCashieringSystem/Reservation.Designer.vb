@@ -32,9 +32,7 @@ Partial Class Reservation
         btnReserve = New Button()
         GroupBox3 = New GroupBox()
         dgvReserve = New DataGridView()
-        Label1 = New Label()
         Label2 = New Label()
-        txtReserveID = New TextBox()
         Label5 = New Label()
         Label6 = New Label()
         dtpCheckIn = New DateTimePicker()
@@ -49,6 +47,7 @@ Partial Class Reservation
         tmrReserve = New Timer(components)
         GroupBox4 = New GroupBox()
         dgvAvailable = New DataGridView()
+        Label1 = New Label()
         GroupBox2.SuspendLayout()
         CType(dgvGuest, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox3.SuspendLayout()
@@ -92,7 +91,7 @@ Partial Class Reservation
         ' 
         GroupBox2.BackColor = Color.Transparent
         GroupBox2.Controls.Add(dgvGuest)
-        GroupBox2.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        GroupBox2.Font = New Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox2.ForeColor = Color.Black
         GroupBox2.Location = New Point(401, 41)
         GroupBox2.Name = "GroupBox2"
@@ -143,11 +142,11 @@ Partial Class Reservation
         GroupBox3.Anchor = AnchorStyles.Top
         GroupBox3.BackColor = Color.Transparent
         GroupBox3.Controls.Add(dgvReserve)
-        GroupBox3.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        GroupBox3.Font = New Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox3.ForeColor = Color.Black
         GroupBox3.Location = New Point(12, 388)
         GroupBox3.Name = "GroupBox3"
-        GroupBox3.Size = New Size(1302, 341)
+        GroupBox3.Size = New Size(1308, 341)
         GroupBox3.TabIndex = 30
         GroupBox3.TabStop = False
         GroupBox3.Text = "Reservation List"
@@ -166,17 +165,8 @@ Partial Class Reservation
         dgvReserve.Name = "dgvReserve"
         dgvReserve.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         dgvReserve.RowTemplate.Height = 25
-        dgvReserve.Size = New Size(1290, 312)
+        dgvReserve.Size = New Size(1296, 312)
         dgvReserve.TabIndex = 0
-        ' 
-        ' Label1
-        ' 
-        Label1.AutoSize = True
-        Label1.Location = New Point(20, 26)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(144, 19)
-        Label1.TabIndex = 0
-        Label1.Text = "Reservation ID:"
         ' 
         ' Label2
         ' 
@@ -187,18 +177,10 @@ Partial Class Reservation
         Label2.TabIndex = 1
         Label2.Text = "Guest Name:"
         ' 
-        ' txtReserveID
-        ' 
-        txtReserveID.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        txtReserveID.Location = New Point(176, 23)
-        txtReserveID.Name = "txtReserveID"
-        txtReserveID.Size = New Size(186, 26)
-        txtReserveID.TabIndex = 3
-        ' 
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Location = New Point(20, 186)
+        Label5.Location = New Point(20, 146)
         Label5.Name = "Label5"
         Label5.Size = New Size(135, 19)
         Label5.TabIndex = 21
@@ -207,7 +189,7 @@ Partial Class Reservation
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Location = New Point(20, 226)
+        Label6.Location = New Point(20, 186)
         Label6.Name = "Label6"
         Label6.Size = New Size(144, 19)
         Label6.TabIndex = 22
@@ -219,7 +201,7 @@ Partial Class Reservation
         dtpCheckIn.CustomFormat = "MM/dd/yyyy -h:mm:ss tt"
         dtpCheckIn.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
         dtpCheckIn.Format = DateTimePickerFormat.Custom
-        dtpCheckIn.Location = New Point(161, 186)
+        dtpCheckIn.Location = New Point(161, 144)
         dtpCheckIn.Name = "dtpCheckIn"
         dtpCheckIn.Size = New Size(201, 22)
         dtpCheckIn.TabIndex = 23
@@ -230,7 +212,7 @@ Partial Class Reservation
         dtpCheckOut.CustomFormat = "MM/dd/yyyy -h:mm:ss tt"
         dtpCheckOut.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
         dtpCheckOut.Format = DateTimePickerFormat.Custom
-        dtpCheckOut.Location = New Point(161, 226)
+        dtpCheckOut.Location = New Point(161, 184)
         dtpCheckOut.Name = "dtpCheckOut"
         dtpCheckOut.Size = New Size(201, 22)
         dtpCheckOut.TabIndex = 24
@@ -247,7 +229,7 @@ Partial Class Reservation
         ' Label7
         ' 
         Label7.AutoSize = True
-        Label7.Location = New Point(20, 146)
+        Label7.Location = New Point(20, 26)
         Label7.Name = "Label7"
         Label7.Size = New Size(117, 19)
         Label7.TabIndex = 27
@@ -255,13 +237,14 @@ Partial Class Reservation
         ' 
         ' txtRoomNumber
         ' 
-        txtRoomNumber.Location = New Point(176, 143)
+        txtRoomNumber.Location = New Point(176, 23)
         txtRoomNumber.Name = "txtRoomNumber"
         txtRoomNumber.Size = New Size(186, 26)
         txtRoomNumber.TabIndex = 28
         ' 
         ' GroupBox1
         ' 
+        GroupBox1.Controls.Add(Label1)
         GroupBox1.Controls.Add(txtGuestID)
         GroupBox1.Controls.Add(Label3)
         GroupBox1.Controls.Add(txtRoomNumber)
@@ -271,9 +254,7 @@ Partial Class Reservation
         GroupBox1.Controls.Add(dtpCheckIn)
         GroupBox1.Controls.Add(Label6)
         GroupBox1.Controls.Add(Label5)
-        GroupBox1.Controls.Add(txtReserveID)
         GroupBox1.Controls.Add(Label2)
-        GroupBox1.Controls.Add(Label1)
         GroupBox1.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox1.ForeColor = Color.Black
         GroupBox1.Location = New Point(12, 41)
@@ -321,7 +302,7 @@ Partial Class Reservation
         ' 
         GroupBox4.Anchor = AnchorStyles.None
         GroupBox4.Controls.Add(dgvAvailable)
-        GroupBox4.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        GroupBox4.Font = New Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox4.Location = New Point(842, 41)
         GroupBox4.Name = "GroupBox4"
         GroupBox4.Size = New Size(478, 341)
@@ -350,6 +331,15 @@ Partial Class Reservation
         dgvAvailable.Size = New Size(466, 313)
         dgvAvailable.TabIndex = 5
         dgvAvailable.TabStop = False
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Location = New Point(20, 226)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(81, 19)
+        Label1.TabIndex = 32
+        Label1.Text = "Payment:"
         ' 
         ' Reservation
         ' 
@@ -392,9 +382,7 @@ Partial Class Reservation
     Friend WithEvents btnReserve As Button
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents dgvReserve As DataGridView
-    Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents txtReserveID As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents dtpCheckIn As DateTimePicker
@@ -409,4 +397,5 @@ Partial Class Reservation
     Friend WithEvents Label3 As Label
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents dgvAvailable As DataGridView
+    Friend WithEvents Label1 As Label
 End Class

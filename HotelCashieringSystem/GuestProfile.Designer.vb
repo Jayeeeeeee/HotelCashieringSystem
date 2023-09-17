@@ -22,6 +22,7 @@ Partial Class GuestProfile
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        components = New ComponentModel.Container()
         btnAdd = New Button()
         btnBack = New Button()
         btnLogOut = New Button()
@@ -39,6 +40,8 @@ Partial Class GuestProfile
         Label2 = New Label()
         Label1 = New Label()
         btnUpdate = New Button()
+        lblDateTime = New Label()
+        tmrGP = New Timer(components)
         GroupBox2.SuspendLayout()
         CType(dgvGuest, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
@@ -66,8 +69,9 @@ Partial Class GuestProfile
         ' 
         ' btnLogOut
         ' 
+        btnLogOut.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         btnLogOut.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnLogOut.Location = New Point(1039, 14)
+        btnLogOut.Location = New Point(1406, 14)
         btnLogOut.Name = "btnLogOut"
         btnLogOut.Size = New Size(133, 22)
         btnLogOut.TabIndex = 10
@@ -97,14 +101,14 @@ Partial Class GuestProfile
         ' 
         ' GroupBox2
         ' 
-        GroupBox2.Anchor = AnchorStyles.None
+        GroupBox2.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         GroupBox2.BackColor = Color.Transparent
         GroupBox2.Controls.Add(dgvGuest)
-        GroupBox2.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        GroupBox2.Font = New Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox2.ForeColor = Color.Black
         GroupBox2.Location = New Point(396, 42)
         GroupBox2.Name = "GroupBox2"
-        GroupBox2.Size = New Size(776, 341)
+        GroupBox2.Size = New Size(1143, 341)
         GroupBox2.TabIndex = 22
         GroupBox2.TabStop = False
         GroupBox2.Text = "Guest List"
@@ -124,13 +128,12 @@ Partial Class GuestProfile
         dgvGuest.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         dgvGuest.RowTemplate.Height = 25
         dgvGuest.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvGuest.Size = New Size(764, 310)
+        dgvGuest.Size = New Size(1131, 310)
         dgvGuest.TabIndex = 0
         dgvGuest.TabStop = False
         ' 
         ' GroupBox1
         ' 
-        GroupBox1.Anchor = AnchorStyles.None
         GroupBox1.Controls.Add(txtName)
         GroupBox1.Controls.Add(txtAddress)
         GroupBox1.Controls.Add(txtNumber)
@@ -226,11 +229,28 @@ Partial Class GuestProfile
         btnUpdate.Text = "Update Guest Profile"
         btnUpdate.UseVisualStyleBackColor = True
         ' 
+        ' lblDateTime
+        ' 
+        lblDateTime.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        lblDateTime.AutoSize = True
+        lblDateTime.BackColor = SystemColors.ActiveCaptionText
+        lblDateTime.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        lblDateTime.ForeColor = Color.OrangeRed
+        lblDateTime.Location = New Point(1239, 18)
+        lblDateTime.Name = "lblDateTime"
+        lblDateTime.Size = New Size(161, 14)
+        lblDateTime.TabIndex = 34
+        lblDateTime.Text = "00/00/0000 00:00:00 am"
+        ' 
+        ' tmrGP
+        ' 
+        ' 
         ' GuestProfile
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1184, 396)
+        ClientSize = New Size(1551, 396)
+        Controls.Add(lblDateTime)
         Controls.Add(btnUpdate)
         Controls.Add(btnAdd)
         Controls.Add(btnBack)
@@ -247,6 +267,7 @@ Partial Class GuestProfile
         GroupBox1.ResumeLayout(False)
         GroupBox1.PerformLayout()
         ResumeLayout(False)
+        PerformLayout()
     End Sub
 
     Friend WithEvents btnAdd As Button
@@ -266,4 +287,6 @@ Partial Class GuestProfile
     Friend WithEvents txtGuestID As TextBox
     Friend WithEvents txtName As TextBox
     Friend WithEvents btnUpdate As Button
+    Friend WithEvents lblDateTime As Label
+    Friend WithEvents tmrGP As Timer
 End Class

@@ -42,10 +42,10 @@
     End Sub
 
     Private Sub btnCheckIn_Click(sender As Object, e As EventArgs) Handles btnCheckIn.Click
-        If String.IsNullOrWhiteSpace(txtChckID.Text) Or String.IsNullOrWhiteSpace(txtGuestID.Text) Or String.IsNullOrWhiteSpace(txtName.Text) Or String.IsNullOrWhiteSpace(txtRoomNumber.Text) Then
+        If String.IsNullOrWhiteSpace(txtRoomNumber.Text) Or String.IsNullOrWhiteSpace(txtGuestID.Text) Or String.IsNullOrWhiteSpace(txtName.Text) Then
             MessageBox.Show("Some fields are empty!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Else
-            Dim CheckIn = "Insert Into checking Values(null or '" & txtChckID.Text & "', '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & dtpCheckIn.Text & "', '" & dtpCheckOut.Text & "')"
+            Dim CheckIn = "Insert Into checking Values(null, '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & dtpCheckIn.Text & "', '" & dtpCheckOut.Text & "')"
             SQLProcess(CheckIn)
 
             Dim CheckInRoom = "Update rooms Set RoomStatusID = 3 Where RoomID = '" & txtRoomNumber.Text & "'"
@@ -58,10 +58,9 @@
     End Sub
 
     Public Sub cleartxt()
-        txtChckID.Text = ""
+        txtRoomNumber.Text = ""
         txtGuestID.Text = ""
         txtName.Text = ""
-        txtRoomNumber.Text = ""
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
@@ -72,10 +71,9 @@
         Try
             Dim i = e.RowIndex
             With dgvCheckedIn
-                txtChckID.Text = .Item("Check-In ID", i).Value
+                txtRoomNumber.Text = .Item("Room.No", i).Value
                 txtGuestID.Text = .Item("Guest ID", i).Value
                 txtName.Text = .Item("Guest Name", i).Value
-                txtRoomNumber.Text = .Item("Room.No", i).Value
                 dtpCheckIn.Value = .Item("Check-In Date", i).Value
                 dtpCheckOut.Value = .Item("Check-Out Date", i).Value
 
@@ -84,6 +82,20 @@
             btnCheckOut.Enabled = True
         Catch ex As Exception
             'MessageBox.Show("Error: " + ex.Message)
+        End Try
+    End Sub
+
+    Private Sub dgvAvailable_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvAvailable.CellClick
+        Try
+            Dim i = e.RowIndex
+            With dgvAvailable
+                txtRoomNumber.Text = .Item("Room No.", i).Value
+
+            End With
+            btnCheckIn.Enabled = True
+            btnCheckOut.Enabled = True
+        Catch ex As Exception
+            MessageBox.Show("Error: " + ex.Message)
         End Try
     End Sub
 End Class

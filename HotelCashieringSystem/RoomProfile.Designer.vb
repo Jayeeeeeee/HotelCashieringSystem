@@ -22,6 +22,7 @@ Partial Class RoomProfile
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        components = New ComponentModel.Container()
         btnClear = New Button()
         btnDelete = New Button()
         GroupBox2 = New GroupBox()
@@ -41,6 +42,8 @@ Partial Class RoomProfile
         btnCreate = New Button()
         btnBack = New Button()
         btnLogOut = New Button()
+        lblDateTime = New Label()
+        tmrRP = New Timer(components)
         GroupBox2.SuspendLayout()
         CType(dgvRoom, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
@@ -72,7 +75,7 @@ Partial Class RoomProfile
         GroupBox2.Anchor = AnchorStyles.None
         GroupBox2.BackColor = Color.Transparent
         GroupBox2.Controls.Add(dgvRoom)
-        GroupBox2.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        GroupBox2.Font = New Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox2.ForeColor = Color.Black
         GroupBox2.Location = New Point(396, 43)
         GroupBox2.Name = "GroupBox2"
@@ -257,11 +260,27 @@ Partial Class RoomProfile
         btnLogOut.Text = "Logout"
         btnLogOut.UseVisualStyleBackColor = True
         ' 
+        ' lblDateTime
+        ' 
+        lblDateTime.AutoSize = True
+        lblDateTime.BackColor = Color.Black
+        lblDateTime.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        lblDateTime.ForeColor = Color.OrangeRed
+        lblDateTime.Location = New Point(872, 16)
+        lblDateTime.Name = "lblDateTime"
+        lblDateTime.Size = New Size(161, 14)
+        lblDateTime.TabIndex = 35
+        lblDateTime.Text = "00/00/0000 00:00:00 am"
+        ' 
+        ' tmrRP
+        ' 
+        ' 
         ' RoomProfile
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1184, 396)
+        Controls.Add(lblDateTime)
         Controls.Add(btnBack)
         Controls.Add(btnLogOut)
         Controls.Add(btnClear)
@@ -277,6 +296,7 @@ Partial Class RoomProfile
         GroupBox1.ResumeLayout(False)
         GroupBox1.PerformLayout()
         ResumeLayout(False)
+        PerformLayout()
     End Sub
 
     Friend WithEvents btnClear As Button
@@ -298,4 +318,6 @@ Partial Class RoomProfile
     Friend WithEvents Label5 As Label
     Friend WithEvents txtRoomPrice As TextBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents lblDateTime As Label
+    Friend WithEvents tmrRP As Timer
 End Class

@@ -1,4 +1,9 @@
 ﻿Public Class GuestProfile
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles tmrGP.Tick
+        lblDateTime.Text = DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt")
+    End Sub
+
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
         Dashboard.Show()
         Me.Hide()
@@ -30,7 +35,8 @@
         If String.IsNullOrWhiteSpace(txtName.Text) Or String.IsNullOrWhiteSpace(txtAddress.Text) Or String.IsNullOrWhiteSpace(txtNumber.Text) Then
             MessageBox.Show("Some fields are empty!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Else
-            Dim AddGuest = "Insert Into guest_info Values(null or '" & txtGuestID.Text & "', '" & txtName.Text & "', '" & txtAddress.Text & "', '" & txtNumber.Text & "')"
+            Dim AddGuest = "Insert Into guest_info Values(null or '" & txtGuestID.Text & "', '" & txtName.Text & "', '" & txtAddress.Text & "', '" & txtNumber.Text & "', 3)"
+
             SQLProcess(AddGuest)
 
             MessageBox.Show("Guest Added!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
