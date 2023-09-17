@@ -33,7 +33,7 @@
     End Sub
 
     Private Sub Reservation_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
-        displayInfo("Select * From guest_info", dgvGuest)
+        displayInfo("Select * From guest_avail", dgvGuest)
         displayInfo("Select * From guest_reservation", dgvReserve)
         displayInfo("Select * From rooms_available", dgvAvailable)
     End Sub
@@ -62,6 +62,9 @@
 
             Dim CheckInRoom = "Update rooms Set RoomStatusID = 2 Where RoomID = '" & txtRoomNumber.Text & "'"
             SQLProcess(CheckInRoom)
+
+            Dim CStatus = "Update guest CStatusID = 2  Where GuestID = '" & txtGuestID.Text & "'"
+            SQLProcess(CStatus)
 
             MessageBox.Show("Room Resereved!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
 

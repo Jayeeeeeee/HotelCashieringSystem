@@ -41,13 +41,13 @@ Partial Class Reservation
         Label7 = New Label()
         txtRoomNumber = New TextBox()
         GroupBox1 = New GroupBox()
+        Label1 = New Label()
         txtGuestID = New TextBox()
         Label3 = New Label()
         lblDateTime = New Label()
         tmrReserve = New Timer(components)
         GroupBox4 = New GroupBox()
         dgvAvailable = New DataGridView()
-        Label1 = New Label()
         GroupBox2.SuspendLayout()
         CType(dgvGuest, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox3.SuspendLayout()
@@ -59,8 +59,9 @@ Partial Class Reservation
         ' 
         ' btnLogOut
         ' 
+        btnLogOut.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         btnLogOut.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnLogOut.Location = New Point(1187, 12)
+        btnLogOut.Location = New Point(1294, 12)
         btnLogOut.Name = "btnLogOut"
         btnLogOut.Size = New Size(133, 23)
         btnLogOut.TabIndex = 3
@@ -89,13 +90,14 @@ Partial Class Reservation
         ' 
         ' GroupBox2
         ' 
+        GroupBox2.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         GroupBox2.BackColor = Color.Transparent
         GroupBox2.Controls.Add(dgvGuest)
         GroupBox2.Font = New Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox2.ForeColor = Color.Black
-        GroupBox2.Location = New Point(401, 41)
+        GroupBox2.Location = New Point(396, 41)
         GroupBox2.Name = "GroupBox2"
-        GroupBox2.Size = New Size(435, 341)
+        GroupBox2.Size = New Size(547, 341)
         GroupBox2.TabIndex = 20
         GroupBox2.TabStop = False
         GroupBox2.Text = "Guest List"
@@ -114,7 +116,7 @@ Partial Class Reservation
         dgvGuest.Name = "dgvGuest"
         dgvGuest.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         dgvGuest.RowTemplate.Height = 25
-        dgvGuest.Size = New Size(423, 310)
+        dgvGuest.Size = New Size(535, 310)
         dgvGuest.TabIndex = 0
         ' 
         ' btnCancel
@@ -139,14 +141,14 @@ Partial Class Reservation
         ' 
         ' GroupBox3
         ' 
-        GroupBox3.Anchor = AnchorStyles.Top
+        GroupBox3.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         GroupBox3.BackColor = Color.Transparent
         GroupBox3.Controls.Add(dgvReserve)
         GroupBox3.Font = New Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox3.ForeColor = Color.Black
-        GroupBox3.Location = New Point(12, 388)
+        GroupBox3.Location = New Point(15, 388)
         GroupBox3.Name = "GroupBox3"
-        GroupBox3.Size = New Size(1308, 341)
+        GroupBox3.Size = New Size(1412, 341)
         GroupBox3.TabIndex = 30
         GroupBox3.TabStop = False
         GroupBox3.Text = "Reservation List"
@@ -165,7 +167,7 @@ Partial Class Reservation
         dgvReserve.Name = "dgvReserve"
         dgvReserve.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         dgvReserve.RowTemplate.Height = 25
-        dgvReserve.Size = New Size(1296, 312)
+        dgvReserve.Size = New Size(1400, 312)
         dgvReserve.TabIndex = 0
         ' 
         ' Label2
@@ -263,6 +265,15 @@ Partial Class Reservation
         GroupBox1.TabIndex = 19
         GroupBox1.TabStop = False
         ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Location = New Point(20, 226)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(81, 19)
+        Label1.TabIndex = 32
+        Label1.Text = "Payment:"
+        ' 
         ' txtGuestID
         ' 
         txtGuestID.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
@@ -283,11 +294,12 @@ Partial Class Reservation
         ' 
         ' lblDateTime
         ' 
+        lblDateTime.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         lblDateTime.AutoSize = True
         lblDateTime.BackColor = SystemColors.ActiveCaptionText
         lblDateTime.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
         lblDateTime.ForeColor = Color.OrangeRed
-        lblDateTime.Location = New Point(1020, 16)
+        lblDateTime.Location = New Point(1127, 16)
         lblDateTime.Name = "lblDateTime"
         lblDateTime.Size = New Size(161, 14)
         lblDateTime.TabIndex = 33
@@ -300,10 +312,10 @@ Partial Class Reservation
         ' 
         ' GroupBox4
         ' 
-        GroupBox4.Anchor = AnchorStyles.None
+        GroupBox4.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         GroupBox4.Controls.Add(dgvAvailable)
         GroupBox4.Font = New Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        GroupBox4.Location = New Point(842, 41)
+        GroupBox4.Location = New Point(949, 41)
         GroupBox4.Name = "GroupBox4"
         GroupBox4.Size = New Size(478, 341)
         GroupBox4.TabIndex = 34
@@ -332,20 +344,11 @@ Partial Class Reservation
         dgvAvailable.TabIndex = 5
         dgvAvailable.TabStop = False
         ' 
-        ' Label1
-        ' 
-        Label1.AutoSize = True
-        Label1.Location = New Point(20, 226)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(81, 19)
-        Label1.TabIndex = 32
-        Label1.Text = "Payment:"
-        ' 
         ' Reservation
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1332, 734)
+        ClientSize = New Size(1439, 734)
         Controls.Add(GroupBox4)
         Controls.Add(lblDateTime)
         Controls.Add(GroupBox3)

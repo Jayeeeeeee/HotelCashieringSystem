@@ -36,7 +36,7 @@
     End Sub
 
     Private Sub Checking_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
-        displayInfo("Select * From guest_info", dgvGuest)
+        displayInfo("Select * From guest_avail", dgvGuest)
         displayInfo("Select * From guest_checkedin", dgvCheckedIn)
         displayInfo("Select * From rooms_available", dgvAvailable)
     End Sub
@@ -50,6 +50,9 @@
 
             Dim CheckInRoom = "Update rooms Set RoomStatusID = 3 Where RoomID = '" & txtRoomNumber.Text & "'"
             SQLProcess(CheckInRoom)
+
+            Dim CStatus = "Update guest CStatusID = 1  Where GuestID = '" & txtGuestID.Text & "'"
+            SQLProcess(CStatus)
 
             MessageBox.Show("Guest Checked-In!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
 

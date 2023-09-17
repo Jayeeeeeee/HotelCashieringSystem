@@ -30,6 +30,7 @@ Partial Class Checking
         dgvCheckedIn = New DataGridView()
         btnCheckOut = New Button()
         GroupBox1 = New GroupBox()
+        Label1 = New Label()
         txtGuestID = New TextBox()
         Label3 = New Label()
         txtRoomNumber = New TextBox()
@@ -47,7 +48,6 @@ Partial Class Checking
         tmrCheck = New Timer(components)
         GroupBox4 = New GroupBox()
         dgvAvailable = New DataGridView()
-        Label1 = New Label()
         GroupBox2.SuspendLayout()
         CType(dgvCheckedIn, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
@@ -59,8 +59,9 @@ Partial Class Checking
         ' 
         ' btnLogOut
         ' 
+        btnLogOut.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         btnLogOut.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnLogOut.Location = New Point(1181, 12)
+        btnLogOut.Location = New Point(1288, 12)
         btnLogOut.Name = "btnLogOut"
         btnLogOut.Size = New Size(133, 23)
         btnLogOut.TabIndex = 11
@@ -89,14 +90,14 @@ Partial Class Checking
         ' 
         ' GroupBox2
         ' 
-        GroupBox2.Anchor = AnchorStyles.None
+        GroupBox2.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         GroupBox2.BackColor = Color.Transparent
         GroupBox2.Controls.Add(dgvCheckedIn)
         GroupBox2.Font = New Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox2.ForeColor = Color.Black
         GroupBox2.Location = New Point(12, 388)
         GroupBox2.Name = "GroupBox2"
-        GroupBox2.Size = New Size(1302, 341)
+        GroupBox2.Size = New Size(1409, 341)
         GroupBox2.TabIndex = 25
         GroupBox2.TabStop = False
         GroupBox2.Text = "Guests Checked In"
@@ -116,7 +117,7 @@ Partial Class Checking
         dgvCheckedIn.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         dgvCheckedIn.RowTemplate.Height = 25
         dgvCheckedIn.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvCheckedIn.Size = New Size(1290, 312)
+        dgvCheckedIn.Size = New Size(1397, 312)
         dgvCheckedIn.TabIndex = 0
         dgvCheckedIn.TabStop = False
         ' 
@@ -150,6 +151,15 @@ Partial Class Checking
         GroupBox1.Size = New Size(378, 264)
         GroupBox1.TabIndex = 24
         GroupBox1.TabStop = False
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Location = New Point(20, 226)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(81, 19)
+        Label1.TabIndex = 30
+        Label1.Text = "Payment:"
         ' 
         ' txtGuestID
         ' 
@@ -255,13 +265,14 @@ Partial Class Checking
         ' 
         ' GroupBox3
         ' 
+        GroupBox3.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         GroupBox3.BackColor = Color.Transparent
         GroupBox3.Controls.Add(dgvGuest)
         GroupBox3.Font = New Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox3.ForeColor = Color.Black
-        GroupBox3.Location = New Point(401, 41)
+        GroupBox3.Location = New Point(396, 41)
         GroupBox3.Name = "GroupBox3"
-        GroupBox3.Size = New Size(435, 341)
+        GroupBox3.Size = New Size(547, 341)
         GroupBox3.TabIndex = 31
         GroupBox3.TabStop = False
         GroupBox3.Text = "Guest List"
@@ -281,17 +292,18 @@ Partial Class Checking
         dgvGuest.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         dgvGuest.RowTemplate.Height = 25
         dgvGuest.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvGuest.Size = New Size(423, 312)
+        dgvGuest.Size = New Size(535, 312)
         dgvGuest.TabIndex = 0
         dgvGuest.TabStop = False
         ' 
         ' lblDateTime
         ' 
+        lblDateTime.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         lblDateTime.AutoSize = True
         lblDateTime.BackColor = Color.Black
         lblDateTime.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
         lblDateTime.ForeColor = Color.OrangeRed
-        lblDateTime.Location = New Point(1014, 16)
+        lblDateTime.Location = New Point(1121, 16)
         lblDateTime.Name = "lblDateTime"
         lblDateTime.Size = New Size(161, 14)
         lblDateTime.TabIndex = 32
@@ -304,10 +316,10 @@ Partial Class Checking
         ' 
         ' GroupBox4
         ' 
-        GroupBox4.Anchor = AnchorStyles.None
+        GroupBox4.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         GroupBox4.Controls.Add(dgvAvailable)
         GroupBox4.Font = New Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        GroupBox4.Location = New Point(842, 41)
+        GroupBox4.Location = New Point(949, 41)
         GroupBox4.Name = "GroupBox4"
         GroupBox4.Size = New Size(472, 341)
         GroupBox4.TabIndex = 35
@@ -336,20 +348,11 @@ Partial Class Checking
         dgvAvailable.TabIndex = 5
         dgvAvailable.TabStop = False
         ' 
-        ' Label1
-        ' 
-        Label1.AutoSize = True
-        Label1.Location = New Point(20, 226)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(81, 19)
-        Label1.TabIndex = 30
-        Label1.Text = "Payment:"
-        ' 
         ' Checking
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1332, 734)
+        ClientSize = New Size(1439, 734)
         Controls.Add(GroupBox4)
         Controls.Add(lblDateTime)
         Controls.Add(GroupBox3)
