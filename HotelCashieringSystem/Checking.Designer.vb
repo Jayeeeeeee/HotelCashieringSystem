@@ -47,6 +47,7 @@ Partial Class Checking
         tmrCheck = New Timer(components)
         GroupBox4 = New GroupBox()
         dgvAvailable = New DataGridView()
+        Label1 = New Label()
         GroupBox2.SuspendLayout()
         CType(dgvCheckedIn, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
@@ -131,6 +132,7 @@ Partial Class Checking
         ' 
         ' GroupBox1
         ' 
+        GroupBox1.Controls.Add(Label1)
         GroupBox1.Controls.Add(txtGuestID)
         GroupBox1.Controls.Add(Label3)
         GroupBox1.Controls.Add(txtRoomNumber)
@@ -334,6 +336,15 @@ Partial Class Checking
         dgvAvailable.TabIndex = 5
         dgvAvailable.TabStop = False
         ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Location = New Point(20, 226)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(81, 19)
+        Label1.TabIndex = 30
+        Label1.Text = "Payment:"
+        ' 
         ' Checking
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -387,4 +398,5 @@ Partial Class Checking
     Friend WithEvents Label3 As Label
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents dgvAvailable As DataGridView
+    Friend WithEvents Label1 As Label
 End Class
