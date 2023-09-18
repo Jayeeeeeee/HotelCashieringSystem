@@ -116,6 +116,7 @@ Partial Class Reservation
         dgvGuest.Name = "dgvGuest"
         dgvGuest.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         dgvGuest.RowTemplate.Height = 25
+        dgvGuest.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         dgvGuest.Size = New Size(623, 310)
         dgvGuest.TabIndex = 0
         ' 
@@ -201,7 +202,7 @@ Partial Class Reservation
         ' dtpCheckIn
         ' 
         dtpCheckIn.CalendarFont = New Font("Consolas", 8F, FontStyle.Regular, GraphicsUnit.Point)
-        dtpCheckIn.CustomFormat = "MM/dd/yyyy -h:mm:ss tt"
+        dtpCheckIn.CustomFormat = "MM/dd/yyyy - h:mm:ss tt"
         dtpCheckIn.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
         dtpCheckIn.Format = DateTimePickerFormat.Custom
         dtpCheckIn.Location = New Point(161, 144)
@@ -212,7 +213,7 @@ Partial Class Reservation
         ' dtpCheckOut
         ' 
         dtpCheckOut.CalendarFont = New Font("Consolas", 8F, FontStyle.Regular, GraphicsUnit.Point)
-        dtpCheckOut.CustomFormat = "MM/dd/yyyy -h:mm:ss tt"
+        dtpCheckOut.CustomFormat = "MM/dd/yyyy - h:mm:ss tt"
         dtpCheckOut.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
         dtpCheckOut.Format = DateTimePickerFormat.Custom
         dtpCheckOut.Location = New Point(161, 184)

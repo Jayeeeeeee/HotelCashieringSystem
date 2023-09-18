@@ -290,6 +290,7 @@ Partial Class RoomProfile
         Controls.Add(GroupBox1)
         Controls.Add(btnCreate)
         Name = "RoomProfile"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Room Profile"
         GroupBox2.ResumeLayout(False)
         CType(dgvRoom, ComponentModel.ISupportInitialize).EndInit()

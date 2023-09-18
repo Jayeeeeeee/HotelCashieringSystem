@@ -1,4 +1,9 @@
-﻿Public Class Admin
+﻿Public Class Records
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles tmrRecords.Tick
+        lblDateTime.Text = DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt")
+    End Sub
+
     Private Sub btnLogOut_Click(sender As Object, e As EventArgs) Handles btnLogOut.Click
         Dim out As New System.Windows.Forms.DialogResult
         out = MessageBox.Show("Logout?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
@@ -10,13 +15,8 @@
         End If
     End Sub
 
-    Private Sub btnRoomProfile_Click(sender As Object, e As EventArgs) Handles btnRoomProfile.Click
-        RoomProfile.Show()
-        Me.Hide()
-    End Sub
-
-    Private Sub btnDash_Click(sender As Object, e As EventArgs) Handles btnDash.Click
-        Records.Show()
+    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+        Admin.Show()
         Me.Hide()
     End Sub
 End Class

@@ -36,6 +36,8 @@
         displayInfo("Select * From guest_info", dgvGuest)
         displayInfo("Select * From guest_reservation", dgvReserve)
         displayInfo("Select * From rooms_available", dgvAvailable)
+        dtpCheckOut.MinDate = DateAdd(DateInterval.Day, 1, Now)
+        dtpCheckIn.MinDate = Now
     End Sub
 
     Private Sub dgGuest_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvGuest.CellClick
@@ -57,11 +59,11 @@
         If String.IsNullOrWhiteSpace(txtRoomNumber.Text) Or String.IsNullOrWhiteSpace(txtGuestID.Text) Or String.IsNullOrWhiteSpace(txtName.Text) Then
             MessageBox.Show("Some fields are empty!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Else
-            Dim CheckIn = "Insert Into reservation Values(null, '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & dtpCheckIn.Text & "', '" & dtpCheckOut.Text & "', '" & 1 & "')"
-            SQLProcess(CheckIn)
+            Dim Reserve = "Insert Into reservation Values(null, '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & dtpCheckIn.Text & "', '" & dtpCheckOut.Text & "', '" & 1 & "')"
+            SQLProcess(Reserve)
 
-            Dim CheckInRoom = "Update rooms Set RoomStatusID = 2 Where RoomID = '" & txtRoomNumber.Text & "'"
-            SQLProcess(CheckInRoom)
+            Dim ReserveRoom = "Update rooms Set RoomStatusID = 2 Where RoomID = '" & txtRoomNumber.Text & "'"
+            SQLProcess(ReserveRoom)
 
             Dim CStatus = "Update guests Set CStatusID = 2  Where GuestID = '" & txtGuestID.Text & "'"
             SQLProcess(CStatus)
