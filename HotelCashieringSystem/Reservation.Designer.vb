@@ -93,11 +93,11 @@ Partial Class Reservation
         GroupBox2.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         GroupBox2.BackColor = Color.Transparent
         GroupBox2.Controls.Add(dgvGuest)
-        GroupBox2.Font = New Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        GroupBox2.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox2.ForeColor = Color.Black
         GroupBox2.Location = New Point(396, 41)
         GroupBox2.Name = "GroupBox2"
-        GroupBox2.Size = New Size(547, 341)
+        GroupBox2.Size = New Size(635, 341)
         GroupBox2.TabIndex = 20
         GroupBox2.TabStop = False
         GroupBox2.Text = "Guest List"
@@ -116,7 +116,7 @@ Partial Class Reservation
         dgvGuest.Name = "dgvGuest"
         dgvGuest.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         dgvGuest.RowTemplate.Height = 25
-        dgvGuest.Size = New Size(535, 310)
+        dgvGuest.Size = New Size(623, 310)
         dgvGuest.TabIndex = 0
         ' 
         ' btnCancel
@@ -167,6 +167,7 @@ Partial Class Reservation
         dgvReserve.Name = "dgvReserve"
         dgvReserve.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         dgvReserve.RowTemplate.Height = 25
+        dgvReserve.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         dgvReserve.Size = New Size(1400, 312)
         dgvReserve.TabIndex = 0
         ' 
@@ -315,9 +316,9 @@ Partial Class Reservation
         GroupBox4.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         GroupBox4.Controls.Add(dgvAvailable)
         GroupBox4.Font = New Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        GroupBox4.Location = New Point(949, 41)
+        GroupBox4.Location = New Point(1037, 41)
         GroupBox4.Name = "GroupBox4"
-        GroupBox4.Size = New Size(478, 341)
+        GroupBox4.Size = New Size(390, 341)
         GroupBox4.TabIndex = 34
         GroupBox4.TabStop = False
         GroupBox4.Text = "Rooms Available"
@@ -340,7 +341,7 @@ Partial Class Reservation
         dgvAvailable.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         dgvAvailable.RowTemplate.Height = 25
         dgvAvailable.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvAvailable.Size = New Size(466, 313)
+        dgvAvailable.Size = New Size(378, 313)
         dgvAvailable.TabIndex = 5
         dgvAvailable.TabStop = False
         ' 

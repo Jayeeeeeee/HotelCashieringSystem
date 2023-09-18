@@ -48,6 +48,8 @@ Partial Class Checking
         tmrCheck = New Timer(components)
         GroupBox4 = New GroupBox()
         dgvAvailable = New DataGridView()
+        GroupBox5 = New GroupBox()
+        dgvReserve = New DataGridView()
         GroupBox2.SuspendLayout()
         CType(dgvCheckedIn, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
@@ -55,6 +57,8 @@ Partial Class Checking
         CType(dgvGuest, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox4.SuspendLayout()
         CType(dgvAvailable, ComponentModel.ISupportInitialize).BeginInit()
+        GroupBox5.SuspendLayout()
+        CType(dgvReserve, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' btnLogOut
@@ -93,14 +97,14 @@ Partial Class Checking
         GroupBox2.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         GroupBox2.BackColor = Color.Transparent
         GroupBox2.Controls.Add(dgvCheckedIn)
-        GroupBox2.Font = New Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        GroupBox2.Font = New Font("Consolas", 8F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox2.ForeColor = Color.Black
         GroupBox2.Location = New Point(12, 388)
         GroupBox2.Name = "GroupBox2"
-        GroupBox2.Size = New Size(1409, 341)
+        GroupBox2.Size = New Size(701, 341)
         GroupBox2.TabIndex = 25
         GroupBox2.TabStop = False
-        GroupBox2.Text = "Guests Checked In"
+        GroupBox2.Text = "Checked-In List"
         ' 
         ' dgvCheckedIn
         ' 
@@ -117,7 +121,7 @@ Partial Class Checking
         dgvCheckedIn.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         dgvCheckedIn.RowTemplate.Height = 25
         dgvCheckedIn.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvCheckedIn.Size = New Size(1397, 312)
+        dgvCheckedIn.Size = New Size(689, 312)
         dgvCheckedIn.TabIndex = 0
         dgvCheckedIn.TabStop = False
         ' 
@@ -348,11 +352,44 @@ Partial Class Checking
         dgvAvailable.TabIndex = 5
         dgvAvailable.TabStop = False
         ' 
+        ' GroupBox5
+        ' 
+        GroupBox5.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        GroupBox5.BackColor = Color.Transparent
+        GroupBox5.Controls.Add(dgvReserve)
+        GroupBox5.Font = New Font("Consolas", 8F, FontStyle.Regular, GraphicsUnit.Point)
+        GroupBox5.ForeColor = Color.Black
+        GroupBox5.Location = New Point(720, 388)
+        GroupBox5.Name = "GroupBox5"
+        GroupBox5.Size = New Size(701, 341)
+        GroupBox5.TabIndex = 36
+        GroupBox5.TabStop = False
+        GroupBox5.Text = "Reservation List"
+        ' 
+        ' dgvReserve
+        ' 
+        dgvReserve.AllowUserToAddRows = False
+        dgvReserve.AllowUserToDeleteRows = False
+        dgvReserve.AllowUserToResizeColumns = False
+        dgvReserve.AllowUserToResizeRows = False
+        dgvReserve.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        dgvReserve.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        dgvReserve.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvReserve.EditMode = DataGridViewEditMode.EditProgrammatically
+        dgvReserve.Location = New Point(6, 22)
+        dgvReserve.Name = "dgvReserve"
+        dgvReserve.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
+        dgvReserve.RowTemplate.Height = 25
+        dgvReserve.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        dgvReserve.Size = New Size(689, 312)
+        dgvReserve.TabIndex = 0
+        ' 
         ' Checking
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1439, 734)
+        Controls.Add(GroupBox5)
         Controls.Add(GroupBox4)
         Controls.Add(lblDateTime)
         Controls.Add(GroupBox3)
@@ -365,7 +402,7 @@ Partial Class Checking
         Controls.Add(btnBack)
         Name = "Checking"
         StartPosition = FormStartPosition.CenterScreen
-        Text = "Checking"
+        Text = "Check In / Check Out"
         GroupBox2.ResumeLayout(False)
         CType(dgvCheckedIn, ComponentModel.ISupportInitialize).EndInit()
         GroupBox1.ResumeLayout(False)
@@ -374,6 +411,8 @@ Partial Class Checking
         CType(dgvGuest, ComponentModel.ISupportInitialize).EndInit()
         GroupBox4.ResumeLayout(False)
         CType(dgvAvailable, ComponentModel.ISupportInitialize).EndInit()
+        GroupBox5.ResumeLayout(False)
+        CType(dgvReserve, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -402,4 +441,6 @@ Partial Class Checking
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents dgvAvailable As DataGridView
     Friend WithEvents Label1 As Label
+    Friend WithEvents GroupBox5 As GroupBox
+    Friend WithEvents dgvReserve As DataGridView
 End Class

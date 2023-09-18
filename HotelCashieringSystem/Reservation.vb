@@ -33,7 +33,7 @@
     End Sub
 
     Private Sub Reservation_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
-        displayInfo("Select * From guest_avail", dgvGuest)
+        displayInfo("Select * From guest_info", dgvGuest)
         displayInfo("Select * From guest_reservation", dgvReserve)
         displayInfo("Select * From rooms_available", dgvAvailable)
     End Sub
@@ -57,13 +57,13 @@
         If String.IsNullOrWhiteSpace(txtRoomNumber.Text) Or String.IsNullOrWhiteSpace(txtGuestID.Text) Or String.IsNullOrWhiteSpace(txtName.Text) Then
             MessageBox.Show("Some fields are empty!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Else
-            Dim CheckIn = "Insert Into reservation Values(null, '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & dtpCheckIn.Text & "', '" & dtpCheckOut.Text & "')"
+            Dim CheckIn = "Insert Into reservation Values(null, '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & dtpCheckIn.Text & "', '" & dtpCheckOut.Text & "', '" & 1 & "')"
             SQLProcess(CheckIn)
 
             Dim CheckInRoom = "Update rooms Set RoomStatusID = 2 Where RoomID = '" & txtRoomNumber.Text & "'"
             SQLProcess(CheckInRoom)
 
-            Dim CStatus = "Update guest CStatusID = 2  Where GuestID = '" & txtGuestID.Text & "'"
+            Dim CStatus = "Update guests Set CStatusID = 2  Where GuestID = '" & txtGuestID.Text & "'"
             SQLProcess(CStatus)
 
             MessageBox.Show("Room Resereved!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -77,13 +77,16 @@
             MessageBox.Show("Some fields are empty!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Else
             Dim Cancel As New System.Windows.Forms.DialogResult
+            Cancel = MessageBox.Show("Cancel Reservation?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If Cancel = Windows.Forms.DialogResult.Yes Then
-                Cancel = MessageBox.Show("Cancel Reservation?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                 Dim CReservation = "Delete From reservation where RoomID = '" & txtRoomNumber.Text & "'"
                 SQLProcess(CReservation)
 
                 Dim CRoom = "Update rooms Set RoomStatusID = 1 Where RoomID = '" & txtRoomNumber.Text & "'"
                 SQLProcess(CRoom)
+
+                Dim CStatus = "Update guests Set CStatusID = 3  Where GuestID = '" & txtGuestID.Text & "'"
+                SQLProcess(CStatus)
 
                 MessageBox.Show("Reservation Cancelled!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
@@ -96,11 +99,11 @@
         Try
             Dim i = e.RowIndex
             With dgvReserve
-                txtRoomNumber.Text = .Item("Room.No", i).Value
-                txtGuestID.Text = .Item("Guest ID", i).Value
+                txtRoomNumber.Text = .Item("Room No.", i).Value
+                txtGuestID.Text = .Item("ID", i).Value
                 txtName.Text = .Item("Guest Name", i).Value
-                dtpCheckIn.Value = .Item("Check-In Date", i).Value
-                dtpCheckOut.Value = .Item("Check-Out Date", i).Value
+                dtpCheckIn.Text = .Item("Check-In Date", i).Value
+                dtpCheckOut.Text = .Item("Check-Out Date", i).Value
 
             End With
             btnReserve.Enabled = True

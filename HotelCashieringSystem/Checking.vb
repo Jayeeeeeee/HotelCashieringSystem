@@ -14,7 +14,7 @@
         out = MessageBox.Show("Logout?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If out Then
             Me.Close()
-            Login.Close()
+            Login.Show()
         Else
             Me.Show()
         End If
@@ -39,6 +39,7 @@
         displayInfo("Select * From guest_avail", dgvGuest)
         displayInfo("Select * From guest_checkedin", dgvCheckedIn)
         displayInfo("Select * From rooms_available", dgvAvailable)
+        displayInfo("Select * From guest_reservation", dgvReserve)
     End Sub
 
     Private Sub btnCheckIn_Click(sender As Object, e As EventArgs) Handles btnCheckIn.Click
@@ -51,7 +52,10 @@
             Dim CheckInRoom = "Update rooms Set RoomStatusID = 3 Where RoomID = '" & txtRoomNumber.Text & "'"
             SQLProcess(CheckInRoom)
 
-            Dim CStatus = "Update guest CStatusID = 1  Where GuestID = '" & txtGuestID.Text & "'"
+            Dim RStatus = "Update reservation Set RStatusID = 2  Where RoomID = '" & txtRoomNumber.Text & "'"
+            SQLProcess(RStatus)
+
+            Dim CStatus = "Update guests Set CStatusID = 1  Where GuestID = '" & txtGuestID.Text & "'"
             SQLProcess(CStatus)
 
             MessageBox.Show("Guest Checked-In!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -74,8 +78,8 @@
         Try
             Dim i = e.RowIndex
             With dgvCheckedIn
-                txtRoomNumber.Text = .Item("Room.No", i).Value
-                txtGuestID.Text = .Item("Guest ID", i).Value
+                txtRoomNumber.Text = .Item("Room No.", i).Value
+                txtGuestID.Text = .Item("ID", i).Value
                 txtName.Text = .Item("Guest Name", i).Value
                 dtpCheckIn.Value = .Item("Check-In Date", i).Value
                 dtpCheckOut.Value = .Item("Check-Out Date", i).Value
@@ -104,5 +108,23 @@
 
     Private Sub btnCheckOut_Click(sender As Object, e As EventArgs) Handles btnCheckOut.Click
 
+    End Sub
+
+    Private Sub dgvReserve_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvReserve.CellClick
+        Try
+            Dim i = e.RowIndex
+            With dgvReserve
+                txtRoomNumber.Text = .Item("Room No.", i).Value
+                txtGuestID.Text = .Item("ID", i).Value
+                txtName.Text = .Item("Guest Name", i).Value
+                dtpCheckIn.Value = .Item("Check-In Date", i).Value
+                dtpCheckOut.Value = .Item("Check-Out Date", i).Value
+
+            End With
+            btnCheckIn.Enabled = True
+            btnCheckOut.Enabled = True
+        Catch ex As Exception
+            'MessageBox.Show("Error: " + ex.Message)
+        End Try
     End Sub
 End Class
