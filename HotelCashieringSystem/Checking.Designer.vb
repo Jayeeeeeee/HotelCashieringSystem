@@ -30,6 +30,7 @@ Partial Class Checking
         dgvCheckedIn = New DataGridView()
         btnCheckOut = New Button()
         GroupBox1 = New GroupBox()
+        txtPayment = New TextBox()
         Label1 = New Label()
         txtGuestID = New TextBox()
         Label3 = New Label()
@@ -50,7 +51,6 @@ Partial Class Checking
         dgvAvailable = New DataGridView()
         GroupBox5 = New GroupBox()
         dgvReserve = New DataGridView()
-        TextBox1 = New TextBox()
         GroupBox2.SuspendLayout()
         CType(dgvCheckedIn, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
@@ -137,7 +137,7 @@ Partial Class Checking
         ' 
         ' GroupBox1
         ' 
-        GroupBox1.Controls.Add(TextBox1)
+        GroupBox1.Controls.Add(txtPayment)
         GroupBox1.Controls.Add(Label1)
         GroupBox1.Controls.Add(txtGuestID)
         GroupBox1.Controls.Add(Label3)
@@ -156,6 +156,13 @@ Partial Class Checking
         GroupBox1.Size = New Size(378, 264)
         GroupBox1.TabIndex = 24
         GroupBox1.TabStop = False
+        ' 
+        ' txtPayment
+        ' 
+        txtPayment.Location = New Point(176, 223)
+        txtPayment.Name = "txtPayment"
+        txtPayment.Size = New Size(186, 26)
+        txtPayment.TabIndex = 31
         ' 
         ' Label1
         ' 
@@ -212,23 +219,23 @@ Partial Class Checking
         ' dtpCheckOut
         ' 
         dtpCheckOut.CalendarFont = New Font("Consolas", 8F, FontStyle.Regular, GraphicsUnit.Point)
-        dtpCheckOut.CustomFormat = "MM/dd/yyyy - h:mm:ss tt"
+        dtpCheckOut.CustomFormat = "MM/dd/yyyy - h:mm tt"
         dtpCheckOut.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
         dtpCheckOut.Format = DateTimePickerFormat.Custom
-        dtpCheckOut.Location = New Point(161, 186)
+        dtpCheckOut.Location = New Point(176, 186)
         dtpCheckOut.Name = "dtpCheckOut"
-        dtpCheckOut.Size = New Size(201, 22)
+        dtpCheckOut.Size = New Size(186, 22)
         dtpCheckOut.TabIndex = 6
         ' 
         ' dtpCheckIn
         ' 
         dtpCheckIn.CalendarFont = New Font("Consolas", 8F, FontStyle.Regular, GraphicsUnit.Point)
-        dtpCheckIn.CustomFormat = "MM/dd/yyyy - hh:mm:ss tt"
+        dtpCheckIn.CustomFormat = "MM/dd/yyyy - hh:mm tt"
         dtpCheckIn.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
         dtpCheckIn.Format = DateTimePickerFormat.Custom
-        dtpCheckIn.Location = New Point(161, 146)
+        dtpCheckIn.Location = New Point(176, 146)
         dtpCheckIn.Name = "dtpCheckIn"
-        dtpCheckIn.Size = New Size(201, 22)
+        dtpCheckIn.Size = New Size(186, 22)
         dtpCheckIn.TabIndex = 5
         ' 
         ' Label6
@@ -385,13 +392,6 @@ Partial Class Checking
         dgvReserve.Size = New Size(808, 312)
         dgvReserve.TabIndex = 0
         ' 
-        ' TextBox1
-        ' 
-        TextBox1.Location = New Point(176, 223)
-        TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(186, 26)
-        TextBox1.TabIndex = 31
-        ' 
         ' Checking
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -451,5 +451,5 @@ Partial Class Checking
     Friend WithEvents Label1 As Label
     Friend WithEvents GroupBox5 As GroupBox
     Friend WithEvents dgvReserve As DataGridView
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtPayment As TextBox
 End Class

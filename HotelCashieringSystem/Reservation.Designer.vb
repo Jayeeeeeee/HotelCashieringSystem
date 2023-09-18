@@ -41,6 +41,7 @@ Partial Class Reservation
         Label7 = New Label()
         txtRoomNumber = New TextBox()
         GroupBox1 = New GroupBox()
+        txtPayment = New TextBox()
         Label1 = New Label()
         txtGuestID = New TextBox()
         Label3 = New Label()
@@ -202,23 +203,23 @@ Partial Class Reservation
         ' dtpCheckIn
         ' 
         dtpCheckIn.CalendarFont = New Font("Consolas", 8F, FontStyle.Regular, GraphicsUnit.Point)
-        dtpCheckIn.CustomFormat = "MM/dd/yyyy - h:mm:ss tt"
+        dtpCheckIn.CustomFormat = "MM/dd/yyyy - h:mm tt"
         dtpCheckIn.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
         dtpCheckIn.Format = DateTimePickerFormat.Custom
-        dtpCheckIn.Location = New Point(161, 144)
+        dtpCheckIn.Location = New Point(176, 144)
         dtpCheckIn.Name = "dtpCheckIn"
-        dtpCheckIn.Size = New Size(201, 22)
+        dtpCheckIn.Size = New Size(186, 22)
         dtpCheckIn.TabIndex = 23
         ' 
         ' dtpCheckOut
         ' 
         dtpCheckOut.CalendarFont = New Font("Consolas", 8F, FontStyle.Regular, GraphicsUnit.Point)
-        dtpCheckOut.CustomFormat = "MM/dd/yyyy - h:mm:ss tt"
+        dtpCheckOut.CustomFormat = "MM/dd/yyyy - h:mm tt"
         dtpCheckOut.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
         dtpCheckOut.Format = DateTimePickerFormat.Custom
-        dtpCheckOut.Location = New Point(161, 184)
+        dtpCheckOut.Location = New Point(176, 184)
         dtpCheckOut.Name = "dtpCheckOut"
-        dtpCheckOut.Size = New Size(201, 22)
+        dtpCheckOut.Size = New Size(186, 22)
         dtpCheckOut.TabIndex = 24
         ' 
         ' txtName
@@ -248,6 +249,7 @@ Partial Class Reservation
         ' 
         ' GroupBox1
         ' 
+        GroupBox1.Controls.Add(txtPayment)
         GroupBox1.Controls.Add(Label1)
         GroupBox1.Controls.Add(txtGuestID)
         GroupBox1.Controls.Add(Label3)
@@ -266,6 +268,13 @@ Partial Class Reservation
         GroupBox1.Size = New Size(378, 267)
         GroupBox1.TabIndex = 19
         GroupBox1.TabStop = False
+        ' 
+        ' txtPayment
+        ' 
+        txtPayment.Location = New Point(176, 223)
+        txtPayment.Name = "txtPayment"
+        txtPayment.Size = New Size(186, 26)
+        txtPayment.TabIndex = 33
         ' 
         ' Label1
         ' 
@@ -403,4 +412,5 @@ Partial Class Reservation
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents dgvAvailable As DataGridView
     Friend WithEvents Label1 As Label
+    Friend WithEvents txtPayment As TextBox
 End Class
