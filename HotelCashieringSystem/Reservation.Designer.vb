@@ -23,6 +23,8 @@ Partial Class Reservation
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
+        dtpCheckIn = New DateTimePicker()
+        dtpCheckOut = New DateTimePicker()
         btnLogOut = New Button()
         btnBack = New Button()
         btnClear = New Button()
@@ -35,8 +37,6 @@ Partial Class Reservation
         Label2 = New Label()
         Label5 = New Label()
         Label6 = New Label()
-        dtpCheckIn = New DateTimePicker()
-        dtpCheckOut = New DateTimePicker()
         txtName = New TextBox()
         Label7 = New Label()
         txtRoomNumber = New TextBox()
@@ -57,6 +57,28 @@ Partial Class Reservation
         GroupBox4.SuspendLayout()
         CType(dgvAvailable, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
+        ' 
+        ' dtpCheckIn
+        ' 
+        dtpCheckIn.CalendarFont = New Font("Consolas", 8F, FontStyle.Regular, GraphicsUnit.Point)
+        dtpCheckIn.CustomFormat = "MM/dd/yyyy - h:mm tt"
+        dtpCheckIn.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        dtpCheckIn.Format = DateTimePickerFormat.Custom
+        dtpCheckIn.Location = New Point(176, 144)
+        dtpCheckIn.Name = "dtpCheckIn"
+        dtpCheckIn.Size = New Size(186, 22)
+        dtpCheckIn.TabIndex = 23
+        ' 
+        ' dtpCheckOut
+        ' 
+        dtpCheckOut.CalendarFont = New Font("Consolas", 8F, FontStyle.Regular, GraphicsUnit.Point)
+        dtpCheckOut.CustomFormat = "MM/dd/yyyy - h:mm tt"
+        dtpCheckOut.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        dtpCheckOut.Format = DateTimePickerFormat.Custom
+        dtpCheckOut.Location = New Point(176, 184)
+        dtpCheckOut.Name = "dtpCheckOut"
+        dtpCheckOut.Size = New Size(186, 22)
+        dtpCheckOut.TabIndex = 24
         ' 
         ' btnLogOut
         ' 
@@ -199,28 +221,6 @@ Partial Class Reservation
         Label6.Size = New Size(144, 19)
         Label6.TabIndex = 22
         Label6.Text = "Check Out Date:"
-        ' 
-        ' dtpCheckIn
-        ' 
-        dtpCheckIn.CalendarFont = New Font("Consolas", 8F, FontStyle.Regular, GraphicsUnit.Point)
-        dtpCheckIn.CustomFormat = "MM/dd/yyyy - h:mm tt"
-        dtpCheckIn.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        dtpCheckIn.Format = DateTimePickerFormat.Custom
-        dtpCheckIn.Location = New Point(176, 144)
-        dtpCheckIn.Name = "dtpCheckIn"
-        dtpCheckIn.Size = New Size(186, 22)
-        dtpCheckIn.TabIndex = 23
-        ' 
-        ' dtpCheckOut
-        ' 
-        dtpCheckOut.CalendarFont = New Font("Consolas", 8F, FontStyle.Regular, GraphicsUnit.Point)
-        dtpCheckOut.CustomFormat = "MM/dd/yyyy - h:mm tt"
-        dtpCheckOut.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        dtpCheckOut.Format = DateTimePickerFormat.Custom
-        dtpCheckOut.Location = New Point(176, 184)
-        dtpCheckOut.Name = "dtpCheckOut"
-        dtpCheckOut.Size = New Size(186, 22)
-        dtpCheckOut.TabIndex = 24
         ' 
         ' txtName
         ' 
