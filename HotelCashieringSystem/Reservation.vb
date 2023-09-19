@@ -101,17 +101,20 @@
         Try
             Dim i = e.RowIndex
             With dgvReserve
+                Dim chckin = .Item("Check-In Date", i).Value
+                Dim chckout = .Item("Check-Out Date", i).Value
+
                 txtRoomNumber.Text = .Item("Room No.", i).Value
                 txtGuestID.Text = .Item("ID", i).Value
                 txtName.Text = .Item("Guest Name", i).Value
-                dtpCheckIn.Text = .Item("Check-In Date", i).Value
-                dtpCheckOut.Text = .Item("Check-Out Date", i).Value
+                dtpCheckIn.Value = Date.ParseExact(chckin, "MM/dd/yyyy - h:mm tt", System.Globalization.DateTimeFormatInfo.InvariantInfo, Globalization.DateTimeStyles.None)
+                dtpCheckOut.Value = Date.ParseExact(chckout, "MM/dd/yyyy - h:mm tt", System.Globalization.DateTimeFormatInfo.InvariantInfo, Globalization.DateTimeStyles.None)
 
             End With
             btnReserve.Enabled = True
             btnCancel.Enabled = True
         Catch ex As Exception
-            'MessageBox.Show("Error: " + ex.Message)
+            MessageBox.Show("Error: " + ex.Message)
         End Try
     End Sub
 

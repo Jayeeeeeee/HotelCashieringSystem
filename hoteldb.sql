@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 13, 2023 at 08:16 PM
+-- Generation Time: Sep 19, 2023 at 05:15 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,23 +24,35 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `checking`
+-- Table structure for table `checkin`
 --
 
-CREATE TABLE `checking` (
-  `ChckID` int(11) NOT NULL,
+CREATE TABLE `checkin` (
+  `ChckID` int(10) UNSIGNED NOT NULL,
   `GuestID` int(11) DEFAULT NULL,
   `RoomID` int(11) DEFAULT NULL,
-  `CIDate` datetime DEFAULT NULL,
-  `CODate` datetime DEFAULT NULL
+  `CIDate` varchar(255) DEFAULT NULL,
+  `CODate` varchar(255) DEFAULT NULL,
+  `ChckStatusID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `checking`
+-- RELATIONSHIPS FOR TABLE `checkin`:
+--   `GuestID`
+--       `guests` -> `GuestID`
+--   `RoomID`
+--       `rooms` -> `RoomID`
+--   `ChckStatusID`
+--       `checkin_status` -> `ChckStatusID`
 --
 
-INSERT INTO `checking` (`ChckID`, `GuestID`, `RoomID`, `CIDate`, `CODate`) VALUES
-(1, 1, 10, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+--
+-- Dumping data for table `checkin`
+--
+
+INSERT INTO `checkin` (`ChckID`, `GuestID`, `RoomID`, `CIDate`, `CODate`, `ChckStatusID`) VALUES
+(1, 1, 1, '09/18/2023 - 02:29:05 am', '09/18/2023 -2:29:05 am', 2),
+(2, 2, 4, '09/18/2023 - 05:34:30 pm', '09/18/2023 -5:34:30 pm', 2);
 
 -- --------------------------------------------------------
 
@@ -49,33 +61,59 @@ INSERT INTO `checking` (`ChckID`, `GuestID`, `RoomID`, `CIDate`, `CODate`) VALUE
 --
 
 CREATE TABLE `checkin_payment` (
-  `ChckPID` int(11) NOT NULL,
-  `PAmount` varchar(255) DEFAULT NULL,
-  `PDate` datetime DEFAULT NULL,
-  `RoomID` int(11) DEFAULT NULL,
+  `ChckPID` int(10) UNSIGNED NOT NULL,
+  `ChckID` int(11) DEFAULT NULL,
+  `EmployeeID` int(11) DEFAULT NULL,
   `GuestID` int(11) DEFAULT NULL,
-  `EmpID` int(11) DEFAULT NULL
+  `RoomID` int(11) DEFAULT NULL,
+  `PAmount` varchar(255) DEFAULT NULL,
+  `PDate` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- RELATIONSHIPS FOR TABLE `checkin_payment`:
+--
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `customer_status`
+-- Table structure for table `checkin_status`
 --
 
-CREATE TABLE `customer_status` (
-  `CustomerStatusID` int(11) NOT NULL,
-  `CustomerStatus` varchar(255) DEFAULT NULL
+CREATE TABLE `checkin_status` (
+  `ChckStatusID` int(11) NOT NULL,
+  `ChckStatus` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `customer_status`
+-- RELATIONSHIPS FOR TABLE `checkin_status`:
 --
 
-INSERT INTO `customer_status` (`CustomerStatusID`, `CustomerStatus`) VALUES
-(1, 'Checked-Out'),
-(2, 'Checked-In'),
-(3, 'Reserved');
+--
+-- Dumping data for table `checkin_status`
+--
+
+INSERT INTO `checkin_status` (`ChckStatusID`, `ChckStatus`) VALUES
+(1, 'Checked-In'),
+(2, 'Checked-Out');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `checkout`
+--
+
+CREATE TABLE `checkout` (
+  `ChckID` int(11) NOT NULL,
+  `GuestID` int(11) DEFAULT NULL,
+  `RoomID` int(11) DEFAULT NULL,
+  `CIDate` varchar(255) DEFAULT NULL,
+  `CODate` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- RELATIONSHIPS FOR TABLE `checkout`:
+--
 
 -- --------------------------------------------------------
 
@@ -91,12 +129,19 @@ CREATE TABLE `emp_details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- RELATIONSHIPS FOR TABLE `emp_details`:
+--   `EmpTypeID`
+--       `emp_type` -> `EmpTypeID`
+--
+
+--
 -- Dumping data for table `emp_details`
 --
 
 INSERT INTO `emp_details` (`EmpID`, `EmpName`, `EmpAge`, `EmpTypeID`) VALUES
 (1, 'Manager', '32', 1),
-(2, 'Attendant', '24', 2);
+(2, 'Attendant1', '24', 2),
+(3, 'Attendant2', '29', 2);
 
 -- --------------------------------------------------------
 
@@ -113,12 +158,21 @@ CREATE TABLE `emp_login` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- RELATIONSHIPS FOR TABLE `emp_login`:
+--   `EmpID`
+--       `emp_details` -> `EmpID`
+--   `EmpTypeID`
+--       `emp_type` -> `EmpTypeID`
+--
+
+--
 -- Dumping data for table `emp_login`
 --
 
 INSERT INTO `emp_login` (`EmpUserID`, `EmpUser`, `EmpPass`, `EmpID`, `EmpTypeID`) VALUES
-(1, 'admin', '12345', 1, 1),
-(2, 'employee', '12345', 2, 2);
+(1, 'man1', '12345', 1, 1),
+(2, 'emp1', '12345', 2, 2),
+(3, 'emp2', '12345', 3, 2);
 
 -- --------------------------------------------------------
 
@@ -130,6 +184,10 @@ CREATE TABLE `emp_type` (
   `EmpTypeID` int(11) NOT NULL,
   `EmpType` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- RELATIONSHIPS FOR TABLE `emp_type`:
+--
 
 --
 -- Dumping data for table `emp_type`
@@ -149,16 +207,36 @@ CREATE TABLE `guests` (
   `GuestID` int(11) NOT NULL,
   `GName` varchar(255) DEFAULT NULL,
   `GAddress` varchar(255) DEFAULT NULL,
-  `GNum` varchar(255) DEFAULT NULL
+  `GNum` varchar(255) DEFAULT NULL,
+  `CStatusID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- RELATIONSHIPS FOR TABLE `guests`:
+--   `CStatusID`
+--       `guest_status` -> `CustomerStatusID`
+--
 
 --
 -- Dumping data for table `guests`
 --
 
-INSERT INTO `guests` (`GuestID`, `GName`, `GAddress`, `GNum`) VALUES
-(1, 'Jules Alinsag', 'Davao City', '09216008054'),
-(2, 'Jaye Kappa', 'Davao City', '09232808941');
+INSERT INTO `guests` (`GuestID`, `GName`, `GAddress`, `GNum`, `CStatusID`) VALUES
+(1, 'Jhoey Dumaguit', 'Davao City', '09232808941', 3),
+(2, 'Jules Alinsag', 'Davao City', '12345678901', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `guest_avail`
+-- (See below for the actual view)
+--
+CREATE TABLE `guest_avail` (
+`ID` int(11)
+,`Guest Name` varchar(255)
+,`Address` varchar(255)
+,`Contact No.` varchar(255)
+);
 
 -- --------------------------------------------------------
 
@@ -167,12 +245,11 @@ INSERT INTO `guests` (`GuestID`, `GName`, `GAddress`, `GNum`) VALUES
 -- (See below for the actual view)
 --
 CREATE TABLE `guest_checkedin` (
-`Check-In ID` int(11)
-,`Guest ID` int(11)
+`Room No.` int(11)
+,`ID` int(11)
 ,`Guest Name` varchar(255)
-,`Room No.` int(11)
-,`Check-In Date` datetime
-,`Check-Out Date` datetime
+,`Check-In Date` varchar(255)
+,`Check-Out Date` varchar(255)
 );
 
 -- --------------------------------------------------------
@@ -186,6 +263,7 @@ CREATE TABLE `guest_info` (
 ,`Guest Name` varchar(255)
 ,`Address` varchar(255)
 ,`Contact No.` varchar(255)
+,`Customer Status` varchar(255)
 );
 
 -- --------------------------------------------------------
@@ -195,13 +273,36 @@ CREATE TABLE `guest_info` (
 -- (See below for the actual view)
 --
 CREATE TABLE `guest_reservation` (
-`Reservation ID` int(11)
-,`Guest ID` int(11)
+`Room No.` int(11)
+,`ID` int(11)
 ,`Guest Name` varchar(255)
-,`Room ID` int(11)
-,`Check-In Date` datetime
-,`Check-Out Date` datetime
+,`Check-In Date` varchar(255)
+,`Check-Out Date` varchar(255)
 );
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `guest_status`
+--
+
+CREATE TABLE `guest_status` (
+  `CustomerStatusID` int(11) NOT NULL,
+  `CustomerStatus` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- RELATIONSHIPS FOR TABLE `guest_status`:
+--
+
+--
+-- Dumping data for table `guest_status`
+--
+
+INSERT INTO `guest_status` (`CustomerStatusID`, `CustomerStatus`) VALUES
+(1, 'Checked-In'),
+(2, 'Has Reservation'),
+(3, 'Checked-Out/No Reservation');
 
 -- --------------------------------------------------------
 
@@ -213,16 +314,27 @@ CREATE TABLE `reservation` (
   `ReservationID` int(11) NOT NULL,
   `GuestID` int(11) DEFAULT NULL,
   `RoomID` int(11) DEFAULT NULL,
-  `CIDate` datetime DEFAULT NULL,
-  `CODate` datetime DEFAULT NULL
+  `CIDate` varchar(255) DEFAULT NULL,
+  `CODate` varchar(255) DEFAULT NULL,
+  `RStatusID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- RELATIONSHIPS FOR TABLE `reservation`:
+--   `GuestID`
+--       `guests` -> `GuestID`
+--   `RoomID`
+--       `rooms` -> `RoomID`
+--   `RStatusID`
+--       `reservation_status` -> `RStatusID`
+--
 
 --
 -- Dumping data for table `reservation`
 --
 
-INSERT INTO `reservation` (`ReservationID`, `GuestID`, `RoomID`, `CIDate`, `CODate`) VALUES
-(1, 2, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `reservation` (`ReservationID`, `GuestID`, `RoomID`, `CIDate`, `CODate`, `RStatusID`) VALUES
+(1, 1, 1, '09/18/2023 -2:22:39 am', '09/18/2023 -2:22:39 am', 2);
 
 -- --------------------------------------------------------
 
@@ -231,10 +343,41 @@ INSERT INTO `reservation` (`ReservationID`, `GuestID`, `RoomID`, `CIDate`, `CODa
 --
 
 CREATE TABLE `reservation_payment` (
-  `ReservePID` int(11) NOT NULL,
+  `ReservePID` int(10) UNSIGNED NOT NULL,
+  `ReservationID` int(11) DEFAULT NULL,
+  `EmployeeID` int(11) DEFAULT NULL,
+  `GuestID` int(11) DEFAULT NULL,
+  `RoomID` int(11) DEFAULT NULL,
   `PAmount` varchar(255) DEFAULT NULL,
-  `PDate` datetime DEFAULT NULL
+  `PDate` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- RELATIONSHIPS FOR TABLE `reservation_payment`:
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reservation_status`
+--
+
+CREATE TABLE `reservation_status` (
+  `RStatusID` int(11) NOT NULL,
+  `ReservationStatus` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- RELATIONSHIPS FOR TABLE `reservation_status`:
+--
+
+--
+-- Dumping data for table `reservation_status`
+--
+
+INSERT INTO `reservation_status` (`RStatusID`, `ReservationStatus`) VALUES
+(1, 'Reserved'),
+(2, 'Checked-In');
 
 -- --------------------------------------------------------
 
@@ -250,11 +393,19 @@ CREATE TABLE `rooms` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- RELATIONSHIPS FOR TABLE `rooms`:
+--   `RoomStatusID`
+--       `room_status` -> `RoomStatusID`
+--   `RoomTypeID`
+--       `room_type` -> `RoomTypeID`
+--
+
+--
 -- Dumping data for table `rooms`
 --
 
 INSERT INTO `rooms` (`RoomID`, `BedNum`, `RoomTypeID`, `RoomStatusID`) VALUES
-(1, 1, 1, 2),
+(1, 1, 1, 1),
 (2, 1, 1, 1),
 (3, 1, 1, 1),
 (4, 1, 1, 1),
@@ -263,7 +414,7 @@ INSERT INTO `rooms` (`RoomID`, `BedNum`, `RoomTypeID`, `RoomStatusID`) VALUES
 (7, 1, 1, 1),
 (8, 1, 1, 1),
 (9, 2, 2, 1),
-(10, 2, 2, 3),
+(10, 2, 2, 1),
 (11, 2, 2, 1),
 (12, 2, 2, 1),
 (13, 2, 2, 1),
@@ -369,6 +520,10 @@ CREATE TABLE `room_status` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- RELATIONSHIPS FOR TABLE `room_status`:
+--
+
+--
 -- Dumping data for table `room_status`
 --
 
@@ -391,6 +546,10 @@ CREATE TABLE `room_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- RELATIONSHIPS FOR TABLE `room_type`:
+--
+
+--
 -- Dumping data for table `room_type`
 --
 
@@ -403,11 +562,20 @@ INSERT INTO `room_type` (`RoomTypeID`, `RoomType`, `RoomPrice`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure for view `guest_avail`
+--
+DROP TABLE IF EXISTS `guest_avail`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `guest_avail`  AS SELECT `guests`.`GuestID` AS `ID`, `guests`.`GName` AS `Guest Name`, `guests`.`GAddress` AS `Address`, `guests`.`GNum` AS `Contact No.` FROM `guests` WHERE `guests`.`CStatusID` = 3 ;
+
+-- --------------------------------------------------------
+
+--
 -- Structure for view `guest_checkedin`
 --
 DROP TABLE IF EXISTS `guest_checkedin`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `guest_checkedin`  AS SELECT `checking`.`ChckID` AS `Check-In ID`, `guests`.`GuestID` AS `Guest ID`, `guests`.`GName` AS `Guest Name`, `checking`.`RoomID` AS `Room No.`, `checking`.`CIDate` AS `Check-In Date`, `checking`.`CODate` AS `Check-Out Date` FROM (`guests` join `checking` on(`guests`.`GuestID` = `checking`.`GuestID`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `guest_checkedin`  AS SELECT `checkin`.`RoomID` AS `Room No.`, `guests`.`GuestID` AS `ID`, `guests`.`GName` AS `Guest Name`, `checkin`.`CIDate` AS `Check-In Date`, `checkin`.`CODate` AS `Check-Out Date` FROM (`guests` join `checkin` on(`guests`.`GuestID` = `checkin`.`GuestID`)) WHERE `checkin`.`ChckStatusID` = 1 ;
 
 -- --------------------------------------------------------
 
@@ -416,7 +584,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `guest_info`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `guest_info`  AS SELECT `guests`.`GuestID` AS `ID`, `guests`.`GName` AS `Guest Name`, `guests`.`GAddress` AS `Address`, `guests`.`GNum` AS `Contact No.` FROM `guests` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `guest_info`  AS SELECT `guests`.`GuestID` AS `ID`, `guests`.`GName` AS `Guest Name`, `guests`.`GAddress` AS `Address`, `guests`.`GNum` AS `Contact No.`, `guest_status`.`CustomerStatus` AS `Customer Status` FROM (`guests` join `guest_status` on(`guests`.`CStatusID` = `guest_status`.`CustomerStatusID`)) ;
 
 -- --------------------------------------------------------
 
@@ -425,7 +593,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `guest_reservation`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `guest_reservation`  AS SELECT `reservation`.`ReservationID` AS `Reservation ID`, `guests`.`GuestID` AS `Guest ID`, `guests`.`GName` AS `Guest Name`, `reservation`.`RoomID` AS `Room ID`, `reservation`.`CIDate` AS `Check-In Date`, `reservation`.`CODate` AS `Check-Out Date` FROM (`reservation` join `guests` on(`reservation`.`GuestID` = `guests`.`GuestID`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `guest_reservation`  AS SELECT `reservation`.`RoomID` AS `Room No.`, `guests`.`GuestID` AS `ID`, `guests`.`GName` AS `Guest Name`, `reservation`.`CIDate` AS `Check-In Date`, `reservation`.`CODate` AS `Check-Out Date` FROM (`reservation` join `guests` on(`reservation`.`GuestID` = `guests`.`GuestID`)) WHERE `reservation`.`RStatusID` = 1 ;
 
 -- --------------------------------------------------------
 
@@ -477,12 +645,13 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 
 --
--- Indexes for table `checking`
+-- Indexes for table `checkin`
 --
-ALTER TABLE `checking`
+ALTER TABLE `checkin`
   ADD PRIMARY KEY (`ChckID`),
   ADD KEY `CRoomID` (`RoomID`),
-  ADD KEY `CGuestID` (`GuestID`);
+  ADD KEY `CGuestID` (`GuestID`),
+  ADD KEY `ChckStatusID` (`ChckStatusID`);
 
 --
 -- Indexes for table `checkin_payment`
@@ -491,10 +660,10 @@ ALTER TABLE `checkin_payment`
   ADD PRIMARY KEY (`ChckPID`);
 
 --
--- Indexes for table `customer_status`
+-- Indexes for table `checkin_status`
 --
-ALTER TABLE `customer_status`
-  ADD PRIMARY KEY (`CustomerStatusID`);
+ALTER TABLE `checkin_status`
+  ADD PRIMARY KEY (`ChckStatusID`);
 
 --
 -- Indexes for table `emp_details`
@@ -521,7 +690,14 @@ ALTER TABLE `emp_type`
 -- Indexes for table `guests`
 --
 ALTER TABLE `guests`
-  ADD PRIMARY KEY (`GuestID`);
+  ADD PRIMARY KEY (`GuestID`),
+  ADD KEY `CStatus` (`CStatusID`);
+
+--
+-- Indexes for table `guest_status`
+--
+ALTER TABLE `guest_status`
+  ADD PRIMARY KEY (`CustomerStatusID`);
 
 --
 -- Indexes for table `reservation`
@@ -529,13 +705,20 @@ ALTER TABLE `guests`
 ALTER TABLE `reservation`
   ADD PRIMARY KEY (`ReservationID`),
   ADD KEY `RRoomID` (`RoomID`),
-  ADD KEY `RGuestID` (`GuestID`);
+  ADD KEY `RGuestID` (`GuestID`),
+  ADD KEY `RStatusID` (`RStatusID`);
 
 --
 -- Indexes for table `reservation_payment`
 --
 ALTER TABLE `reservation_payment`
   ADD PRIMARY KEY (`ReservePID`);
+
+--
+-- Indexes for table `reservation_status`
+--
+ALTER TABLE `reservation_status`
+  ADD PRIMARY KEY (`RStatusID`);
 
 --
 -- Indexes for table `rooms`
@@ -562,22 +745,28 @@ ALTER TABLE `room_type`
 --
 
 --
--- AUTO_INCREMENT for table `checking`
+-- AUTO_INCREMENT for table `checkin`
 --
-ALTER TABLE `checking`
-  MODIFY `ChckID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `checkin`
+  MODIFY `ChckID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `checkin_payment`
+--
+ALTER TABLE `checkin_payment`
+  MODIFY `ChckPID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `emp_details`
 --
 ALTER TABLE `emp_details`
-  MODIFY `EmpID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `EmpID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `emp_login`
 --
 ALTER TABLE `emp_login`
-  MODIFY `EmpUserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `EmpUserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `guests`
@@ -589,18 +778,25 @@ ALTER TABLE `guests`
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `reservation_payment`
+--
+ALTER TABLE `reservation_payment`
+  MODIFY `ReservePID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `checking`
+-- Constraints for table `checkin`
 --
-ALTER TABLE `checking`
+ALTER TABLE `checkin`
   ADD CONSTRAINT `CGuestID` FOREIGN KEY (`GuestID`) REFERENCES `guests` (`GuestID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `CRoomID` FOREIGN KEY (`RoomID`) REFERENCES `rooms` (`RoomID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `CRoomID` FOREIGN KEY (`RoomID`) REFERENCES `rooms` (`RoomID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `ChckStatusID` FOREIGN KEY (`ChckStatusID`) REFERENCES `checkin_status` (`ChckStatusID`);
 
 --
 -- Constraints for table `emp_details`
@@ -616,11 +812,18 @@ ALTER TABLE `emp_login`
   ADD CONSTRAINT `TypeID` FOREIGN KEY (`EmpTypeID`) REFERENCES `emp_type` (`EmpTypeID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Constraints for table `guests`
+--
+ALTER TABLE `guests`
+  ADD CONSTRAINT `CStatus` FOREIGN KEY (`CStatusID`) REFERENCES `guest_status` (`CustomerStatusID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
 -- Constraints for table `reservation`
 --
 ALTER TABLE `reservation`
   ADD CONSTRAINT `RGuestID` FOREIGN KEY (`GuestID`) REFERENCES `guests` (`GuestID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `RRoomID` FOREIGN KEY (`RoomID`) REFERENCES `rooms` (`RoomID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `RRoomID` FOREIGN KEY (`RoomID`) REFERENCES `rooms` (`RoomID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `RStatusID` FOREIGN KEY (`RStatusID`) REFERENCES `reservation_status` (`RStatusID`);
 
 --
 -- Constraints for table `rooms`
