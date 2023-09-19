@@ -145,6 +145,7 @@ Public Class Checking
                 dtpCheckIn.Value = chckin
                 dtpCheckOut.Value = chckout
 
+
             End With
             btnCheckIn.Enabled = True
             btnCheckOut.Enabled = True

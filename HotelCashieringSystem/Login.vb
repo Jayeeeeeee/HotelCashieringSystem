@@ -1,5 +1,6 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class Login
+
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
         Dim LoginQuery As New MySqlCommand("Select EmpUser,EmpPass,EmpTypeID From emp_login Where EmpUser ='" & txtUser.Text & "' and EmpPass = '" & txtPass.Text & "'", mysqlConn)
         Dim da As New MySqlDataAdapter(LoginQuery)
@@ -34,6 +35,10 @@ Public Class Login
     Private Sub cleartxt()
         txtUser.Text = ""
         txtPass.Text = ""
+    End Sub
+
+    Public Sub empID()
+
     End Sub
 
 End Class

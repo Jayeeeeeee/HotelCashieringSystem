@@ -1,4 +1,5 @@
 ﻿Imports System.Globalization
+Imports MySql.Data.MySqlClient
 
 Public Class Reservation
 
