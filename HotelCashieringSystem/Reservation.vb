@@ -1,4 +1,6 @@
-﻿Public Class Reservation
+﻿Imports System.Globalization
+
+Public Class Reservation
 
     Public Sub tmrReserve_Tick(sender As Object, e As EventArgs) Handles tmrReserve.Tick
         lblDateTime.Text = DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt")
@@ -101,14 +103,14 @@
         Try
             Dim i = e.RowIndex
             With dgvReserve
-                Dim chckin = .Item("Check-In Date", i).Value
-                Dim chckout = .Item("Check-Out Date", i).Value
+                Dim chckin As DateTime = Date.ParseExact(.Item("Check-In Date", i).Value, "MM/dd/yyyy - h:mm tt", CultureInfo.InvariantCulture)
+                Dim chckout As DateTime = Date.ParseExact(.Item("Check-Out Date", i).Value, "MM/dd/yyyy - h:mm tt", CultureInfo.InvariantCulture)
 
                 txtRoomNumber.Text = .Item("Room No.", i).Value
                 txtGuestID.Text = .Item("ID", i).Value
                 txtName.Text = .Item("Guest Name", i).Value
-                dtpCheckIn.Value = Date.ParseExact(chckin, "MM/dd/yyyy - h:mm tt", System.Globalization.DateTimeFormatInfo.InvariantInfo, Globalization.DateTimeStyles.None)
-                dtpCheckOut.Value = Date.ParseExact(chckout, "MM/dd/yyyy - h:mm tt", System.Globalization.DateTimeFormatInfo.InvariantInfo, Globalization.DateTimeStyles.None)
+                dtpCheckIn.Value = chckin
+                dtpCheckOut.Value = chckout
 
             End With
             btnReserve.Enabled = True
