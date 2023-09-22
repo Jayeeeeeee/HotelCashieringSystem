@@ -24,11 +24,13 @@
     End Sub
 
     Private Sub btnLogOut_Click(sender As Object, e As EventArgs) Handles btnLogOut.Click
-        Dim out As New System.Windows.Forms.DialogResult
-        out = MessageBox.Show("Logout?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-        If out Then
-            Login.Show()
+        Dim StatusQuery = "Update emp_login Set EmpStatusID = 1 Where EmpStatusID = 2"
+        Dim Out As New System.Windows.Forms.DialogResult
+        Out = MessageBox.Show("Logout?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If Out Then
+            SQLProcess(StatusQuery)
             Me.Close()
+            Login.Show()
         Else
             Me.Show()
         End If

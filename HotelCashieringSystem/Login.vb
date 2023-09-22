@@ -3,6 +3,7 @@ Public Class Login
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
         Dim LoginQuery As New MySqlCommand("Select EmpUser,EmpPass,EmpTypeID From emp_login Where EmpUser ='" & txtUser.Text & "' and EmpPass = '" & txtPass.Text & "'", mysqlConn)
+        Dim StatusQuery = "Update emp_login Set EmpStatusID = 2 Where EmpUser ='" & txtUser.Text & "' and EmpPass = '" & txtPass.Text & "'"
         Dim da As New MySqlDataAdapter(LoginQuery)
         Dim dt As New DataTable()
         da.Fill(dt)
@@ -13,12 +14,14 @@ Public Class Login
 
         ElseIf dt.Rows.Item(0).Item("EmpTypeID") = "1" Then
             'Manager Login
+            SQLProcess(StatusQuery)
             MessageBox.Show("Successful Manager Login!", "Welcome.", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Admin.Show()
             Me.Hide()
 
         ElseIf dt.Rows.Item(0).Item("EmpTypeID") = "2" Then
             'Attendant Login
+            SQLProcess(StatusQuery)
             MessageBox.Show("Successful Attendant Login!", "Welcome.", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Dashboard.Show()
             Me.Hide()

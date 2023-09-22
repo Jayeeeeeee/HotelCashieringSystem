@@ -12,9 +12,11 @@ Public Class Checking
     End Sub
 
     Private Sub btnLogOut_Click(sender As Object, e As EventArgs) Handles btnLogOut.Click
-        Dim out As New System.Windows.Forms.DialogResult
-        out = MessageBox.Show("Logout?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-        If out Then
+        Dim StatusQuery = "Update emp_login Set EmpStatusID = 1 Where EmpStatusID = 2"
+        Dim Out As New System.Windows.Forms.DialogResult
+        Out = MessageBox.Show("Logout?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If Out Then
+            SQLProcess(StatusQuery)
             Me.Close()
             Login.Show()
         Else
@@ -42,8 +44,8 @@ Public Class Checking
         displayInfo("Select * From guest_checkedin", dgvCheckedIn)
         displayInfo("Select * From rooms_available", dgvAvailable)
         displayInfo("Select * From guest_reservation", dgvReserve)
-        dtpCheckOut.MinDate = DateAdd(DateInterval.Day, 1, Now)
-        dtpCheckIn.MinDate = Now
+        'dtpCheckOut.MinDate = DateAdd(DateInterval.Day, 1, Now)
+        'dtpCheckIn.MinDate = Now
     End Sub
 
     Private Sub btnCheckIn_Click(sender As Object, e As EventArgs) Handles btnCheckIn.Click
@@ -136,8 +138,8 @@ Public Class Checking
         Try
             Dim i = e.RowIndex
             With dgvReserve
-                Dim chckin As DateTime = Date.ParseExact(.Item("Check-In Date", i).Value, "MM/dd/yyyy - h:mm tt", CultureInfo.InvariantCulture)
-                Dim chckout As DateTime = Date.ParseExact(.Item("Check-Out Date", i).Value, "MM/dd/yyyy - h:mm tt", CultureInfo.InvariantCulture)
+                Dim chckin As DateTime = DateTime.ParseExact(.Item("Check-In Date", i).Value, "MM/dd/yyyy - h:mm tt", CultureInfo.InvariantCulture)
+                Dim chckout As DateTime = DateTime.ParseExact(.Item("Check-Out Date", i).Value, "MM/dd/yyyy - h:mm tt", CultureInfo.InvariantCulture)
 
                 txtRoomNumber.Text = .Item("Room No.", i).Value
                 txtGuestID.Text = .Item("ID", i).Value

@@ -66,7 +66,7 @@ Partial Class Checking
         ' 
         btnLogOut.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         btnLogOut.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnLogOut.Location = New Point(1533, 12)
+        btnLogOut.Location = New Point(1439, 12)
         btnLogOut.Name = "btnLogOut"
         btnLogOut.Size = New Size(133, 23)
         btnLogOut.TabIndex = 11
@@ -97,11 +97,11 @@ Partial Class Checking
         ' 
         GroupBox2.BackColor = Color.Transparent
         GroupBox2.Controls.Add(dgvCheckedIn)
-        GroupBox2.Font = New Font("Consolas", 8F, FontStyle.Regular, GraphicsUnit.Point)
+        GroupBox2.Font = New Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox2.ForeColor = Color.Black
-        GroupBox2.Location = New Point(12, 388)
+        GroupBox2.Location = New Point(12, 371)
         GroupBox2.Name = "GroupBox2"
-        GroupBox2.Size = New Size(820, 341)
+        GroupBox2.Size = New Size(1560, 240)
         GroupBox2.TabIndex = 25
         GroupBox2.TabStop = False
         GroupBox2.Text = "Checked-In List"
@@ -116,12 +116,12 @@ Partial Class Checking
         dgvCheckedIn.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         dgvCheckedIn.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         dgvCheckedIn.EditMode = DataGridViewEditMode.EditProgrammatically
-        dgvCheckedIn.Location = New Point(6, 23)
+        dgvCheckedIn.Location = New Point(6, 19)
         dgvCheckedIn.Name = "dgvCheckedIn"
         dgvCheckedIn.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         dgvCheckedIn.RowTemplate.Height = 25
         dgvCheckedIn.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvCheckedIn.Size = New Size(808, 312)
+        dgvCheckedIn.Size = New Size(1548, 215)
         dgvCheckedIn.TabIndex = 0
         dgvCheckedIn.TabStop = False
         ' 
@@ -230,7 +230,7 @@ Partial Class Checking
         ' dtpCheckIn
         ' 
         dtpCheckIn.CalendarFont = New Font("Consolas", 8F, FontStyle.Regular, GraphicsUnit.Point)
-        dtpCheckIn.CustomFormat = "MM/dd/yyyy - hh:mm tt"
+        dtpCheckIn.CustomFormat = "MM/dd/yyyy - h:mm tt"
         dtpCheckIn.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
         dtpCheckIn.Format = DateTimePickerFormat.Custom
         dtpCheckIn.Location = New Point(176, 146)
@@ -284,7 +284,7 @@ Partial Class Checking
         GroupBox3.ForeColor = Color.Black
         GroupBox3.Location = New Point(396, 41)
         GroupBox3.Name = "GroupBox3"
-        GroupBox3.Size = New Size(746, 341)
+        GroupBox3.Size = New Size(730, 324)
         GroupBox3.TabIndex = 31
         GroupBox3.TabStop = False
         GroupBox3.Text = "Guest List"
@@ -304,7 +304,7 @@ Partial Class Checking
         dgvGuest.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         dgvGuest.RowTemplate.Height = 25
         dgvGuest.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvGuest.Size = New Size(734, 312)
+        dgvGuest.Size = New Size(718, 295)
         dgvGuest.TabIndex = 0
         dgvGuest.TabStop = False
         ' 
@@ -315,7 +315,7 @@ Partial Class Checking
         lblDateTime.BackColor = Color.Black
         lblDateTime.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
         lblDateTime.ForeColor = Color.OrangeRed
-        lblDateTime.Location = New Point(1366, 16)
+        lblDateTime.Location = New Point(1272, 16)
         lblDateTime.Name = "lblDateTime"
         lblDateTime.Size = New Size(161, 14)
         lblDateTime.TabIndex = 32
@@ -331,9 +331,9 @@ Partial Class Checking
         GroupBox4.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         GroupBox4.Controls.Add(dgvAvailable)
         GroupBox4.Font = New Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        GroupBox4.Location = New Point(1148, 41)
+        GroupBox4.Location = New Point(1132, 41)
         GroupBox4.Name = "GroupBox4"
-        GroupBox4.Size = New Size(518, 341)
+        GroupBox4.Size = New Size(440, 324)
         GroupBox4.TabIndex = 35
         GroupBox4.TabStop = False
         GroupBox4.Text = "Rooms Available"
@@ -351,12 +351,12 @@ Partial Class Checking
         dgvAvailable.EditMode = DataGridViewEditMode.EditProgrammatically
         dgvAvailable.GridColor = SystemColors.Menu
         dgvAvailable.ImeMode = ImeMode.NoControl
-        dgvAvailable.Location = New Point(6, 23)
+        dgvAvailable.Location = New Point(6, 22)
         dgvAvailable.Name = "dgvAvailable"
         dgvAvailable.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         dgvAvailable.RowTemplate.Height = 25
         dgvAvailable.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvAvailable.Size = New Size(506, 312)
+        dgvAvailable.Size = New Size(428, 296)
         dgvAvailable.TabIndex = 5
         dgvAvailable.TabStop = False
         ' 
@@ -365,11 +365,11 @@ Partial Class Checking
         GroupBox5.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         GroupBox5.BackColor = Color.Transparent
         GroupBox5.Controls.Add(dgvReserve)
-        GroupBox5.Font = New Font("Consolas", 8F, FontStyle.Regular, GraphicsUnit.Point)
+        GroupBox5.Font = New Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox5.ForeColor = Color.Black
-        GroupBox5.Location = New Point(846, 388)
+        GroupBox5.Location = New Point(12, 617)
         GroupBox5.Name = "GroupBox5"
-        GroupBox5.Size = New Size(820, 341)
+        GroupBox5.Size = New Size(1560, 240)
         GroupBox5.TabIndex = 36
         GroupBox5.TabStop = False
         GroupBox5.Text = "Reservation List"
@@ -389,14 +389,14 @@ Partial Class Checking
         dgvReserve.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         dgvReserve.RowTemplate.Height = 25
         dgvReserve.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvReserve.Size = New Size(808, 312)
+        dgvReserve.Size = New Size(1548, 211)
         dgvReserve.TabIndex = 0
         ' 
         ' Checking
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1684, 734)
+        ClientSize = New Size(1584, 861)
         Controls.Add(GroupBox5)
         Controls.Add(GroupBox4)
         Controls.Add(lblDateTime)
