@@ -266,11 +266,11 @@ Partial Class RoomProfile
         lblDateTime.BackColor = Color.Black
         lblDateTime.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
         lblDateTime.ForeColor = Color.OrangeRed
-        lblDateTime.Location = New Point(893, 16)
+        lblDateTime.Location = New Point(872, 16)
         lblDateTime.Name = "lblDateTime"
-        lblDateTime.Size = New Size(140, 14)
+        lblDateTime.Size = New Size(161, 14)
         lblDateTime.TabIndex = 35
-        lblDateTime.Text = "00/00/0000 00:00 am"
+        lblDateTime.Text = "00/00/0000 00:00:00 am"
         ' 
         ' tmrRP
         ' 

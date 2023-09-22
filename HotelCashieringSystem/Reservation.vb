@@ -3,7 +3,7 @@ Imports MySql.Data.MySqlClient
 
 Public Class Reservation
 
-    Public Sub tmrReserve_Tick(sender As Object, e As EventArgs) Handles tmrReserve.Tick
+    Private Sub tmrReserve_Tick(sender As Object, e As EventArgs) Handles tmrReserve.Tick
         lblDateTime.Text = DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt")
     End Sub
 
