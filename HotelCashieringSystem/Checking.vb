@@ -1,4 +1,5 @@
 ﻿Imports System.Globalization
+Imports MySql.Data.MySqlClient
 
 Public Class Checking
 
@@ -64,6 +65,15 @@ Public Class Checking
             Dim CStatus = "Update guests Set CStatusID = 1  Where GuestID = '" & txtGuestID.Text & "'"
             SQLProcess(CStatus)
 
+            Dim EmpQuery As New MySqlCommand("Select EmpID From emp_login Where EmpStatusID = 2", mysqlConn)
+            Dim da As New MySqlDataAdapter(EmpQuery)
+            Dim dt As New DataTable()
+            da.Fill(dt)
+
+            Dim Payment = "₱" + txtPayment.Text
+            Dim CheckInPayment = "Insert Into checkin_payment Values(null, null, '" & dt.Rows.Item(0).Item("EmpID") & "', '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & Payment & "', '" & lblDateTime.Text & "')"
+            SQLProcess(CheckInPayment)
+
             MessageBox.Show("Guest Checked-In!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
             cleartxt()
@@ -74,6 +84,7 @@ Public Class Checking
         txtRoomNumber.Text = ""
         txtGuestID.Text = ""
         txtName.Text = ""
+        txtPayment.Text = ""
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
@@ -97,7 +108,7 @@ Public Class Checking
             btnCheckIn.Enabled = True
             btnCheckOut.Enabled = True
         Catch ex As Exception
-            MessageBox.Show("Error: " + ex.Message)
+            'MessageBox.Show("Error: " + ex.Message)
         End Try
     End Sub
 
@@ -111,7 +122,7 @@ Public Class Checking
             btnCheckIn.Enabled = True
             btnCheckOut.Enabled = True
         Catch ex As Exception
-            MessageBox.Show("Error: " + ex.Message)
+            'MessageBox.Show("Error: " + ex.Message)
         End Try
     End Sub
 
@@ -152,7 +163,7 @@ Public Class Checking
             btnCheckIn.Enabled = True
             btnCheckOut.Enabled = True
         Catch ex As Exception
-            MessageBox.Show("Error: " + ex.Message)
+            'MessageBox.Show("Error: " + ex.Message)
         End Try
     End Sub
 End Class

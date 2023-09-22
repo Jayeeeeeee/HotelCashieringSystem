@@ -21,4 +21,9 @@
         Admin.Show()
         Me.Hide()
     End Sub
+
+    Private Sub Records_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+        displayInfo("Select * From reservation_records", dgvRTransaction)
+        displayInfo("Select * From checkin_records", dgvCITransaction)
+    End Sub
 End Class

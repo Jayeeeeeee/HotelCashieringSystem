@@ -54,7 +54,7 @@ Partial Class Records
         lblDateTime.BackColor = Color.Black
         lblDateTime.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
         lblDateTime.ForeColor = Color.OrangeRed
-        lblDateTime.Location = New Point(1072, 16)
+        lblDateTime.Location = New Point(1272, 16)
         lblDateTime.Name = "lblDateTime"
         lblDateTime.Size = New Size(161, 14)
         lblDateTime.TabIndex = 34
@@ -64,7 +64,7 @@ Partial Class Records
         ' 
         btnLogOut.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         btnLogOut.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnLogOut.Location = New Point(1239, 12)
+        btnLogOut.Location = New Point(1439, 12)
         btnLogOut.Name = "btnLogOut"
         btnLogOut.Size = New Size(133, 23)
         btnLogOut.TabIndex = 33
@@ -73,12 +73,11 @@ Partial Class Records
         ' 
         ' GroupBox4
         ' 
-        GroupBox4.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         GroupBox4.Controls.Add(dgvCITransaction)
         GroupBox4.Font = New Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        GroupBox4.Location = New Point(702, 41)
+        GroupBox4.Location = New Point(12, 301)
         GroupBox4.Name = "GroupBox4"
-        GroupBox4.Size = New Size(670, 408)
+        GroupBox4.Size = New Size(1560, 250)
         GroupBox4.TabIndex = 37
         GroupBox4.TabStop = False
         GroupBox4.Text = "Check-In Transaction"
@@ -101,20 +100,19 @@ Partial Class Records
         dgvCITransaction.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         dgvCITransaction.RowTemplate.Height = 25
         dgvCITransaction.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvCITransaction.Size = New Size(658, 379)
+        dgvCITransaction.Size = New Size(1548, 221)
         dgvCITransaction.TabIndex = 5
         dgvCITransaction.TabStop = False
         ' 
         ' GroupBox3
         ' 
-        GroupBox3.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         GroupBox3.BackColor = Color.Transparent
         GroupBox3.Controls.Add(dgvRTransaction)
         GroupBox3.Font = New Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox3.ForeColor = Color.Black
         GroupBox3.Location = New Point(12, 41)
         GroupBox3.Name = "GroupBox3"
-        GroupBox3.Size = New Size(670, 408)
+        GroupBox3.Size = New Size(1560, 250)
         GroupBox3.TabIndex = 36
         GroupBox3.TabStop = False
         GroupBox3.Text = "Reservation Transaction"
@@ -134,7 +132,7 @@ Partial Class Records
         dgvRTransaction.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         dgvRTransaction.RowTemplate.Height = 25
         dgvRTransaction.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvRTransaction.Size = New Size(658, 379)
+        dgvRTransaction.Size = New Size(1548, 221)
         dgvRTransaction.TabIndex = 0
         dgvRTransaction.TabStop = False
         ' 
@@ -145,7 +143,7 @@ Partial Class Records
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1384, 461)
+        ClientSize = New Size(1584, 561)
         Controls.Add(GroupBox4)
         Controls.Add(GroupBox3)
         Controls.Add(lblDateTime)

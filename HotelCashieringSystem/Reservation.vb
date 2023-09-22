@@ -35,6 +35,7 @@ Public Class Reservation
         txtRoomNumber.Text = ""
         txtGuestID.Text = ""
         txtName.Text = ""
+        txtPayment.Text = ""
     End Sub
 
     Private Sub Reservation_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
@@ -72,6 +73,20 @@ Public Class Reservation
 
             Dim CStatus = "Update guests Set CStatusID = 2  Where GuestID = '" & txtGuestID.Text & "'"
             SQLProcess(CStatus)
+
+            Dim EmpQuery As New MySqlCommand("Select EmpID From emp_login Where EmpStatusID = 2", mysqlConn)
+            Dim da As New MySqlDataAdapter(EmpQuery)
+            Dim dt As New DataTable()
+            da.Fill(dt)
+
+            Dim ReserveQuery As New MySqlCommand("Select ReservationID From reservation Where GuestID ='" & txtGuestID.Text & "' and RoomID = '" & txtRoomNumber.Text & "'", mysqlConn)
+            Dim rda As New MySqlDataAdapter(ReserveQuery)
+            Dim rdt As New DataTable()
+            rda.Fill(rdt)
+
+            Dim Payment = "₱" + txtPayment.Text
+            Dim ReservePayment = "Insert Into reservation_payment Values(null, '" & rdt.Rows.Item(0).Item("ReservationID") & "', '" & dt.Rows.Item(0).Item("EmpID") & "', '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & Payment & "', '" & lblDateTime.Text & "')"
+            SQLProcess(ReservePayment)
 
             MessageBox.Show("Room Resereved!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
@@ -121,7 +136,7 @@ Public Class Reservation
             btnReserve.Enabled = True
             btnCancel.Enabled = True
         Catch ex As Exception
-            MessageBox.Show("Error: " + ex.Message)
+            'MessageBox.Show("Error: " + ex.Message)
         End Try
     End Sub
 
@@ -135,7 +150,7 @@ Public Class Reservation
             btnReserve.Enabled = True
             btnCancel.Enabled = True
         Catch ex As Exception
-            MessageBox.Show("Error: " + ex.Message)
+            'MessageBox.Show("Error: " + ex.Message)
         End Try
     End Sub
 End Class
