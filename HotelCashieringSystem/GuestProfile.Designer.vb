@@ -244,6 +244,7 @@ Partial Class GuestProfile
         ' 
         ' tmrGP
         ' 
+        tmrGP.Interval = 1000
         ' 
         ' GuestProfile
         ' 

@@ -138,6 +138,7 @@ Partial Class Records
         ' 
         ' tmrRecords
         ' 
+        tmrRecords.Interval = 1000
         ' 
         ' Records
         ' 

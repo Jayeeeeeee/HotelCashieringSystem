@@ -274,6 +274,7 @@ Partial Class RoomProfile
         ' 
         ' tmrRP
         ' 
+        tmrRP.Interval = 1000
         ' 
         ' RoomProfile
         ' 
