@@ -70,8 +70,14 @@ Public Class Checking
             Dim dt As New DataTable()
             da.Fill(dt)
 
+            Dim ChckinQuery As New MySqlCommand("Select ChckID From checkin Where GuestID ='" & txtGuestID.Text & "' and RoomID = '" & txtRoomNumber.Text & "'", mysqlConn)
+            Dim cda As New MySqlDataAdapter(ChckinQuery)
+            Dim cdt As New DataTable()
+            cda.Fill(cdt)
+
             Dim Payment = "₱" + txtPayment.Text
-            Dim CheckInPayment = "Insert Into checkin_payment Values(null, null, '" & dt.Rows.Item(0).Item("EmpID") & "', '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & Payment & "', '" & lblDateTime.Text & "')"
+
+            Dim CheckInPayment = "Insert Into checkin_payment Values(null, '" & cdt.Rows.Item(0).Item("ChckID") & "', '" & dt.Rows.Item(0).Item("EmpID") & "', '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & Payment & "', '" & lblDateTime.Text & "')"
             SQLProcess(CheckInPayment)
 
             MessageBox.Show("Guest Checked-In!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -165,5 +171,9 @@ Public Class Checking
         Catch ex As Exception
             'MessageBox.Show("Error: " + ex.Message)
         End Try
+    End Sub
+
+    Public Sub PValidation()
+        Dim RPayment = "Select "
     End Sub
 End Class
