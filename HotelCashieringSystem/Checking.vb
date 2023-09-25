@@ -1,4 +1,5 @@
-﻿Imports System.Globalization
+﻿Imports System.Diagnostics.Tracing
+Imports System.Globalization
 Imports MySql.Data.MySqlClient
 
 Public Class Checking
@@ -26,6 +27,8 @@ Public Class Checking
     End Sub
 
     Private Sub dgGuest_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvGuest.CellClick
+        dtpCheckOut.MinDate = DateAdd(DateInterval.Day, 1, Now)
+        dtpCheckIn.MinDate = Now
         Try
             Dim i = e.RowIndex
             With dgvGuest
@@ -45,8 +48,6 @@ Public Class Checking
         displayInfo("Select * From guest_checkedin", dgvCheckedIn)
         displayInfo("Select * From rooms_available", dgvAvailable)
         displayInfo("Select * From guest_reservation", dgvReserve)
-        'dtpCheckOut.MinDate = DateAdd(DateInterval.Day, 1, Now)
-        'dtpCheckIn.MinDate = Now
     End Sub
 
     Private Sub btnCheckIn_Click(sender As Object, e As EventArgs) Handles btnCheckIn.Click
@@ -100,6 +101,8 @@ Public Class Checking
         txtGuestID.Text = ""
         txtName.Text = ""
         txtPayment.Text = ""
+        dtpCheckOut.MinDate = DateAdd(DateInterval.Day, 1, Now)
+        dtpCheckIn.MinDate = Now
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
@@ -107,6 +110,8 @@ Public Class Checking
     End Sub
 
     Private Sub dgvCheckedIn_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCheckedIn.CellClick
+        dtpCheckOut.MinDate = DateAdd(DateInterval.Day, -1, Now)
+        dtpCheckIn.MinDate = DateAdd(DateInterval.Day, -1, Now)
         Try
             Dim i = e.RowIndex
             With dgvCheckedIn
@@ -128,6 +133,8 @@ Public Class Checking
     End Sub
 
     Private Sub dgvAvailable_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvAvailable.CellClick
+        dtpCheckOut.MinDate = DateAdd(DateInterval.Day, 1, Now)
+        dtpCheckIn.MinDate = Now
         Try
             Dim i = e.RowIndex
             With dgvAvailable
@@ -161,6 +168,8 @@ Public Class Checking
     End Sub
 
     Private Sub dgvReserve_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvReserve.CellClick
+        dtpCheckOut.MinDate = DateAdd(DateInterval.Day, -1, Now)
+        dtpCheckIn.MinDate = DateAdd(DateInterval.Day, -1, Now)
         Try
             Dim i = e.RowIndex
             With dgvReserve
@@ -180,9 +189,5 @@ Public Class Checking
         Catch ex As Exception
             'MessageBox.Show("Error: " + ex.Message)
         End Try
-    End Sub
-
-    Public Sub PValidation()
-        Dim RPayment = "Select "
     End Sub
 End Class

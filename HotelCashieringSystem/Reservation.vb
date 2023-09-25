@@ -29,6 +29,8 @@ Public Class Reservation
         txtRoomNumber.Text = ""
         txtGuestID.Text = ""
         txtName.Text = ""
+        dtpCheckOut.MinDate = DateAdd(DateInterval.Day, 1, Now)
+        dtpCheckIn.MinDate = Now
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
@@ -42,11 +44,11 @@ Public Class Reservation
         displayInfo("Select * From guest_info", dgvGuest)
         displayInfo("Select * From guest_reservation", dgvReserve)
         displayInfo("Select * From rooms_available", dgvAvailable)
-        'dtpCheckOut.MinDate = DateAdd(DateInterval.Day, 1, Now)
-        'dtpCheckIn.MinDate = Now
     End Sub
 
     Private Sub dgGuest_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvGuest.CellClick
+        dtpCheckOut.MinDate = DateAdd(DateInterval.Day, 1, Now)
+        dtpCheckIn.MinDate = Now
         Try
             Dim i = e.RowIndex
             With dgvGuest
@@ -130,6 +132,8 @@ Public Class Reservation
     End Sub
 
     Private Sub dgvReserve_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvReserve.CellClick
+        dtpCheckOut.MinDate = DateAdd(DateInterval.Day, -1, Now)
+        dtpCheckIn.MinDate = DateAdd(DateInterval.Day, -1, Now)
         Try
             Dim i = e.RowIndex
             With dgvReserve
@@ -153,6 +157,8 @@ Public Class Reservation
     End Sub
 
     Private Sub dgvAvailable_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvAvailable.CellClick
+        dtpCheckOut.MinDate = DateAdd(DateInterval.Day, 1, Now)
+        dtpCheckIn.MinDate = Now
         Try
             Dim i = e.RowIndex
             With dgvAvailable
