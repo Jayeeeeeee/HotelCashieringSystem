@@ -85,7 +85,7 @@ Public Class Checking
             Dim Change As Integer = Payment - pdt.Rows.Item(0).Item("RoomPrice")
 
 
-            Dim CheckInPayment = "Insert Into checkin_payment Values(null, '" & cdt.Rows.Item(0).Item("ChckID") & "', '" & dt.Rows.Item(0).Item("EmpID") & "', '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & Payment & "', '" & lblDateTime.Text & "')"
+            Dim CheckInPayment = "Insert Into checkin_payment Values(null, '" & cdt.Rows.Item(0).Item("ChckID") & "', '" & dt.Rows.Item(0).Item("EmpID") & "', '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & Payment & "', '" & Change & "', '" & lblDateTime.Text & "')"
             SQLProcess(CheckInPayment)
 
             MessageBox.Show("Guest Checked-In!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)

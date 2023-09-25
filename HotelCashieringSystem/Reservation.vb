@@ -93,7 +93,7 @@ Public Class Reservation
 
             Dim Change As Integer = Payment - pdt.Rows.Item(0).Item("RoomPrice")
 
-            Dim ReservePayment = "Insert Into reservation_payment Values(null, '" & rdt.Rows.Item(0).Item("ReservationID") & "', '" & dt.Rows.Item(0).Item("EmpID") & "', '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & Payment & "', '" & lblDateTime.Text & "')"
+            Dim ReservePayment = "Insert Into reservation_payment Values(null, '" & rdt.Rows.Item(0).Item("ReservationID") & "', '" & dt.Rows.Item(0).Item("EmpID") & "', '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & Payment & "', '" & Change & "', '" & lblDateTime.Text & "')"
             SQLProcess(ReservePayment)
 
             MessageBox.Show("Room Resereved!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
