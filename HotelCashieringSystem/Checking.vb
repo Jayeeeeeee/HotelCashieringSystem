@@ -75,12 +75,21 @@ Public Class Checking
             Dim cdt As New DataTable()
             cda.Fill(cdt)
 
-            Dim Payment = "₱" + txtPayment.Text
+            Dim PriceQuery As New MySqlCommand("Select RoomPrice From room_type Where RoomTypeID In (Select RoomTypeID From Rooms Where RoomID ='" & txtRoomNumber.Text & "')", mysqlConn)
+            Dim pda As New MySqlDataAdapter(PriceQuery)
+            Dim pdt As New DataTable()
+            pda.Fill(pdt)
+
+            Dim Payment = CInt(Int(txtPayment.Text))
+
+            Dim Change As Integer = Payment - pdt.Rows.Item(0).Item("RoomPrice")
+
 
             Dim CheckInPayment = "Insert Into checkin_payment Values(null, '" & cdt.Rows.Item(0).Item("ChckID") & "', '" & dt.Rows.Item(0).Item("EmpID") & "', '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & Payment & "', '" & lblDateTime.Text & "')"
             SQLProcess(CheckInPayment)
 
             MessageBox.Show("Guest Checked-In!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("Change To Be Given To The Guest: ₱" & Change, "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
             cleartxt()
         End If

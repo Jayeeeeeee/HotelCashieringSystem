@@ -84,11 +84,20 @@ Public Class Reservation
             Dim rdt As New DataTable()
             rda.Fill(rdt)
 
-            Dim Payment = "₱" + txtPayment.Text
+            Dim PriceQuery As New MySqlCommand("Select RoomPrice From room_type Where RoomTypeID In (Select RoomTypeID From Rooms Where RoomID ='" & txtRoomNumber.Text & "')", mysqlConn)
+            Dim pda As New MySqlDataAdapter(PriceQuery)
+            Dim pdt As New DataTable()
+            pda.Fill(pdt)
+
+            Dim Payment = CInt(Int(txtPayment.Text))
+
+            Dim Change As Integer = Payment - pdt.Rows.Item(0).Item("RoomPrice")
+
             Dim ReservePayment = "Insert Into reservation_payment Values(null, '" & rdt.Rows.Item(0).Item("ReservationID") & "', '" & dt.Rows.Item(0).Item("EmpID") & "', '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & Payment & "', '" & lblDateTime.Text & "')"
             SQLProcess(ReservePayment)
 
             MessageBox.Show("Room Resereved!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("Change To Be Given To The Guest: ₱" & Change, "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
             cleartxt()
         End If
@@ -109,6 +118,9 @@ Public Class Reservation
 
                 Dim CStatus = "Update guests Set CStatusID = 3  Where GuestID = '" & txtGuestID.Text & "'"
                 SQLProcess(CStatus)
+
+                Dim CPReservation = "Delete From reservation_payment where RoomID = '" & txtRoomNumber.Text & "'"
+                SQLProcess(CPReservation)
 
                 MessageBox.Show("Reservation Cancelled!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
