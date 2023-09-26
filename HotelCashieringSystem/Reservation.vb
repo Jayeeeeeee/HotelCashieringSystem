@@ -65,41 +65,47 @@ Public Class Reservation
         If String.IsNullOrWhiteSpace(txtRoomNumber.Text) Or String.IsNullOrWhiteSpace(txtGuestID.Text) Or String.IsNullOrWhiteSpace(txtName.Text) Then
             MessageBox.Show("Some fields are empty!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Else
-            Dim Reserve = "Insert Into reservation Values(null, '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & dtpCheckIn.Text & "', '" & dtpCheckOut.Text & "', '" & 1 & "')"
-            SQLProcess(Reserve)
+            Dim RRoom As New System.Windows.Forms.DialogResult
+            RRoom = MessageBox.Show("Reserve Room " & txtRoomNumber.Text & "?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If RRoom = Windows.Forms.DialogResult.Yes Then
+                Dim Reserve = "Insert Into reservation Values(null, '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & dtpCheckIn.Text & "', '" & dtpCheckOut.Text & "', '" & 1 & "')"
+                SQLProcess(Reserve)
 
-            Dim ReserveRoom = "Update rooms Set RoomStatusID = 2 Where RoomID = '" & txtRoomNumber.Text & "'"
-            SQLProcess(ReserveRoom)
+                Dim ReserveRoom = "Update rooms Set RoomStatusID = 2 Where RoomID = '" & txtRoomNumber.Text & "'"
+                SQLProcess(ReserveRoom)
 
-            Dim CStatus = "Update guests Set CStatusID = 2  Where GuestID = '" & txtGuestID.Text & "'"
-            SQLProcess(CStatus)
+                Dim CStatus = "Update guests Set CStatusID = 2  Where GuestID = '" & txtGuestID.Text & "'"
+                SQLProcess(CStatus)
 
-            Dim EmpQuery As New MySqlCommand("Select EmpID From emp_login Where EmpStatusID = 2", mysqlConn)
-            Dim da As New MySqlDataAdapter(EmpQuery)
-            Dim dt As New DataTable()
-            da.Fill(dt)
+                Dim EmpQuery As New MySqlCommand("Select EmpID From emp_login Where EmpStatusID = 2", mysqlConn)
+                Dim da As New MySqlDataAdapter(EmpQuery)
+                Dim dt As New DataTable()
+                da.Fill(dt)
 
-            Dim ReserveQuery As New MySqlCommand("Select ReservationID From reservation Where GuestID ='" & txtGuestID.Text & "' and RoomID = '" & txtRoomNumber.Text & "'", mysqlConn)
-            Dim rda As New MySqlDataAdapter(ReserveQuery)
-            Dim rdt As New DataTable()
-            rda.Fill(rdt)
+                Dim ReserveQuery As New MySqlCommand("Select ReservationID From reservation Where GuestID ='" & txtGuestID.Text & "' and RoomID = '" & txtRoomNumber.Text & "'", mysqlConn)
+                Dim rda As New MySqlDataAdapter(ReserveQuery)
+                Dim rdt As New DataTable()
+                rda.Fill(rdt)
 
-            Dim PriceQuery As New MySqlCommand("Select RoomPrice From room_type Where RoomTypeID In (Select RoomTypeID From Rooms Where RoomID ='" & txtRoomNumber.Text & "')", mysqlConn)
-            Dim pda As New MySqlDataAdapter(PriceQuery)
-            Dim pdt As New DataTable()
-            pda.Fill(pdt)
+                Dim PriceQuery As New MySqlCommand("Select RoomPrice From room_type Where RoomTypeID In (Select RoomTypeID From Rooms Where RoomID ='" & txtRoomNumber.Text & "')", mysqlConn)
+                Dim pda As New MySqlDataAdapter(PriceQuery)
+                Dim pdt As New DataTable()
+                pda.Fill(pdt)
 
-            Dim Payment = CInt(Int(txtPayment.Text))
+                Dim Payment = CInt(Int(txtPayment.Text))
 
-            Dim Change As Integer = Payment - pdt.Rows.Item(0).Item("RoomPrice")
+                Dim Change As Integer = Payment - pdt.Rows.Item(0).Item("RoomPrice")
 
-            Dim ReservePayment = "Insert Into reservation_payment Values(null, '" & rdt.Rows.Item(0).Item("ReservationID") & "', '" & dt.Rows.Item(0).Item("EmpID") & "', '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & Payment & "', '" & Change & "', '" & lblDateTime.Text & "')"
-            SQLProcess(ReservePayment)
+                Dim ReservePayment = "Insert Into reservation_payment Values(null, '" & rdt.Rows.Item(0).Item("ReservationID") & "', '" & dt.Rows.Item(0).Item("EmpID") & "', '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & Payment & "', '" & Change & "', '" & lblDateTime.Text & "')"
+                SQLProcess(ReservePayment)
 
-            MessageBox.Show("Room Resereved!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            MessageBox.Show("Change To Be Given To The Guest: ₱" & Change, "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Room Resereved!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Change To Be Given To The Guest: ₱" & Change, "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-            cleartxt()
+                cleartxt()
+            Else
+                Me.Show()
+            End If
         End If
     End Sub
 

@@ -54,45 +54,51 @@ Public Class Checking
         If String.IsNullOrWhiteSpace(txtRoomNumber.Text) Or String.IsNullOrWhiteSpace(txtGuestID.Text) Or String.IsNullOrWhiteSpace(txtName.Text) Then
             MessageBox.Show("Some fields are empty!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Else
-            Dim CheckIn = "Insert Into checkin Values(null, '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & dtpCheckIn.Text & "', '" & dtpCheckOut.Text & "', '" & 1 & "')"
-            SQLProcess(CheckIn)
+            Dim CIn As New System.Windows.Forms.DialogResult
+            CIn = MessageBox.Show("Check-In On Room " & txtRoomNumber.Text & "?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If CIn = Windows.Forms.DialogResult.Yes Then
+                Dim CheckIn = "Insert Into checkin Values(null, '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & dtpCheckIn.Text & "', '" & dtpCheckOut.Text & "', '" & 1 & "')"
+                SQLProcess(CheckIn)
 
-            Dim CheckInRoom = "Update rooms Set RoomStatusID = 3 Where RoomID = '" & txtRoomNumber.Text & "'"
-            SQLProcess(CheckInRoom)
+                Dim CheckInRoom = "Update rooms Set RoomStatusID = 3 Where RoomID = '" & txtRoomNumber.Text & "'"
+                SQLProcess(CheckInRoom)
 
-            Dim RStatus = "Update reservation Set RStatusID = 2  Where RoomID = '" & txtRoomNumber.Text & "'"
-            SQLProcess(RStatus)
+                Dim RStatus = "Update reservation Set RStatusID = 2  Where RoomID = '" & txtRoomNumber.Text & "'"
+                SQLProcess(RStatus)
 
-            Dim CStatus = "Update guests Set CStatusID = 1  Where GuestID = '" & txtGuestID.Text & "'"
-            SQLProcess(CStatus)
+                Dim CStatus = "Update guests Set CStatusID = 1  Where GuestID = '" & txtGuestID.Text & "'"
+                SQLProcess(CStatus)
 
-            Dim EmpQuery As New MySqlCommand("Select EmpID From emp_login Where EmpStatusID = 2", mysqlConn)
-            Dim da As New MySqlDataAdapter(EmpQuery)
-            Dim dt As New DataTable()
-            da.Fill(dt)
+                Dim EmpQuery As New MySqlCommand("Select EmpID From emp_login Where EmpStatusID = 2", mysqlConn)
+                Dim da As New MySqlDataAdapter(EmpQuery)
+                Dim dt As New DataTable()
+                da.Fill(dt)
 
-            Dim ChckinQuery As New MySqlCommand("Select ChckID From checkin Where GuestID ='" & txtGuestID.Text & "' and RoomID = '" & txtRoomNumber.Text & "'", mysqlConn)
-            Dim cda As New MySqlDataAdapter(ChckinQuery)
-            Dim cdt As New DataTable()
-            cda.Fill(cdt)
+                Dim ChckinQuery As New MySqlCommand("Select ChckID From checkin Where GuestID ='" & txtGuestID.Text & "' and RoomID = '" & txtRoomNumber.Text & "'", mysqlConn)
+                Dim cda As New MySqlDataAdapter(ChckinQuery)
+                Dim cdt As New DataTable()
+                cda.Fill(cdt)
 
-            Dim PriceQuery As New MySqlCommand("Select RoomPrice From room_type Where RoomTypeID In (Select RoomTypeID From Rooms Where RoomID ='" & txtRoomNumber.Text & "')", mysqlConn)
-            Dim pda As New MySqlDataAdapter(PriceQuery)
-            Dim pdt As New DataTable()
-            pda.Fill(pdt)
+                Dim PriceQuery As New MySqlCommand("Select RoomPrice From room_type Where RoomTypeID In (Select RoomTypeID From Rooms Where RoomID ='" & txtRoomNumber.Text & "')", mysqlConn)
+                Dim pda As New MySqlDataAdapter(PriceQuery)
+                Dim pdt As New DataTable()
+                pda.Fill(pdt)
 
-            Dim Payment = CInt(Int(txtPayment.Text))
+                Dim Payment = CInt(Int(txtPayment.Text))
 
-            Dim Change As Integer = Payment - pdt.Rows.Item(0).Item("RoomPrice")
+                Dim Change As Integer = Payment - pdt.Rows.Item(0).Item("RoomPrice")
 
 
-            Dim CheckInPayment = "Insert Into checkin_payment Values(null, '" & cdt.Rows.Item(0).Item("ChckID") & "', '" & dt.Rows.Item(0).Item("EmpID") & "', '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & Payment & "', '" & Change & "', '" & lblDateTime.Text & "')"
-            SQLProcess(CheckInPayment)
+                Dim CheckInPayment = "Insert Into checkin_payment Values(null, '" & cdt.Rows.Item(0).Item("ChckID") & "', '" & dt.Rows.Item(0).Item("EmpID") & "', '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & Payment & "', '" & Change & "', '" & lblDateTime.Text & "')"
+                SQLProcess(CheckInPayment)
 
-            MessageBox.Show("Guest Checked-In!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            MessageBox.Show("Change To Be Given To The Guest: ₱" & Change, "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Guest Checked-In!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Change To Be Given To The Guest: ₱" & Change, "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-            cleartxt()
+                cleartxt()
+            Else
+                Me.Show()
+            End If
         End If
     End Sub
 
@@ -152,18 +158,24 @@ Public Class Checking
         If String.IsNullOrWhiteSpace(txtRoomNumber.Text) Or String.IsNullOrWhiteSpace(txtGuestID.Text) Or String.IsNullOrWhiteSpace(txtName.Text) Then
             MessageBox.Show("Some fields are empty!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Else
-            Dim CheckOutStatus = "Update checkin Set ChckStatusID = 2 Where RoomID = '" & txtRoomNumber.Text & "'"
-            SQLProcess(CheckOutStatus)
+            Dim COut As New System.Windows.Forms.DialogResult
+            COut = MessageBox.Show("Check-Out On Room " & txtRoomNumber.Text & "?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If COut = Windows.Forms.DialogResult.Yes Then
+                Dim CheckOutStatus = "Update checkin Set ChckStatusID = 2 Where RoomID = '" & txtRoomNumber.Text & "'"
+                SQLProcess(CheckOutStatus)
 
-            Dim CheckInRoom = "Update rooms Set RoomStatusID = 1 Where RoomID = '" & txtRoomNumber.Text & "'"
-            SQLProcess(CheckInRoom)
+                Dim CheckInRoom = "Update rooms Set RoomStatusID = 1 Where RoomID = '" & txtRoomNumber.Text & "'"
+                SQLProcess(CheckInRoom)
 
-            Dim CStatus = "Update guests Set CStatusID = 3  Where GuestID = '" & txtGuestID.Text & "'"
-            SQLProcess(CStatus)
+                Dim CStatus = "Update guests Set CStatusID = 3  Where GuestID = '" & txtGuestID.Text & "'"
+                SQLProcess(CStatus)
 
-            MessageBox.Show("Guest Checked-Out!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Guest Checked-Out!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-            cleartxt()
+                cleartxt()
+            Else
+                Me.Show()
+            End If
         End If
     End Sub
 
