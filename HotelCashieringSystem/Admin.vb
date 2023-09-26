@@ -3,7 +3,7 @@
         Dim StatusQuery = "Update emp_login Set EmpStatusID = 1 Where EmpStatusID = 2"
         Dim Out As New System.Windows.Forms.DialogResult
         Out = MessageBox.Show("Logout?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-        If Out Then
+        If Out = Windows.Forms.DialogResult.Yes Then
             SQLProcess(StatusQuery)
             Me.Close()
             Login.Show()
