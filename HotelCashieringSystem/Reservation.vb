@@ -114,7 +114,7 @@ Public Class Reservation
             MessageBox.Show("Some fields are empty!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Else
             Dim Cancel As New System.Windows.Forms.DialogResult
-            Cancel = MessageBox.Show("Cancel Reservation?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            Cancel = MessageBox.Show("Cancel Reservation On Room No." & txtRoomNumber.Text & "?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If Cancel = Windows.Forms.DialogResult.Yes Then
                 Dim CReservation = "Delete From reservation where RoomID = '" & txtRoomNumber.Text & "'"
                 SQLProcess(CReservation)
