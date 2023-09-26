@@ -127,11 +127,11 @@ Public Class Reservation
             Dim Cancel As New System.Windows.Forms.DialogResult
             Cancel = MessageBox.Show("Cancel Reservation On Room No." & txtRoomNumber.Text & "?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If Cancel = Windows.Forms.DialogResult.Yes Then
-                'Dim CReservation = "Delete From reservation where RoomID = '" & txtRoomNumber.Text & "'"
-                'SQLProcess(CReservation)
-
-                Dim CReservation = "Update reservation Set RStatusID = 3 where RoomID = '" & txtRoomNumber.Text & "'"
+                Dim CReservation = "Delete From reservation where RoomID = '" & txtRoomNumber.Text & "'"
                 SQLProcess(CReservation)
+
+                'Dim CReservation = "Update reservation Set RStatusID = 3 where RoomID = '" & txtRoomNumber.Text & "'"
+                'SQLProcess(CReservation)
 
                 Dim CRoom = "Update rooms Set RoomStatusID = 1 Where RoomID = '" & txtRoomNumber.Text & "'"
                 SQLProcess(CRoom)
@@ -139,11 +139,11 @@ Public Class Reservation
                 Dim CStatus = "Update guests Set CStatusID = 3 Where GuestID = '" & txtGuestID.Text & "'"
                 SQLProcess(CStatus)
 
-                'Dim CPReservation = "Delete From reservation_payment where RoomID = '" & txtRoomNumber.Text & "'"
-                'SQLProcess(CPReservation)
-
-                Dim CPReservation = "Update reservation_payment Set RPStatusID = 3 Where RoomID = '" & txtRoomNumber.Text & "'"
+                Dim CPReservation = "Delete From reservation_payment where RoomID = '" & txtRoomNumber.Text & "'"
                 SQLProcess(CPReservation)
+
+                'Dim CPReservation = "Update reservation_payment Set RPStatusID = 3 Where RoomID = '" & txtRoomNumber.Text & "'"
+                'SQLProcess(CPReservation)
 
                 MessageBox.Show("Reservation Cancelled!" & vbCrLf &
                                 "Room No.: " & txtRoomNumber.Text & vbCrLf &
