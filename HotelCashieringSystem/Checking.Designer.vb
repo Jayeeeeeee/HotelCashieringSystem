@@ -96,7 +96,7 @@ Partial Class Checking
         ' GroupBox2
         ' 
         GroupBox2.BackColor = Color.Transparent
-        GroupBox2.Controls.Add(dgvCheckedIn)
+        GroupBox2.Controls.Add(dgvReserve)
         GroupBox2.Font = New Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox2.ForeColor = Color.Black
         GroupBox2.Location = New Point(12, 371)
@@ -104,7 +104,7 @@ Partial Class Checking
         GroupBox2.Size = New Size(1560, 240)
         GroupBox2.TabIndex = 25
         GroupBox2.TabStop = False
-        GroupBox2.Text = "Checked-In List"
+        GroupBox2.Text = "Reservation List"
         ' 
         ' dgvCheckedIn
         ' 
@@ -364,7 +364,7 @@ Partial Class Checking
         ' 
         GroupBox5.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         GroupBox5.BackColor = Color.Transparent
-        GroupBox5.Controls.Add(dgvReserve)
+        GroupBox5.Controls.Add(dgvCheckedIn)
         GroupBox5.Font = New Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox5.ForeColor = Color.Black
         GroupBox5.Location = New Point(12, 617)
@@ -372,7 +372,7 @@ Partial Class Checking
         GroupBox5.Size = New Size(1560, 240)
         GroupBox5.TabIndex = 36
         GroupBox5.TabStop = False
-        GroupBox5.Text = "Reservation List"
+        GroupBox5.Text = "Checked-In List"
         ' 
         ' dgvReserve
         ' 
@@ -384,7 +384,7 @@ Partial Class Checking
         dgvReserve.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         dgvReserve.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         dgvReserve.EditMode = DataGridViewEditMode.EditProgrammatically
-        dgvReserve.Location = New Point(6, 22)
+        dgvReserve.Location = New Point(6, 23)
         dgvReserve.Name = "dgvReserve"
         dgvReserve.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         dgvReserve.RowTemplate.Height = 25

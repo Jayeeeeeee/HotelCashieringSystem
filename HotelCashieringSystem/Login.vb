@@ -40,8 +40,4 @@ Public Class Login
         txtPass.Text = ""
     End Sub
 
-    Public Sub empID()
-
-    End Sub
-
 End Class

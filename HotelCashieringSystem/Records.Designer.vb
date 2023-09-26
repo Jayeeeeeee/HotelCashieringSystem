@@ -74,7 +74,7 @@ Partial Class Records
         ' GroupBox4
         ' 
         GroupBox4.Controls.Add(dgvCITransaction)
-        GroupBox4.Font = New Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        GroupBox4.Font = New Font("Consolas", 8F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox4.Location = New Point(12, 301)
         GroupBox4.Name = "GroupBox4"
         GroupBox4.Size = New Size(1560, 250)
@@ -108,7 +108,7 @@ Partial Class Records
         ' 
         GroupBox3.BackColor = Color.Transparent
         GroupBox3.Controls.Add(dgvRTransaction)
-        GroupBox3.Font = New Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        GroupBox3.Font = New Font("Consolas", 8F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox3.ForeColor = Color.Black
         GroupBox3.Location = New Point(12, 41)
         GroupBox3.Name = "GroupBox3"

@@ -62,7 +62,7 @@ Public Class Reservation
     End Sub
 
     Private Sub btnReserve_Click(sender As Object, e As EventArgs) Handles btnReserve.Click
-        If String.IsNullOrWhiteSpace(txtRoomNumber.Text) Or String.IsNullOrWhiteSpace(txtGuestID.Text) Or String.IsNullOrWhiteSpace(txtName.Text) Then
+        If String.IsNullOrWhiteSpace(txtRoomNumber.Text) Or String.IsNullOrWhiteSpace(txtGuestID.Text) Or String.IsNullOrWhiteSpace(txtName.Text) Or String.IsNullOrWhiteSpace(txtPayment.Text) Then
             MessageBox.Show("Some fields are empty!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Else
             Dim RRoom As New System.Windows.Forms.DialogResult
@@ -96,12 +96,23 @@ Public Class Reservation
 
                 Dim Change As Integer = Payment - pdt.Rows.Item(0).Item("RoomPrice")
 
-                Dim ReservePayment = "Insert Into reservation_payment Values(null, '" & rdt.Rows.Item(0).Item("ReservationID") & "', '" & dt.Rows.Item(0).Item("EmpID") & "', '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & Payment & "', '" & Change & "', '" & lblDateTime.Text & "')"
+                Dim ReservePayment = "Insert Into reservation_payment Values(null, '" _
+                                                                            & rdt.Rows.Item(0).Item("ReservationID") & "', '" _
+                                                                            & dt.Rows.Item(0).Item("EmpID") & "', '" _
+                                                                            & txtGuestID.Text & "', '" _
+                                                                            & txtRoomNumber.Text & "', '" _
+                                                                            & Payment & "', '" _
+                                                                            & Change & "', '" _
+                                                                            & lblDateTime.Text & "', '" _
+                                                                            & 1 & "')"
                 SQLProcess(ReservePayment)
 
-                MessageBox.Show("Room Resereved!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                MessageBox.Show("Change To Be Given To The Guest: ₱" & Change, "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
+                MessageBox.Show("Reserved!" & vbCrLf &
+                                "Room No.: " & txtRoomNumber.Text & vbCrLf &
+                                "Guest Name: " & txtName.Text & vbCrLf &
+                                "Check-In Date: " & dtpCheckIn.Text & vbCrLf &
+                                "Check-Out Date: " & dtpCheckOut.Text,
+                                "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 cleartxt()
             Else
                 Me.Show()
@@ -116,19 +127,29 @@ Public Class Reservation
             Dim Cancel As New System.Windows.Forms.DialogResult
             Cancel = MessageBox.Show("Cancel Reservation On Room No." & txtRoomNumber.Text & "?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If Cancel = Windows.Forms.DialogResult.Yes Then
-                Dim CReservation = "Delete From reservation where RoomID = '" & txtRoomNumber.Text & "'"
+                'Dim CReservation = "Delete From reservation where RoomID = '" & txtRoomNumber.Text & "'"
+                'SQLProcess(CReservation)
+
+                Dim CReservation = "Update reservation Set RStatusID = 3 where RoomID = '" & txtRoomNumber.Text & "'"
                 SQLProcess(CReservation)
 
                 Dim CRoom = "Update rooms Set RoomStatusID = 1 Where RoomID = '" & txtRoomNumber.Text & "'"
                 SQLProcess(CRoom)
 
-                Dim CStatus = "Update guests Set CStatusID = 3  Where GuestID = '" & txtGuestID.Text & "'"
+                Dim CStatus = "Update guests Set CStatusID = 3 Where GuestID = '" & txtGuestID.Text & "'"
                 SQLProcess(CStatus)
 
-                Dim CPReservation = "Delete From reservation_payment where RoomID = '" & txtRoomNumber.Text & "'"
+                'Dim CPReservation = "Delete From reservation_payment where RoomID = '" & txtRoomNumber.Text & "'"
+                'SQLProcess(CPReservation)
+
+                Dim CPReservation = "Update reservation_payment Set RPStatusID = 3 Where RoomID = '" & txtRoomNumber.Text & "'"
                 SQLProcess(CPReservation)
 
-                MessageBox.Show("Reservation Cancelled!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Reservation Cancelled!" & vbCrLf &
+                                "Room No.: " & txtRoomNumber.Text & vbCrLf &
+                                "Guest Name: " & txtName.Text & vbCrLf &
+                                "Amount To Be Refunded: ₱" & txtPayment.Text _
+                                , "Cancelation!", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                 cleartxt()
             Else
@@ -153,6 +174,7 @@ Public Class Reservation
                 txtName.Text = .Item("Guest Name", i).Value
                 dtpCheckIn.Value = chckin
                 dtpCheckOut.Value = chckout
+                txtPayment.Text = .Item("Reservation Payment", i).Value
 
             End With
             btnReserve.Enabled = True

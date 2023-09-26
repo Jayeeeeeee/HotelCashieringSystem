@@ -57,8 +57,16 @@ Public Class Checking
             Dim CIn As New System.Windows.Forms.DialogResult
             CIn = MessageBox.Show("Check-In On Room No. " & txtRoomNumber.Text & "?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If CIn = Windows.Forms.DialogResult.Yes Then
-                Dim CheckIn = "Insert Into checkin Values(null, '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & dtpCheckIn.Text & "', '" & dtpCheckOut.Text & "', '" & 1 & "')"
+                Dim CheckIn = "Insert Into checkin Values(null, '" _
+                                                         & txtGuestID.Text & "', '" _
+                                                         & txtRoomNumber.Text & "', '" _
+                                                         & dtpCheckIn.Text & "', '" _
+                                                         & dtpCheckOut.Text & "', '" _
+                                                         & 1 & "')"
                 SQLProcess(CheckIn)
+
+                Dim ReserveStatus = "Update reservation_payment Set RPStatusID = 2 Where RoomID = '" & txtRoomNumber.Text & "'"
+                SQLProcess(ReserveStatus)
 
                 Dim CheckInRoom = "Update rooms Set RoomStatusID = 3 Where RoomID = '" & txtRoomNumber.Text & "'"
                 SQLProcess(CheckInRoom)
@@ -74,7 +82,8 @@ Public Class Checking
                 Dim dt As New DataTable()
                 da.Fill(dt)
 
-                Dim ChckinQuery As New MySqlCommand("Select ChckID From checkin Where GuestID ='" & txtGuestID.Text & "' and RoomID = '" & txtRoomNumber.Text & "'", mysqlConn)
+                Dim ChckinQuery As New MySqlCommand("Select ChckID From checkin Where GuestID ='" & txtGuestID.Text &
+                                                    "' and RoomID = '" & txtRoomNumber.Text & "'", mysqlConn)
                 Dim cda As New MySqlDataAdapter(ChckinQuery)
                 Dim cdt As New DataTable()
                 cda.Fill(cdt)
@@ -84,17 +93,33 @@ Public Class Checking
                 Dim pdt As New DataTable()
                 pda.Fill(pdt)
 
-                Dim Payment = CInt(Int(txtPayment.Text))
+                Dim ChckStatus As New MySqlCommand("Select RoomStatusID From rooms Where RoomID = '" & txtRoomNumber.Text & "'", mysqlConn)
+                Dim csda As New MySqlDataAdapter(ChckStatus)
+                Dim csdt As New DataTable()
+                csda.Fill(csdt)
 
+                'CheckIn
+                Dim Payment As Integer = CInt(Int(txtPayment.Text))
                 Dim Change As Integer = Payment - pdt.Rows.Item(0).Item("RoomPrice")
+                Dim CheckInPayment = "Insert Into checkin_payment Values(null, '" _
+                                                                            & cdt.Rows.Item(0).Item("ChckID") &
+                                                                            "', '" & dt.Rows.Item(0).Item("EmpID") &
+                                                                            "', '" & txtGuestID.Text &
+                                                                            "', '" & txtRoomNumber.Text &
+                                                                            "', '" & Payment &
+                                                                            "', '" & Change &
+                                                                            "', '" & lblDateTime.Text & "')"
+                    SQLProcess(CheckInPayment)
 
-
-                Dim CheckInPayment = "Insert Into checkin_payment Values(null, '" & cdt.Rows.Item(0).Item("ChckID") & "', '" & dt.Rows.Item(0).Item("EmpID") & "', '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & Payment & "', '" & Change & "', '" & lblDateTime.Text & "')"
-                SQLProcess(CheckInPayment)
-
-                MessageBox.Show("Guest Checked-In!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                MessageBox.Show("Change To Be Given To The Guest: ₱" & Change, "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
+                    MessageBox.Show("Guest Checked-In!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Guest Checked-In!" & vbCrLf &
+                                    "Room No.: " & txtRoomNumber.Text & vbCrLf &
+                                    "Guest Name: " & txtName.Text & vbCrLf &
+                                    "Check-In Date: " & dtpCheckIn.Text & vbCrLf &
+                                    "Check-Out Date: " & dtpCheckOut.Text & vbCrLf &
+                                    "Payment Amount: ₱" & Payment & vbCrLf &
+                                    "Payment Change: ₱" & Change,
+                                    "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 cleartxt()
             Else
                 Me.Show()
@@ -193,6 +218,7 @@ Public Class Checking
                 txtName.Text = .Item("Guest Name", i).Value
                 dtpCheckIn.Value = chckin
                 dtpCheckOut.Value = chckout
+                txtPayment.Text = .Item("Reservation Payment", i).Value
 
 
             End With
