@@ -65,13 +65,16 @@ Public Class Checking
                                                          & 1 & "')"
                 SQLProcess(CheckIn)
 
-                Dim ReserveStatus = "Update reservation_payment Set RPStatusID = 2 Where RoomID = '" & txtRoomNumber.Text & "'"
+                Dim ReserveStatus = "Update reservation_payment Set RStatusID = 2 Where RoomID = '" & txtRoomNumber.Text & "' And GuestID = '" & txtGuestID.Text & "'"
                 SQLProcess(ReserveStatus)
 
                 Dim CheckInRoom = "Update rooms Set RoomStatusID = 3 Where RoomID = '" & txtRoomNumber.Text & "'"
                 SQLProcess(CheckInRoom)
 
-                Dim RStatus = "Update reservation Set RStatusID = 2  Where RoomID = '" & txtRoomNumber.Text & "'"
+                Dim RStatus = "Update reservation Set RStatusID = 2  where RoomID = '" & txtRoomNumber.Text &
+                                                                         "' And GuestID = '" & txtGuestID.Text &
+                                                                         "' And CIDate = '" & dtpCheckIn.Text &
+                                                                         "' And CODate = '" & dtpCheckOut.Text & "'"
                 SQLProcess(RStatus)
 
                 Dim CStatus = "Update guests Set CStatusID = 1  Where GuestID = '" & txtGuestID.Text & "'"
@@ -186,7 +189,10 @@ Public Class Checking
             Dim COut As New System.Windows.Forms.DialogResult
             COut = MessageBox.Show("Check-Out On Room No. " & txtRoomNumber.Text & "?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If COut = Windows.Forms.DialogResult.Yes Then
-                Dim CheckOutStatus = "Update checkin Set ChckStatusID = 2 Where RoomID = '" & txtRoomNumber.Text & "'"
+                Dim CheckOutStatus = "Update checkin Set ChckStatusID = 2 where RoomID = '" & txtRoomNumber.Text &
+                                                                         "' And GuestID = '" & txtGuestID.Text &
+                                                                         "' And CIDate = '" & dtpCheckIn.Text &
+                                                                         "' And CODate = '" & dtpCheckOut.Text & "'"
                 SQLProcess(CheckOutStatus)
 
                 Dim CheckInRoom = "Update rooms Set RoomStatusID = 1 Where RoomID = '" & txtRoomNumber.Text & "'"
@@ -194,6 +200,15 @@ Public Class Checking
 
                 Dim CStatus = "Update guests Set CStatusID = 3  Where GuestID = '" & txtGuestID.Text & "'"
                 SQLProcess(CStatus)
+
+                Dim ReserveStatus = "Update reservation_payment Set RStatusID = 3 Where RoomID = '" & txtRoomNumber.Text & "' And GuestID = '" & txtGuestID.Text & "'"
+                SQLProcess(ReserveStatus)
+
+                Dim RStatus = "Update reservation Set RStatusID = 3  where RoomID = '" & txtRoomNumber.Text &
+                                                                         "' And GuestID = '" & txtGuestID.Text &
+                                                                         "' And CIDate = '" & dtpCheckIn.Text &
+                                                                         "' And CODate = '" & dtpCheckOut.Text & "'"
+                SQLProcess(RStatus)
 
                 MessageBox.Show("Guest Checked-Out!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
