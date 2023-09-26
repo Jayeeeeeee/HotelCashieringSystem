@@ -114,7 +114,6 @@ Public Class Checking
                                                                             "', '" & lblDateTime.Text & "')"
                     SQLProcess(CheckInPayment)
 
-                    MessageBox.Show("Guest Checked-In!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 MessageBox.Show("Guest Checked-In!" & vbCrLf &
                                     "Room No.: " & txtRoomNumber.Text & vbCrLf &
                                     "Guest Name: " & txtName.Text & vbCrLf &
