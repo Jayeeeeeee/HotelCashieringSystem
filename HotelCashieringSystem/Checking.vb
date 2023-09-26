@@ -55,7 +55,7 @@ Public Class Checking
             MessageBox.Show("Some fields are empty!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Else
             Dim CIn As New System.Windows.Forms.DialogResult
-            CIn = MessageBox.Show("Check-In On Room " & txtRoomNumber.Text & "?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            CIn = MessageBox.Show("Check-In On Room No. " & txtRoomNumber.Text & "?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If CIn = Windows.Forms.DialogResult.Yes Then
                 Dim CheckIn = "Insert Into checkin Values(null, '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & dtpCheckIn.Text & "', '" & dtpCheckOut.Text & "', '" & 1 & "')"
                 SQLProcess(CheckIn)
@@ -159,7 +159,7 @@ Public Class Checking
             MessageBox.Show("Some fields are empty!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Else
             Dim COut As New System.Windows.Forms.DialogResult
-            COut = MessageBox.Show("Check-Out On Room " & txtRoomNumber.Text & "?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            COut = MessageBox.Show("Check-Out On Room No. " & txtRoomNumber.Text & "?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If COut = Windows.Forms.DialogResult.Yes Then
                 Dim CheckOutStatus = "Update checkin Set ChckStatusID = 2 Where RoomID = '" & txtRoomNumber.Text & "'"
                 SQLProcess(CheckOutStatus)

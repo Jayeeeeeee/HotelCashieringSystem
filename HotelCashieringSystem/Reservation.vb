@@ -66,7 +66,7 @@ Public Class Reservation
             MessageBox.Show("Some fields are empty!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Else
             Dim RRoom As New System.Windows.Forms.DialogResult
-            RRoom = MessageBox.Show("Reserve Room " & txtRoomNumber.Text & "?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            RRoom = MessageBox.Show("Reserve Room No. " & txtRoomNumber.Text & "?", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If RRoom = Windows.Forms.DialogResult.Yes Then
                 Dim Reserve = "Insert Into reservation Values(null, '" & txtGuestID.Text & "', '" & txtRoomNumber.Text & "', '" & dtpCheckIn.Text & "', '" & dtpCheckOut.Text & "', '" & 1 & "')"
                 SQLProcess(Reserve)
