@@ -65,8 +65,8 @@ Public Class Checking
                                                          & 1 & "')"
                 SQLProcess(CheckIn)
 
-                Dim ReserveStatus = "Update reservation_payment Set RStatusID = 2 Where RoomID = '" & txtRoomNumber.Text & "' And GuestID = '" & txtGuestID.Text & "'"
-                SQLProcess(ReserveStatus)
+                'Dim ReserveStatus = "Update reservation_payment Set RStatusID = 2 Where RoomID = '" & txtRoomNumber.Text & "' And GuestID = '" & txtGuestID.Text & "'"
+                'SQLProcess(ReserveStatus)
 
                 Dim CheckInRoom = "Update rooms Set RoomStatusID = 3 Where RoomID = '" & txtRoomNumber.Text & "'"
                 SQLProcess(CheckInRoom)
@@ -200,8 +200,8 @@ Public Class Checking
                 Dim CStatus = "Update guests Set CStatusID = 3  Where GuestID = '" & txtGuestID.Text & "'"
                 SQLProcess(CStatus)
 
-                Dim ReserveStatus = "Update reservation_payment Set RStatusID = 3 Where RoomID = '" & txtRoomNumber.Text & "' And GuestID = '" & txtGuestID.Text & "'"
-                SQLProcess(ReserveStatus)
+                'Dim ReserveStatus = "Update reservation_payment Set RStatusID = 3 Where RoomID = '" & txtRoomNumber.Text & "' And GuestID = '" & txtGuestID.Text & "'"
+                'SQLProcess(ReserveStatus)
 
                 Dim RStatus = "Update reservation Set RStatusID = 3  where RoomID = '" & txtRoomNumber.Text &
                                                                          "' And GuestID = '" & txtGuestID.Text &
