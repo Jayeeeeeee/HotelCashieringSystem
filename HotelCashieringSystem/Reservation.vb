@@ -144,8 +144,8 @@ Public Class Reservation
                 'Dim CPReservation = "Delete From reservation_payment where RoomID = '" & txtRoomNumber.Text & "'"
                 'SQLProcess(CPReservation)
 
-                Dim CPReservation = "Update reservation_payment Set RStatusID = 4 Where RoomID = '" & txtRoomNumber.Text & "' And GuestID = '" & txtGuestID.Text & "'"
-                SQLProcess(CPReservation)
+                'Dim CPReservation = "Update reservation_payment Set RStatusID = 4 Where RoomID = '" & txtRoomNumber.Text & "' And GuestID = '" & txtGuestID.Text & "'"
+                'SQLProcess(CPReservation)
 
                 MessageBox.Show("Reservation Cancelled!" & vbCrLf &
                                 "Room No.: " & txtRoomNumber.Text & vbCrLf &
