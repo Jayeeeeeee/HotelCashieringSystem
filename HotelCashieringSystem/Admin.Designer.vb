@@ -54,7 +54,7 @@ Partial Class Admin
         btnDash.Name = "btnDash"
         btnDash.Size = New Size(194, 68)
         btnDash.TabIndex = 2
-        btnDash.Text = "Report/Dashboard"
+        btnDash.Text = "Transactions"
         btnDash.UseVisualStyleBackColor = True
         ' 
         ' Admin

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 26, 2023 at 07:21 PM
+-- Generation Time: Sep 29, 2023 at 08:07 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -36,6 +36,13 @@ CREATE TABLE `checkin` (
   `ChckStatusID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `checkin`
+--
+
+INSERT INTO `checkin` (`ChckID`, `GuestID`, `RoomID`, `CIDate`, `CODate`, `ChckStatusID`) VALUES
+(1, 1, 1, '09/29/2023 - 12:36 pm', '09/30/2023 - 12:36 pm', 2);
+
 -- --------------------------------------------------------
 
 --
@@ -48,10 +55,17 @@ CREATE TABLE `checkin_payment` (
   `EmployeeID` int(11) DEFAULT NULL,
   `GuestID` int(11) DEFAULT NULL,
   `RoomID` int(11) DEFAULT NULL,
-  `PAmount` int(11) DEFAULT NULL,
-  `PChange` int(11) DEFAULT NULL,
+  `PAmount` decimal(10,2) DEFAULT NULL,
+  `PChange` decimal(10,2) DEFAULT NULL,
   `PDate` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `checkin_payment`
+--
+
+INSERT INTO `checkin_payment` (`ChckPID`, `ChckID`, `EmployeeID`, `GuestID`, `RoomID`, `PAmount`, `PChange`, `PDate`) VALUES
+(1, 1, 2, 1, 1, 1000.00, 250.00, '09/29/2023 12:36:54 pm');
 
 -- --------------------------------------------------------
 
@@ -65,8 +79,8 @@ CREATE TABLE `checkin_records` (
 ,`Check-In No.` int(11)
 ,`Guest Name` varchar(255)
 ,`Room No.` int(11)
-,`Payment Amount` int(11)
-,`Payment Change` int(11)
+,`Payment Amount` decimal(10,2)
+,`Payment Change` decimal(10,2)
 ,`Payment Date` varchar(255)
 ,`Check-In Status` varchar(255)
 );
@@ -250,7 +264,7 @@ CREATE TABLE `guest_reservation` (
 ,`Guest Name` varchar(255)
 ,`Check-In Date` varchar(255)
 ,`Check-Out Date` varchar(255)
-,`Reservation Payment` int(11)
+,`Reservation Payment` decimal(10,2)
 );
 
 -- --------------------------------------------------------
@@ -300,10 +314,9 @@ CREATE TABLE `reservation_payment` (
   `EmployeeID` int(11) DEFAULT NULL,
   `GuestID` int(11) DEFAULT NULL,
   `RoomID` int(11) DEFAULT NULL,
-  `PAmount` int(11) DEFAULT NULL,
-  `PChange` int(11) DEFAULT NULL,
-  `PDate` varchar(255) DEFAULT NULL,
-  `RStatusID` int(11) DEFAULT NULL
+  `PAmount` decimal(10,2) DEFAULT NULL,
+  `PChange` decimal(10,2) DEFAULT NULL,
+  `PDate` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -313,15 +326,6 @@ CREATE TABLE `reservation_payment` (
 -- (See below for the actual view)
 --
 CREATE TABLE `reservation_records` (
-`Payment ID` int(11)
-,`Payment Receiver` varchar(255)
-,`Reservation No.` int(11)
-,`Guest Name` varchar(255)
-,`Room No.` int(11)
-,`Payment Amount` int(11)
-,`Payment Change` int(11)
-,`Payment Date` varchar(255)
-,`Status` varchar(255)
 );
 
 -- --------------------------------------------------------
@@ -449,7 +453,7 @@ CREATE TABLE `room_info` (
 `Room No.` int(11)
 ,`No. Of Beds` int(11)
 ,`Room Type` varchar(255)
-,`Room Price` int(11)
+,`Room Price` decimal(10,2)
 ,`Room Status` varchar(255)
 );
 
@@ -496,7 +500,7 @@ INSERT INTO `room_status` (`RoomStatusID`, `RoomStatus`) VALUES
 CREATE TABLE `room_type` (
   `RoomTypeID` int(11) NOT NULL,
   `RoomType` varchar(255) DEFAULT NULL,
-  `RoomPrice` int(11) DEFAULT NULL
+  `RoomPrice` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -504,9 +508,9 @@ CREATE TABLE `room_type` (
 --
 
 INSERT INTO `room_type` (`RoomTypeID`, `RoomType`, `RoomPrice`) VALUES
-(1, 'Single', 750),
-(2, 'Double', 850),
-(3, 'Matrimonial', 850),
+(1, 'Single', 750.00),
+(2, 'Double', 850.00),
+(3, 'Matrimonial', 850.00),
 (4, NULL, NULL);
 
 -- --------------------------------------------------------
@@ -699,8 +703,7 @@ ALTER TABLE `reservation_payment`
   ADD KEY `RPempID` (`EmployeeID`),
   ADD KEY `RPguestID` (`GuestID`),
   ADD KEY `RProomID` (`RoomID`),
-  ADD KEY `RPreserveID` (`ReservationID`),
-  ADD KEY `RPStatusID` (`RStatusID`);
+  ADD KEY `RPreserveID` (`ReservationID`);
 
 --
 -- Indexes for table `reservation_status`
@@ -739,13 +742,13 @@ ALTER TABLE `room_type`
 -- AUTO_INCREMENT for table `checkin`
 --
 ALTER TABLE `checkin`
-  MODIFY `ChckID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ChckID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `checkin_payment`
 --
 ALTER TABLE `checkin_payment`
-  MODIFY `ChckPID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ChckPID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `emp_details`
@@ -830,7 +833,6 @@ ALTER TABLE `reservation`
 -- Constraints for table `reservation_payment`
 --
 ALTER TABLE `reservation_payment`
-  ADD CONSTRAINT `RPStatusID` FOREIGN KEY (`RStatusID`) REFERENCES `reservation_status` (`RStatusID`),
   ADD CONSTRAINT `RPempID` FOREIGN KEY (`EmployeeID`) REFERENCES `emp_details` (`EmpID`),
   ADD CONSTRAINT `RPguestID` FOREIGN KEY (`GuestID`) REFERENCES `guests` (`GuestID`),
   ADD CONSTRAINT `RPreserveID` FOREIGN KEY (`ReservationID`) REFERENCES `reservation` (`ReservationID`) ON DELETE CASCADE ON UPDATE CASCADE,

@@ -152,7 +152,7 @@ Partial Class Records
         Controls.Add(btnBack)
         Name = "Records"
         StartPosition = FormStartPosition.CenterScreen
-        Text = "Records"
+        Text = "Reservation & Check-In Transactions"
         GroupBox4.ResumeLayout(False)
         CType(dgvCITransaction, ComponentModel.ISupportInitialize).EndInit()
         GroupBox3.ResumeLayout(False)

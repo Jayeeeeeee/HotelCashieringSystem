@@ -85,7 +85,7 @@ Partial Class Dashboard
         btnCheck.Name = "btnCheck"
         btnCheck.Size = New Size(161, 23)
         btnCheck.TabIndex = 3
-        btnCheck.Text = "Check In / Check Out"
+        btnCheck.Text = "Check In | Check Out"
         btnCheck.UseVisualStyleBackColor = True
         ' 
         ' Panel1
