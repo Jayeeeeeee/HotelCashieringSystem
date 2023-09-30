@@ -29,6 +29,7 @@ Public Class Checking
     Private Sub dgGuest_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvGuest.CellClick
         dtpCheckOut.MinDate = DateAdd(DateInterval.Day, 1, Now)
         dtpCheckIn.MinDate = Now
+        txtPayment.Enabled = True
         Try
             Dim i = e.RowIndex
             With dgvGuest
@@ -145,6 +146,7 @@ Public Class Checking
     Private Sub dgvCheckedIn_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCheckedIn.CellClick
         dtpCheckOut.MinDate = DateAdd(DateInterval.Day, -1, Now)
         dtpCheckIn.MinDate = DateAdd(DateInterval.Day, -1, Now)
+        txtPayment.Enabled = False
         Try
             Dim i = e.RowIndex
             With dgvCheckedIn
@@ -168,6 +170,7 @@ Public Class Checking
     Private Sub dgvAvailable_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvAvailable.CellClick
         dtpCheckOut.MinDate = DateAdd(DateInterval.Day, 1, Now)
         dtpCheckIn.MinDate = Now
+        txtPayment.Enabled = True
         Try
             Dim i = e.RowIndex
             With dgvAvailable
@@ -221,6 +224,7 @@ Public Class Checking
     Private Sub dgvReserve_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvReserve.CellClick
         dtpCheckOut.MinDate = DateAdd(DateInterval.Day, -1, Now)
         dtpCheckIn.MinDate = DateAdd(DateInterval.Day, -1, Now)
+        txtPayment.Enabled = False
         Try
             Dim i = e.RowIndex
             With dgvReserve
