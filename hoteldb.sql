@@ -322,15 +322,6 @@ CREATE TABLE `reservation_payment` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `reservation_records`
--- (See below for the actual view)
---
-CREATE TABLE `reservation_records` (
-);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `reservation_status`
 --
 
@@ -557,15 +548,6 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 DROP TABLE IF EXISTS `guest_reservation`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `guest_reservation`  AS SELECT `reservation`.`RoomID` AS `Room No.`, `guests`.`GuestID` AS `ID`, `guests`.`GName` AS `Guest Name`, `reservation`.`CIDate` AS `Check-In Date`, `reservation`.`CODate` AS `Check-Out Date`, `reservation_payment`.`PAmount` AS `Reservation Payment` FROM ((`reservation` join `guests` on(`reservation`.`GuestID` = `guests`.`GuestID`)) join `reservation_payment` on(`guests`.`GuestID` = `reservation_payment`.`GuestID` and `reservation`.`ReservationID` = `reservation_payment`.`ReservationID`)) WHERE `reservation`.`RStatusID` = 1 ;
-
--- --------------------------------------------------------
-
---
--- Structure for view `reservation_records`
---
-DROP TABLE IF EXISTS `reservation_records`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `reservation_records`  AS SELECT `reservation_payment`.`ReservePID` AS `Payment ID`, `emp_details`.`EmpName` AS `Payment Receiver`, `reservation`.`ReservationID` AS `Reservation No.`, `guests`.`GName` AS `Guest Name`, `rooms`.`RoomID` AS `Room No.`, `reservation_payment`.`PAmount` AS `Payment Amount`, `reservation_payment`.`PChange` AS `Payment Change`, `reservation_payment`.`PDate` AS `Payment Date`, `reservation_status`.`ReservationStatus` AS `Status` FROM (((((`guests` join `reservation_payment` on(`guests`.`GuestID` = `reservation_payment`.`GuestID`)) join `reservation` on(`guests`.`GuestID` = `reservation`.`GuestID` and `reservation_payment`.`ReservationID` = `reservation`.`ReservationID`)) join `rooms` on(`reservation`.`RoomID` = `rooms`.`RoomID` and `reservation_payment`.`RoomID` = `rooms`.`RoomID`)) join `emp_details` on(`reservation_payment`.`EmployeeID` = `emp_details`.`EmpID`)) join `reservation_status` on(`reservation`.`RStatusID` = `reservation_status`.`RStatusID` and `reservation_payment`.`RStatusID` = `reservation_status`.`RStatusID`)) ;
 
 -- --------------------------------------------------------
 
