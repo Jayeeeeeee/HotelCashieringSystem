@@ -25,12 +25,13 @@ Partial Class Admin
         btnLogOut = New Button()
         btnRoomProfile = New Button()
         btnDash = New Button()
+        GroupBox1 = New GroupBox()
         SuspendLayout()
         ' 
         ' btnLogOut
         ' 
         btnLogOut.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnLogOut.Location = New Point(146, 12)
+        btnLogOut.Location = New Point(464, 12)
         btnLogOut.Name = "btnLogOut"
         btnLogOut.Size = New Size(60, 23)
         btnLogOut.TabIndex = 3
@@ -40,9 +41,9 @@ Partial Class Admin
         ' btnRoomProfile
         ' 
         btnRoomProfile.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnRoomProfile.Location = New Point(12, 41)
+        btnRoomProfile.Location = New Point(12, 12)
         btnRoomProfile.Name = "btnRoomProfile"
-        btnRoomProfile.Size = New Size(194, 68)
+        btnRoomProfile.Size = New Size(130, 23)
         btnRoomProfile.TabIndex = 1
         btnRoomProfile.Text = "Room Profile"
         btnRoomProfile.UseVisualStyleBackColor = True
@@ -50,18 +51,29 @@ Partial Class Admin
         ' btnDash
         ' 
         btnDash.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnDash.Location = New Point(12, 115)
+        btnDash.Location = New Point(148, 12)
         btnDash.Name = "btnDash"
-        btnDash.Size = New Size(194, 68)
+        btnDash.Size = New Size(130, 23)
         btnDash.TabIndex = 2
         btnDash.Text = "Transactions"
         btnDash.UseVisualStyleBackColor = True
+        ' 
+        ' GroupBox1
+        ' 
+        GroupBox1.Font = New Font("Consolas", 8F, FontStyle.Regular, GraphicsUnit.Point)
+        GroupBox1.Location = New Point(12, 41)
+        GroupBox1.Name = "GroupBox1"
+        GroupBox1.Size = New Size(512, 194)
+        GroupBox1.TabIndex = 41
+        GroupBox1.TabStop = False
+        GroupBox1.Text = "Total Sales"
         ' 
         ' Admin
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(218, 193)
+        ClientSize = New Size(536, 247)
+        Controls.Add(GroupBox1)
         Controls.Add(btnLogOut)
         Controls.Add(btnDash)
         Controls.Add(btnRoomProfile)
@@ -73,4 +85,5 @@ Partial Class Admin
     Friend WithEvents btnLogOut As Button
     Friend WithEvents btnDash As Button
     Friend WithEvents btnRoomProfile As Button
+    Friend WithEvents GroupBox1 As GroupBox
 End Class

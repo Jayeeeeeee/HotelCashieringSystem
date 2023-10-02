@@ -33,7 +33,6 @@ Partial Class Records
         tmrRecords = New Timer(components)
         txtSearch = New TextBox()
         cbSearch = New ComboBox()
-        GroupBox1 = New GroupBox()
         GroupBox4.SuspendLayout()
         CType(dgvCITransaction, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox3.SuspendLayout()
@@ -162,22 +161,11 @@ Partial Class Records
         cbSearch.Size = New Size(180, 27)
         cbSearch.TabIndex = 39
         ' 
-        ' GroupBox1
-        ' 
-        GroupBox1.Font = New Font("Consolas", 8F, FontStyle.Regular, GraphicsUnit.Point)
-        GroupBox1.Location = New Point(12, 557)
-        GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(1560, 192)
-        GroupBox1.TabIndex = 40
-        GroupBox1.TabStop = False
-        GroupBox1.Text = "Total Sales"
-        ' 
         ' Records
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1584, 761)
-        Controls.Add(GroupBox1)
+        ClientSize = New Size(1584, 562)
         Controls.Add(cbSearch)
         Controls.Add(txtSearch)
         Controls.Add(GroupBox4)
@@ -206,5 +194,4 @@ Partial Class Records
     Friend WithEvents tmrRecords As Timer
     Friend WithEvents txtSearch As TextBox
     Friend WithEvents cbSearch As ComboBox
-    Friend WithEvents GroupBox1 As GroupBox
 End Class
