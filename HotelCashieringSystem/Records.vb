@@ -27,45 +27,45 @@
         displayInfo("Select * From checkin_records", dgvCITransaction)
     End Sub
 
-    Private Sub SearchTxt_TextChanged(sender As Object, e As EventArgs) Handles SearchTxt.TextChanged
-        If SearchCB.SelectedItem = "Payment ID" Then
-            Dim RPIDSearch = "select * from reservation_records where Payment ID like '%" & SearchTxt.Text & "%'"
-            Dim CPIDSearch = "select * from checkin_records where Payment ID like '%" & SearchTxt.Text & "%'"
+    Private Sub SearchTxt_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
+        If cbSearch.SelectedItem = "Payment ID" Then
+            Dim RPIDSearch = "select * from reservation_records where Payment ID like '%" & txtSearch.Text & "%'"
+            Dim CPIDSearch = "select * from checkin_records where Payment ID like '%" & txtSearch.Text & "%'"
             displayInfo(RPIDSearch, dgvRTransaction)
             displayInfo(CPIDSearch, dgvCITransaction)
 
-        ElseIf SearchCB.SelectedItem = "Reservation No." Then
-            Dim RNum = "select * from reservation_records where Reservation No. like '%" & SearchTxt.Text & "%'"
+        ElseIf cbSearch.SelectedItem = "Reservation No." Then
+            Dim RNum = "select * from reservation_records where Reservation No. like '%" & txtSearch.Text & "%'"
             displayInfo(RNum, dgvRTransaction)
 
-        ElseIf SearchCB.SelectedItem = "Check-In No." Then
-            Dim CNum = "select * from checkin_records where Reservation Status like '%" & SearchTxt.Text & "%'"
+        ElseIf cbSearch.SelectedItem = "Check-In No." Then
+            Dim CNum = "select * from checkin_records where Reservation Status like '%" & txtSearch.Text & "%'"
             displayInfo(CNum, dgvRTransaction)
 
-        ElseIf SearchCB.SelectedItem = "Guest Name" Then
-            Dim RName = "select * from reservation_records where Guest Name like '%" & SearchTxt.Text & "%'"
-            Dim CName = "select * from checkin_records where Guest Name like '%" & SearchTxt.Text & "%'"
+        ElseIf cbSearch.SelectedItem = "Guest Name" Then
+            Dim RName = "select * from reservation_records where Guest Name like '%" & txtSearch.Text & "%'"
+            Dim CName = "select * from checkin_records where Guest Name like '%" & txtSearch.Text & "%'"
             displayInfo(RName, dgvRTransaction)
             displayInfo(CName, dgvCITransaction)
 
-        ElseIf SearchCB.SelectedItem = "Room No." Then
-            Dim RRoom = "select * from reservation_records where Room No. like '%" & SearchTxt.Text & "%'"
-            Dim CRoom = "select * from checkin_records where Room No. like '%" & SearchTxt.Text & "%'"
+        ElseIf cbSearch.SelectedItem = "Room No." Then
+            Dim RRoom = "select * from reservation_records where Room No. like '%" & txtSearch.Text & "%'"
+            Dim CRoom = "select * from checkin_records where Room No. like '%" & txtSearch.Text & "%'"
             displayInfo(RRoom, dgvRTransaction)
             displayInfo(CRoom, dgvCITransaction)
 
-        ElseIf SearchCB.SelectedItem = "Payment Date" Then
-            Dim RPDate = "select * from reservation_records where Payment Date like '%" & SearchTxt.Text & "%'"
-            Dim CPDate = "select * from checkin_records where Payment Date like '%" & SearchTxt.Text & "%'"
+        ElseIf cbSearch.SelectedItem = "Payment Date" Then
+            Dim RPDate = "select * from reservation_records where Payment Date like '%" & txtSearch.Text & "%'"
+            Dim CPDate = "select * from checkin_records where Payment Date like '%" & txtSearch.Text & "%'"
             displayInfo(RPDate, dgvRTransaction)
             displayInfo(CPDate, dgvCITransaction)
 
-        ElseIf SearchCB.SelectedItem = "Reservation Status" Then
-            Dim RStatus = "select * from reservation_records where Reservation Status like '%" & SearchTxt.Text & "%'"
+        ElseIf cbSearch.SelectedItem = "Reservation Status" Then
+            Dim RStatus = "select * from reservation_records where Reservation Status like '%" & txtSearch.Text & "%'"
             displayInfo(RStatus, dgvRTransaction)
 
-        ElseIf SearchCB.SelectedItem = "Check-In Status" Then
-            Dim CStatus = "select * from checkin_records where Reservation Status like '%" & SearchTxt.Text & "%'"
+        ElseIf cbSearch.SelectedItem = "Check-In Status" Then
+            Dim CStatus = "select * from checkin_records where Reservation Status like '%" & txtSearch.Text & "%'"
             displayInfo(CStatus, dgvCITransaction)
         End If
     End Sub
