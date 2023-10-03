@@ -27,6 +27,8 @@ Partial Class Admin
         btnDash = New Button()
         GroupBox1 = New GroupBox()
         dgvSales = New DataGridView()
+        Label1 = New Label()
+        Label2 = New Label()
         GroupBox1.SuspendLayout()
         CType(dgvSales, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -63,6 +65,8 @@ Partial Class Admin
         ' 
         ' GroupBox1
         ' 
+        GroupBox1.Controls.Add(Label2)
+        GroupBox1.Controls.Add(Label1)
         GroupBox1.Controls.Add(dgvSales)
         GroupBox1.Font = New Font("Consolas", 8F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox1.Location = New Point(12, 41)
@@ -81,6 +85,24 @@ Partial Class Admin
         dgvSales.Size = New Size(500, 150)
         dgvSales.TabIndex = 0
         ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Location = New Point(6, 22)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(79, 13)
+        Label1.TabIndex = 1
+        Label1.Text = "Total Sales:"
+        ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.Location = New Point(91, 22)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(43, 13)
+        Label2.TabIndex = 2
+        Label2.Text = "Label2"
+        ' 
         ' Admin
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -94,6 +116,7 @@ Partial Class Admin
         StartPosition = FormStartPosition.CenterScreen
         Text = "Admin"
         GroupBox1.ResumeLayout(False)
+        GroupBox1.PerformLayout()
         CType(dgvSales, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
@@ -102,4 +125,6 @@ Partial Class Admin
     Friend WithEvents btnRoomProfile As Button
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents dgvSales As DataGridView
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label1 As Label
 End Class

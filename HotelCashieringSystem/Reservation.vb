@@ -29,13 +29,13 @@ Public Class Reservation
         txtRoomNumber.Text = ""
         txtGuestID.Text = ""
         txtName.Text = ""
+        dtpCheckOut.MinDate = DateAdd(DateInterval.Day, 1, Now)
+        dtpCheckIn.MinDate = Now
         txtPayment.Text = ""
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         cleartxt()
-        dtpCheckOut.MinDate = DateAdd(DateInterval.Day, 1, Now)
-        dtpCheckIn.MinDate = Now
     End Sub
 
     Private Sub Reservation_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
