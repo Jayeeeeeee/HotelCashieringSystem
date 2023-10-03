@@ -26,6 +26,9 @@ Partial Class Admin
         btnRoomProfile = New Button()
         btnDash = New Button()
         GroupBox1 = New GroupBox()
+        dgvSales = New DataGridView()
+        GroupBox1.SuspendLayout()
+        CType(dgvSales, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' btnLogOut
@@ -60,13 +63,23 @@ Partial Class Admin
         ' 
         ' GroupBox1
         ' 
+        GroupBox1.Controls.Add(dgvSales)
         GroupBox1.Font = New Font("Consolas", 8F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox1.Location = New Point(12, 41)
         GroupBox1.Name = "GroupBox1"
         GroupBox1.Size = New Size(512, 194)
         GroupBox1.TabIndex = 41
         GroupBox1.TabStop = False
-        GroupBox1.Text = "Total Sales"
+        GroupBox1.Text = "Sales"
+        ' 
+        ' dgvSales
+        ' 
+        dgvSales.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvSales.Location = New Point(6, 38)
+        dgvSales.Name = "dgvSales"
+        dgvSales.RowTemplate.Height = 25
+        dgvSales.Size = New Size(500, 150)
+        dgvSales.TabIndex = 0
         ' 
         ' Admin
         ' 
@@ -80,10 +93,13 @@ Partial Class Admin
         Name = "Admin"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Admin"
+        GroupBox1.ResumeLayout(False)
+        CType(dgvSales, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
     Friend WithEvents btnLogOut As Button
     Friend WithEvents btnDash As Button
     Friend WithEvents btnRoomProfile As Button
     Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents dgvSales As DataGridView
 End Class

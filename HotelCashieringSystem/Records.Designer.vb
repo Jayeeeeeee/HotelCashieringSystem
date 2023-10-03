@@ -31,8 +31,6 @@ Partial Class Records
         GroupBox3 = New GroupBox()
         dgvRTransaction = New DataGridView()
         tmrRecords = New Timer(components)
-        txtSearch = New TextBox()
-        cbSearch = New ComboBox()
         GroupBox4.SuspendLayout()
         CType(dgvCITransaction, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox3.SuspendLayout()
@@ -142,32 +140,11 @@ Partial Class Records
         ' 
         tmrRecords.Interval = 1000
         ' 
-        ' txtSearch
-        ' 
-        txtSearch.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        txtSearch.Location = New Point(151, 9)
-        txtSearch.Name = "txtSearch"
-        txtSearch.Size = New Size(534, 26)
-        txtSearch.TabIndex = 38
-        ' 
-        ' cbSearch
-        ' 
-        cbSearch.DropDownStyle = ComboBoxStyle.DropDownList
-        cbSearch.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        cbSearch.FormattingEnabled = True
-        cbSearch.Items.AddRange(New Object() {"Payment ID", "Payment Receiver", "Reservation No.", "Check-In No.", "Guest Name", "Room No.", "Payment Date", "Reservation Status", "Check-In Status"})
-        cbSearch.Location = New Point(691, 8)
-        cbSearch.Name = "cbSearch"
-        cbSearch.Size = New Size(180, 27)
-        cbSearch.TabIndex = 39
-        ' 
         ' Records
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1584, 562)
-        Controls.Add(cbSearch)
-        Controls.Add(txtSearch)
         Controls.Add(GroupBox4)
         Controls.Add(GroupBox3)
         Controls.Add(lblDateTime)
@@ -192,6 +169,4 @@ Partial Class Records
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents dgvRTransaction As DataGridView
     Friend WithEvents tmrRecords As Timer
-    Friend WithEvents txtSearch As TextBox
-    Friend WithEvents cbSearch As ComboBox
 End Class
