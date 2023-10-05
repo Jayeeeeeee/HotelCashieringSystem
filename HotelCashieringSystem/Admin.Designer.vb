@@ -22,10 +22,12 @@ Partial Class Admin
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(Admin))
         btnLogOut = New Button()
         btnRoomProfile = New Button()
         btnDash = New Button()
         GroupBox1 = New GroupBox()
+        btnSearch1 = New Button()
         Label2 = New Label()
         dtpRS1 = New DateTimePicker()
         dtpRS2 = New DateTimePicker()
@@ -33,6 +35,7 @@ Partial Class Admin
         Label1 = New Label()
         dgvRSales = New DataGridView()
         GroupBox2 = New GroupBox()
+        btnSearch2 = New Button()
         dtpCS1 = New DateTimePicker()
         Label3 = New Label()
         dtpCS2 = New DateTimePicker()
@@ -78,6 +81,7 @@ Partial Class Admin
         ' 
         ' GroupBox1
         ' 
+        GroupBox1.Controls.Add(btnSearch1)
         GroupBox1.Controls.Add(Label2)
         GroupBox1.Controls.Add(dtpRS1)
         GroupBox1.Controls.Add(dtpRS2)
@@ -92,11 +96,20 @@ Partial Class Admin
         GroupBox1.TabStop = False
         GroupBox1.Text = "Reservation Sales"
         ' 
+        ' btnSearch1
+        ' 
+        btnSearch1.Image = CType(resources.GetObject("btnSearch1.Image"), Image)
+        btnSearch1.Location = New Point(374, 14)
+        btnSearch1.Name = "btnSearch1"
+        btnSearch1.Size = New Size(20, 22)
+        btnSearch1.TabIndex = 44
+        btnSearch1.UseVisualStyleBackColor = True
+        ' 
         ' Label2
         ' 
         Label2.AutoSize = True
         Label2.Font = New Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        Label2.Location = New Point(278, 17)
+        Label2.Location = New Point(256, 17)
         Label2.Name = "Label2"
         Label2.Size = New Size(16, 17)
         Label2.TabIndex = 43
@@ -106,7 +119,7 @@ Partial Class Admin
         ' 
         dtpRS1.CustomFormat = "MM/dd/yyyy"
         dtpRS1.Format = DateTimePickerFormat.Custom
-        dtpRS1.Location = New Point(175, 16)
+        dtpRS1.Location = New Point(153, 16)
         dtpRS1.Name = "dtpRS1"
         dtpRS1.Size = New Size(97, 20)
         dtpRS1.TabIndex = 4
@@ -116,7 +129,7 @@ Partial Class Admin
         ' 
         dtpRS2.CustomFormat = "MM/dd/yyyy"
         dtpRS2.Format = DateTimePickerFormat.Custom
-        dtpRS2.Location = New Point(297, 16)
+        dtpRS2.Location = New Point(275, 16)
         dtpRS2.Name = "dtpRS2"
         dtpRS2.Size = New Size(97, 20)
         dtpRS2.TabIndex = 3
@@ -157,6 +170,7 @@ Partial Class Admin
         ' 
         ' GroupBox2
         ' 
+        GroupBox2.Controls.Add(btnSearch2)
         GroupBox2.Controls.Add(dtpCS1)
         GroupBox2.Controls.Add(Label3)
         GroupBox2.Controls.Add(dtpCS2)
@@ -171,11 +185,20 @@ Partial Class Admin
         GroupBox2.TabStop = False
         GroupBox2.Text = "Check-In Sales"
         ' 
+        ' btnSearch2
+        ' 
+        btnSearch2.Image = CType(resources.GetObject("btnSearch2.Image"), Image)
+        btnSearch2.Location = New Point(374, 14)
+        btnSearch2.Name = "btnSearch2"
+        btnSearch2.Size = New Size(20, 22)
+        btnSearch2.TabIndex = 45
+        btnSearch2.UseVisualStyleBackColor = True
+        ' 
         ' dtpCS1
         ' 
         dtpCS1.CustomFormat = "MM/dd/yyyy"
         dtpCS1.Format = DateTimePickerFormat.Custom
-        dtpCS1.Location = New Point(172, 16)
+        dtpCS1.Location = New Point(149, 15)
         dtpCS1.Name = "dtpCS1"
         dtpCS1.Size = New Size(97, 20)
         dtpCS1.TabIndex = 45
@@ -185,7 +208,7 @@ Partial Class Admin
         ' 
         Label3.AutoSize = True
         Label3.Font = New Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        Label3.Location = New Point(275, 18)
+        Label3.Location = New Point(252, 17)
         Label3.Name = "Label3"
         Label3.Size = New Size(16, 17)
         Label3.TabIndex = 44
@@ -195,7 +218,7 @@ Partial Class Admin
         ' 
         dtpCS2.CustomFormat = "MM/dd/yyyy"
         dtpCS2.Format = DateTimePickerFormat.Custom
-        dtpCS2.Location = New Point(297, 16)
+        dtpCS2.Location = New Point(274, 15)
         dtpCS2.Name = "dtpCS2"
         dtpCS2.Size = New Size(97, 20)
         dtpCS2.TabIndex = 4
@@ -272,4 +295,6 @@ Partial Class Admin
     Friend WithEvents Label2 As Label
     Friend WithEvents dtpCS1 As DateTimePicker
     Friend WithEvents Label3 As Label
+    Friend WithEvents btnSearch1 As Button
+    Friend WithEvents btnSearch2 As Button
 End Class
