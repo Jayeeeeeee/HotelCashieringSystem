@@ -42,9 +42,6 @@ Public Class Reservation
         displayInfo("Select * From guest_info", dgvGuest)
         displayInfo("Select * From guest_reservation", dgvReserve)
         displayInfo("Select * From rooms_available", dgvAvailable)
-        dgvAvailable.ClearSelection()
-        dgvGuest.ClearSelection()
-        dgvReserve.ClearSelection()
     End Sub
 
     Private Sub dgGuest_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvGuest.CellClick

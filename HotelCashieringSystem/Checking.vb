@@ -54,10 +54,6 @@ Public Class Checking
         displayInfo("Select * From guest_checkedin", dgvCheckedIn)
         displayInfo("Select * From rooms_available", dgvAvailable)
         displayInfo("Select * From guest_reservation", dgvReserve)
-        dgvAvailable.ClearSelection()
-        dgvGuest.ClearSelection()
-        dgvReserve.ClearSelection()
-        dgvCheckedIn.ClearSelection()
     End Sub
 
     Private Sub btnCheckIn_Click(sender As Object, e As EventArgs) Handles btnCheckIn.Click
