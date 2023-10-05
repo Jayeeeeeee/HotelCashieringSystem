@@ -47,14 +47,16 @@ Public Class Admin
     End Sub
 
     Private Sub dtpRS1_ValueChanged(sender As Object, e As EventArgs) Handles dtpRS1.ValueChanged
-        'Dim RSearch = "select * from reserve_payment where Payment Date like '" & dtpRS1.Value & "' and '" & dtpRS2.Value & "'"
-        Dim RSearch = "select * from reserve_payment where Payment Date like '" & dtpRS1.Value & "'"
+        Dim sDate = dtpRS1.Value.ToString("MM/dd/yyyy")
+        Dim eDate = dtpRS2.Value.ToString("MM/dd/yyyy")
+        Dim RSearch = "select * from reserve_payment where Payment Date like '%" & sDate & "%' and '%" & eDate & "%'"
         displayInfo(RSearch, dgvRSales)
     End Sub
 
     Private Sub dtpCS1_ValueChanged(sender As Object, e As EventArgs) Handles dtpCS1.ValueChanged
-        'Dim CSearch = "select * from chck_payment where Payment Date like '" & dtpCS1.Value & "' and '" & dtpCS2.Value & "'"
-        Dim CSearch = "select * from chck_payment where Payment Date like '" & dtpCS1.Value & "'"
+        Dim sDate = dtpCS1.Value.Date.ToString("MM/dd/yyyy")
+        Dim eDate = dtpCS2.Value.Date.ToString("MM/dd/yyyy")
+        Dim CSearch = "select * from chck_payment where Payment Date like '%" & sDate & "%' and '%" & eDate & "%'"
         displayInfo(CSearch, dgvCSales)
     End Sub
 End Class

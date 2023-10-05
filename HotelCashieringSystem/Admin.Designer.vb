@@ -104,19 +104,23 @@ Partial Class Admin
         ' 
         ' dtpRS1
         ' 
-        dtpRS1.Format = DateTimePickerFormat.Short
+        dtpRS1.CustomFormat = "MM/dd/yyyy"
+        dtpRS1.Format = DateTimePickerFormat.Custom
         dtpRS1.Location = New Point(175, 16)
         dtpRS1.Name = "dtpRS1"
         dtpRS1.Size = New Size(97, 20)
         dtpRS1.TabIndex = 4
+        dtpRS1.Value = New DateTime(2023, 10, 5, 0, 0, 0, 0)
         ' 
         ' dtpRS2
         ' 
-        dtpRS2.Format = DateTimePickerFormat.Short
+        dtpRS2.CustomFormat = "MM/dd/yyyy"
+        dtpRS2.Format = DateTimePickerFormat.Custom
         dtpRS2.Location = New Point(297, 16)
         dtpRS2.Name = "dtpRS2"
         dtpRS2.Size = New Size(97, 20)
         dtpRS2.TabIndex = 3
+        dtpRS2.Value = New DateTime(2023, 10, 5, 0, 0, 0, 0)
         ' 
         ' lblRS
         ' 
@@ -142,6 +146,7 @@ Partial Class Admin
         dgvRSales.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         dgvRSales.BackgroundColor = Color.White
         dgvRSales.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvRSales.EditMode = DataGridViewEditMode.EditProgrammatically
         dgvRSales.Location = New Point(6, 38)
         dgvRSales.Name = "dgvRSales"
         dgvRSales.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
@@ -168,11 +173,13 @@ Partial Class Admin
         ' 
         ' dtpCS1
         ' 
-        dtpCS1.Format = DateTimePickerFormat.Short
+        dtpCS1.CustomFormat = "MM/dd/yyyy"
+        dtpCS1.Format = DateTimePickerFormat.Custom
         dtpCS1.Location = New Point(172, 16)
         dtpCS1.Name = "dtpCS1"
         dtpCS1.Size = New Size(97, 20)
         dtpCS1.TabIndex = 45
+        dtpCS1.Value = New DateTime(2023, 10, 5, 0, 0, 0, 0)
         ' 
         ' Label3
         ' 
@@ -186,11 +193,13 @@ Partial Class Admin
         ' 
         ' dtpCS2
         ' 
-        dtpCS2.Format = DateTimePickerFormat.Short
+        dtpCS2.CustomFormat = "MM/dd/yyyy"
+        dtpCS2.Format = DateTimePickerFormat.Custom
         dtpCS2.Location = New Point(297, 16)
         dtpCS2.Name = "dtpCS2"
         dtpCS2.Size = New Size(97, 20)
         dtpCS2.TabIndex = 4
+        dtpCS2.Value = New DateTime(2023, 10, 5, 0, 0, 0, 0)
         ' 
         ' lblCS
         ' 
@@ -216,6 +225,7 @@ Partial Class Admin
         dgvCSales.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         dgvCSales.BackgroundColor = Color.White
         dgvCSales.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvCSales.EditMode = DataGridViewEditMode.EditProgrammatically
         dgvCSales.Location = New Point(6, 38)
         dgvCSales.Name = "dgvCSales"
         dgvCSales.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders

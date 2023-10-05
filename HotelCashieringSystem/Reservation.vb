@@ -111,7 +111,7 @@ Public Class Reservation
                                                                             & txtRoomNumber.Text & "', '" _
                                                                             & Payment & "', '" _
                                                                             & Change & "', '" _
-                                                                            & lblDateTime.Text & "')"
+                                                                            & lblDateTime.ToString() & "')"
                 SQLProcess(ReservePayment)
 
                 MessageBox.Show("Reserved!" & vbCrLf &
