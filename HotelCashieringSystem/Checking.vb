@@ -215,8 +215,8 @@ Public Class Checking
                                                                          "' And CODate = '" & dtpCheckOut.Text & "'"
                 SQLProcess(CheckOutStatus)
 
-                Dim CheckInRoom = "Update rooms Set RoomStatusID = 1 Where RoomID = '" & txtRoomNumber.Text & "'"
-                SQLProcess(CheckInRoom)
+                Dim CheckOutRoom = "Update rooms Set RoomStatusID = 1 Where RoomID = '" & txtRoomNumber.Text & "'"
+                SQLProcess(CheckOutRoom)
 
                 Dim CStatus = "Update guests Set CStatusID = 3  Where GuestID = '" & txtGuestID.Text & "'"
                 SQLProcess(CStatus)
