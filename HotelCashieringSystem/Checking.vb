@@ -31,6 +31,10 @@ Public Class Checking
         dtpCheckIn.MinDate = Now
         txtPayment.Text = ""
         txtPayment.Enabled = True
+        dgvReserve.ClearSelection()
+        dgvCheckedIn.ClearSelection()
+        dgvAvailable.ClearSelection()
+        dgvGuest.ClearSelection()
         Try
             Dim i = e.RowIndex
             With dgvGuest
@@ -50,6 +54,10 @@ Public Class Checking
         displayInfo("Select * From guest_checkedin", dgvCheckedIn)
         displayInfo("Select * From rooms_available", dgvAvailable)
         displayInfo("Select * From guest_reservation", dgvReserve)
+        dgvAvailable.ClearSelection()
+        dgvGuest.ClearSelection()
+        dgvReserve.ClearSelection()
+        dgvCheckedIn.ClearSelection()
     End Sub
 
     Private Sub btnCheckIn_Click(sender As Object, e As EventArgs) Handles btnCheckIn.Click
@@ -148,6 +156,10 @@ Public Class Checking
         dtpCheckOut.MinDate = DateAdd(DateInterval.Day, -1, Now)
         dtpCheckIn.MinDate = DateAdd(DateInterval.Day, -1, Now)
         txtPayment.Enabled = False
+        dgvReserve.ClearSelection()
+        dgvCheckedIn.ClearSelection()
+        dgvAvailable.ClearSelection()
+        dgvGuest.ClearSelection()
         Try
             Dim i = e.RowIndex
             With dgvCheckedIn
@@ -173,6 +185,10 @@ Public Class Checking
         dtpCheckIn.MinDate = Now
         txtPayment.Text = ""
         txtPayment.Enabled = True
+        dgvReserve.ClearSelection()
+        dgvCheckedIn.ClearSelection()
+        dgvAvailable.ClearSelection()
+        dgvGuest.ClearSelection()
         Try
             Dim i = e.RowIndex
             With dgvAvailable
@@ -227,8 +243,12 @@ Public Class Checking
         dtpCheckOut.MinDate = DateAdd(DateInterval.Day, -1, Now)
         dtpCheckIn.MinDate = DateAdd(DateInterval.Day, -1, Now)
         txtPayment.Enabled = False
+        dgvReserve.ClearSelection()
+        dgvCheckedIn.ClearSelection()
+        dgvAvailable.ClearSelection()
+        dgvGuest.ClearSelection()
         Try
-            Dim i = e.RowIndex
+        Dim i = e.RowIndex
             With dgvReserve
                 Dim chckin As DateTime = DateTime.ParseExact(.Item("Check-In Date", i).Value, "MM/dd/yyyy - h:mm tt", CultureInfo.InvariantCulture)
                 Dim chckout As DateTime = DateTime.ParseExact(.Item("Check-Out Date", i).Value, "MM/dd/yyyy - h:mm tt", CultureInfo.InvariantCulture)

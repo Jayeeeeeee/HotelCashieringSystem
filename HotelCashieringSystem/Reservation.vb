@@ -42,6 +42,9 @@ Public Class Reservation
         displayInfo("Select * From guest_info", dgvGuest)
         displayInfo("Select * From guest_reservation", dgvReserve)
         displayInfo("Select * From rooms_available", dgvAvailable)
+        dgvAvailable.ClearSelection()
+        dgvGuest.ClearSelection()
+        dgvReserve.ClearSelection()
     End Sub
 
     Private Sub dgGuest_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvGuest.CellClick
@@ -49,6 +52,9 @@ Public Class Reservation
         dtpCheckIn.MinDate = Now
         txtPayment.Text = ""
         txtPayment.Enabled = True
+        dgvAvailable.ClearSelection()
+        dgvGuest.ClearSelection()
+        dgvReserve.ClearSelection()
         Try
             Dim i = e.RowIndex
             With dgvGuest
@@ -166,6 +172,9 @@ Public Class Reservation
         dtpCheckOut.MinDate = DateAdd(DateInterval.Day, -1, Now)
         dtpCheckIn.MinDate = DateAdd(DateInterval.Day, -1, Now)
         txtPayment.Enabled = False
+        dgvAvailable.ClearSelection()
+        dgvGuest.ClearSelection()
+        dgvReserve.ClearSelection()
         Try
             Dim i = e.RowIndex
             With dgvReserve
@@ -194,6 +203,9 @@ Public Class Reservation
         dtpCheckIn.MinDate = Now
         txtPayment.Text = ""
         txtPayment.Enabled = True
+        dgvAvailable.ClearSelection()
+        dgvGuest.ClearSelection()
+        dgvReserve.ClearSelection()
         Try
             Dim i = e.RowIndex
             With dgvAvailable
